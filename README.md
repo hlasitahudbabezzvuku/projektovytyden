@@ -17,7 +17,7 @@
 -   Ukaze vysledky
 -   [Zpet](index.php)
 
-## name.php
+## join.php
 
 -   Nastaveni jmena
 -   [Pokracovat](waiting.php)
