@@ -12,6 +12,8 @@ $database = new Medoo([
 	'command' => [
 		'SET SQL_MODE=ANSI_QUOTES'
 	]
-])
+]);
+
+echo("Nevim");
 
 ?>
