@@ -6,10 +6,9 @@ use Medoo\Medoo;
 $database = new Medoo([
 	'type' => 'mysql',
 	'host' => 'localhost',
-	'database' => 'name',
-	'username' => 'your_username',
-	'password' => 'your_password',
- 
+	'database' => 'if0_38314982_projektovy_tyden',
+	'username' => 'if0_38314982',
+	'password' => 'ojc0EveY78Zip',
 	'command' => [
 		'SET SQL_MODE=ANSI_QUOTES'
 	]
