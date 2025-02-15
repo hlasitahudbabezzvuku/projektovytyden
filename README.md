@@ -2,8 +2,8 @@
 
 -   Header
 -   Tlacitka
-    -   [Single-player](name.php)
-    -   [Multiplayer](name.php)
+    -   [Single-player](join.php)
+    -   [Multiplayer](connect.php)
 
 ## connect.php
 
