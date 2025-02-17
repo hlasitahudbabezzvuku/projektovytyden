@@ -27,7 +27,7 @@
   </head>
   <body>
     <form action="connect.php" method="GET">
-      <input type="radio" name="mode" value="connect">Připojit
+      <input type="radio" name="mode" value="connect" checked>Připojit
       <input type="radio" name="mode" value="create">Vytvořit<br>
       Přezdívka: <input type="text" name="name"><br>
       <!-- TODO: javascrpt ktery tohle pole schova pokud je vybrane "create" -->
