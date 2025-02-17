@@ -26,8 +26,8 @@
     ?>
   </head>
   <body>
-    <span><a href="login.php">Jeden Hráč</a></span>
-    <span><a href="login.php">Více Hráčů</a></span>
+    <span><a href="login.php?mode=multiplayer">Více Hráčů</a></span>
+    <span><a href="login.php?mode=singleplayer">Jeden Hráč</a></span>
   </body>
 </html>
 
