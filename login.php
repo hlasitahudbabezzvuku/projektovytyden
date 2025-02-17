@@ -33,7 +33,7 @@
         $code = rand(100000000, 999999999);
 
         echo("<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">");
-        echo($code);
+        echo(number_format($code, 0, '.', ' '));
 
       } elseif ($_GET["mode"] == "single") {
         echo(
