@@ -26,6 +26,13 @@
     ?>
   </head>
   <body>
+    <form action="connect.php" method="GET">
+      <input type="radio" name="mode" value="connect">Připojit
+      <input type="radio" name="mode" value="create">Vytvořit
+      Přezdívka: <input type="text" name="name"><br>
+      Kód: <input type="text" name="code"><br>
+      <input type="submit">
+    </form>
   </body>
 </html>
 
