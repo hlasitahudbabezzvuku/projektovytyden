@@ -26,8 +26,8 @@
     ?>
   </head>
   <body>
-    <span><a href="connect.php">Jeden Hráč</a></span>
-    <span><a href="connect.php">Více Hráčů</a></span>
+    <span><a href="login.php">Jeden Hráč</a></span>
+    <span><a href="login.php">Více Hráčů</a></span>
   </body>
 </html>
 
