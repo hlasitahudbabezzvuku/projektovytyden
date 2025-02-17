@@ -26,8 +26,8 @@
     ?>
   </head>
   <body>
-    Name: <?php echo $_GET["name"]; ?><br>
-    Code: <?php echo $_GET["code"]; ?><br>
+    Name: <?php echo(htmlspecialchars($_GET["name"])); ?><br>
+    Code: <?php echo(htmlspecialchars($_GET["code"])); ?><br>
   </body>
 </html>
 

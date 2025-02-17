@@ -26,24 +26,28 @@
     ?>
   </head>
   <body>
-    <form action="connect.php" method="GET">
       <?php
       
       if ($_GET["mode"] == "host") {
 
         $code = rand(100000000, 999999999);
+
+        echo("<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">");
         echo($code);
 
       } elseif ($_GET["mode"] == "single") {
-        echo("Přezdívka: <input type=\"text\" name=\"name\"><br>");
+        echo(
+          "<form action=\"connect.php\" method=\"GET\">" .
+          "Přezdívka: <input type=\"text\" name=\"name\"><br>"
+        );
       } else {
         echo(
+          "<form action=\"connect.php\" method=\"GET\">" .
           "Přezdívka: <input type=\"text\" name=\"name\"><br>" .
           "Kód: <input type=\"text\" name=\"code\"><br>"
         ); 
       }     
       ?>
-      <br>
       <input type="submit">
     </form>
   </body>
