@@ -30,6 +30,7 @@
       <input type="radio" name="mode" value="connect">Připojit
       <input type="radio" name="mode" value="create">Vytvořit
       Přezdívka: <input type="text" name="name"><br>
+      <!--TODO: javascrpt ktery tohle pole schova pokud je vybrane "create" -->
       Kód: <input type="text" name="code"><br>
       <input type="submit">
     </form>
