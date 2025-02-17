@@ -2,7 +2,7 @@
 
 -   Header
 -   Tlacitka
-    -   [Single-player](join.php)
+    -   [Single-player](login.php)
     -   [Multiplayer](connect.php)
 
 ## connect.php
@@ -17,7 +17,7 @@
 -   Ukaze vysledky
 -   [Zpet](index.php)
 
-## join.php
+## login.php
 
 -   Nastaveni jmena
 -   [Pokracovat](waiting.php)
