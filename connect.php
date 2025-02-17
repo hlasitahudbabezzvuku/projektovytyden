@@ -26,6 +26,8 @@
     ?>
   </head>
   <body>
+    Name: <?php echo $_POST["name"]; ?><br>
+    Code: <?php echo $_POST["code"]; ?>
   </body>
 </html>
 
