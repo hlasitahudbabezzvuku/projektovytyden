@@ -30,7 +30,10 @@
       <?php
       
       if ($_GET["mode"] == "host") {
-        echo "Hosting";
+
+        $code = rand(100000000, 999999999);
+        echo($code);
+
       } elseif ($_GET["mode"] == "single") {
         echo("Přezdívka: <input type=\"text\" name=\"name\"><br>");
       } else {
