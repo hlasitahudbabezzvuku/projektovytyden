@@ -26,7 +26,6 @@
     ?>
   </head>
   <body>
-    Mode: <?php echo $_GET["mode"]; ?><br>
     Name: <?php echo $_GET["name"]; ?><br>
     Code: <?php echo $_GET["code"]; ?><br>
   </body>

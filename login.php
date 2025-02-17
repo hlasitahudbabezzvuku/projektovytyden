@@ -29,18 +29,18 @@
     <form action="connect.php" method="GET">
       <?php
       
-      if ($_GET["mode"] == "multiplayer") {
+      if ($_GET["mode"] == "host") {
+        echo "Hosting";
+      } elseif ($_GET["mode"] == "single") {
+        echo("Přezdívka: <input type=\"text\" name=\"name\"><br>");
+      } else {
         echo(
-          "<input type=\"radio\" name=\"mode\" value=\"connect\" checked>Připojit" .
-          "<input type=\"radio\" name=\"mode\" value=\"create\">Vytvořit"
+          "Přezdívka: <input type=\"text\" name=\"name\"><br>" .
+          "Kód: <input type=\"text\" name=\"code\"><br>"
         ); 
-      }
-      
+      }     
       ?>
       <br>
-      Přezdívka: <input type="text" name="name"><br>
-      <!-- TODO: javascrpt ktery tohle pole schova pokud je vybrane "create" -->
-      Kód: <input type="text" name="code"><br>
       <input type="submit">
     </form>
   </body>
