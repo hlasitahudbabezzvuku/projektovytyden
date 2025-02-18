@@ -12,38 +12,46 @@
     use Medoo\Medoo;
 
     if (!array_key_exists('database', $_SESSION)) {
-      $_SESSION["database"] = $database;
+    $_SESSION["database"] = $database;
     }
 
     ?>
   </head>
   <body>
-      <?php
+    <?php
+
+    if (array_key_exists('game', $_GET)) {
+
       
-      if ($_GET["mode"] == "host") {
 
-        $code = rand(100000, 999999);
+    } elseif ($_GET["mode"] == "host") {
 
-        echo(
-          "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $code) . ";size=400x400\" alt=\"qr-code\"/>" .
-          "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
-          number_format($code, 0, '.', ' ')
-        );
+      $code = rand(100000, 999999);
 
-      } elseif ($_GET["mode"] == "single") {
-        echo(
-          "<form action=\"connect.php\" method=\"GET\">" .
-          "Přezdívka: <input type=\"text\" name=\"name\"><br>"
-        );
-      } else {
-        echo(
-          "<form action=\"connect.php\" method=\"GET\">" .
-          "Přezdívka: <input type=\"text\" name=\"name\"><br>" .
-          "Kód: <input type=\"text\" name=\"code\"><br>"
-        ); 
-      }     
-      ?>
-      <input type="submit">
+      echo(
+        "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $code) . ";size=400x400\" alt=\"qr-code\"/>" .
+        "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
+        number_format($code, 0, '.', ' ')
+      );
+
+    } elseif ($_GET["mode"] == "single") {
+
+      echo(
+        "<form action=\"connect.php\" method=\"GET\">" .
+        "Přezdívka: <input type=\"text\" name=\"name\"><br>"
+      );
+
+    } else {
+
+      echo(
+        "<form action=\"connect.php\" method=\"GET\">" .
+        "Přezdívka: <input type=\"text\" name=\"name\"><br>" .
+        "Kód: <input type=\"text\" name=\"code\"><br>"
+      ); 
+
+    }     
+    ?>
+    <input type="submit">
     </form>
   </body>
 </html>
