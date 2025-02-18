@@ -18,6 +18,10 @@ global $database;
   <body>
     <?php
 
+    if (array_key_exists("failed", $_GET)) {
+      echo("<span style=\"color = #ff0000;\">Invalid credentials</span>");
+    }
+
     if (array_key_exists("game", $_GET)) {
       echo(
         "<form action=\"connect.php\" method=\"GET\">" .
