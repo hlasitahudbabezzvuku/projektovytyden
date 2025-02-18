@@ -35,16 +35,16 @@ global $database;
     }
     
     elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
-      if (!array_key_exists("code", $_SESSION)) {
+      if (!array_key_exists("game", $_SESSION)) {
         $code = rand(100000, 999999);
 
         $database->insert("Games", [
           "id" => $code
         ]);
 
-        $_SESSION["code"] = $code;
+        $_SESSION["game"] = $code;
       } else {
-        $code = (int)$_SESSION["code"];
+        $code = (int)$_SESSION["game"];
       }
 
       echo(
