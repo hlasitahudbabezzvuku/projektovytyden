@@ -5,10 +5,14 @@
     <title>PubZ</title>
     <?php
       session_start();
-      require('database.php');
+      require("database.php");
     ?>
   </head>
   <body>
+    <?php
+      if (array_key_exists("code", $_GET)) {
+      }
+    ?>
     Name: <?php echo(htmlspecialchars($_GET["name"])); ?><br>
     Code: <?php echo(htmlspecialchars($_GET["code"])); ?><br>
   </body>

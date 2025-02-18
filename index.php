@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>PubZ</title>
-    <?php require 'database.php'; ?>
+    <?php require "database.php"; ?>
   </head>
   <body>
     <h1>PubZ</h1>

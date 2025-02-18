@@ -5,13 +5,13 @@
     <title>PubZ</title>
     <?php
       session_start();
-      require('database.php');
+      require("database.php");
     ?>
   </head>
   <body>
     <?php
 
-    if (array_key_exists('game', $_GET)) {
+    if (array_key_exists("game", $_GET)) {
 
       echo(
         "<form action=\"connect.php\" method=\"GET\">" .
@@ -30,7 +30,7 @@
       echo(
         "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $code) . "\" alt=\"qr-code\"/>" .
         "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
-        number_format($code, 0, '.', ' ')
+        number_format($code, 0, ".", " ")
       );
 
     } elseif ($_GET["mode"] == "single") {
