@@ -25,7 +25,7 @@ if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
 $data = $database->select("Games", ["id"], ["id" => $_SESSION["code"]]);
 
 if (count($data) != 0) {
-  $database->insert("account", [
+  $database->insert("Players", [
     "name" => $_SESSION["name"],
     "game" => $_SESSION["code"],
   ]);
