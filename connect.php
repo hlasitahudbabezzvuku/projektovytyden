@@ -27,7 +27,7 @@ $data = $database->select("Games", ["id"], ["id" => $_SESSION["code"]]);
 
 if (count($data) != 0) {
   $database->insert("Players", [
-    "id" => uuid(),
+    "id" => uuidb(),
     "name" => $_SESSION["name"],
     "game" => $_SESSION["code"],
   ]);
