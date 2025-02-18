@@ -300,8 +300,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     console.log("Success:", response);
                 },
                 error: function(xhr, status, error) {
-                    console.error("AJAX Error:", status, error);
-                    console.error("Response Text:", xhr.responseText); // Logs server error response
+                    console.log("AJAX Error:", status, error);
+                    console.log("Response Text:", xhr.responseText); // Logs server error response
                 }
             });
         }
