@@ -6,6 +6,11 @@
     session_start();
     require "database.php";
 
-    $text = $database->select('textOtazky', ['[>]Odpovedi'=>["id_odpovedi" => "id"]], '*');
-    print_r($text);
+    $textOtazky = $database->select('textOtazky', ['[>]Odpovedi'=>["id_odpovedi" => "id"]], '*');
+
+    foreach ($textOtazky as $otazka) {
+        $otazka['id'] = bin2hex($otazka['id']);
+        $otazka['id_odpovedi'] = bin2hex($otazka['id_odpovedi']);
+    }
+    print_r($textOtazky);
 ?>
