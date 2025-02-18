@@ -23,7 +23,8 @@
     if (array_key_exists('game', $_GET)) {
 
       echo(
-        "<form action=\"connect.php?code=" . urlencode($code) . "\" method=\"GET\">" .
+        "<form action=\"connect.php\" method=\"GET\">" .
+        "<input type=\"hidden\" name=\"code\" value=\"" . htmlspecialchars($_GET["game"]) . "\">" .
         "Přezdívka: <input type=\"text\" name=\"name\"><br>"
       );
 
