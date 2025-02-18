@@ -1,6 +1,9 @@
 <?php
 
-session_destroy();
+if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
+  session_destroy();
+}
+
 require("database.php");
 
 ?>
