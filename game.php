@@ -4,7 +4,7 @@
     }
 
     session_start();
-    require("database.php");
+    require "database.php";
 
     
 ?>
