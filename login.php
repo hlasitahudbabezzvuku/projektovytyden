@@ -22,7 +22,10 @@
 
     if (array_key_exists('game', $_GET)) {
 
-      
+      echo(
+        "<form action=\"connect.php?code=" . urlencode($code) . "\" method=\"GET\">" .
+        "Přezdívka: <input type=\"text\" name=\"name\"><br>"
+      );
 
     } elseif ($_GET["mode"] == "host") {
 
