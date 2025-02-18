@@ -1,10 +1,13 @@
 <?php
-    require_once 'database.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $otazky = $_POST["otazky"];
-        print_r($otazky);
-    }
+session_destroy();
+require("database.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $otazky = $_POST["otazky"];
+  print_r($otazky);
+}
+
 ?>
 
 <!doctype html>
