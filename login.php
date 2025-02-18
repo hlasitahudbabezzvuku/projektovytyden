@@ -13,7 +13,7 @@ global $database;
 
     if (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
       session_start();
-      echo("<meta http-equiv=\"refresh\" content=\"30\" />");
+      echo("<meta http-equiv=\"refresh\" content=\"4\" />");
     }
 
     ?>
