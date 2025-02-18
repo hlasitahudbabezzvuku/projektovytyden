@@ -1,12 +1,15 @@
+<?php
+
+session_destroy();
+require("database.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="cz">
   <head>
     <meta charset="UTF-8">
     <title>PubZ</title>
-    <?php
-      session_start();
-      require("database.php");
-    ?>
   </head>
   <body>
     <?php
