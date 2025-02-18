@@ -24,12 +24,15 @@ if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
 
 $data = $database->select("Games", ["id"], ["id" => $_SESSION["code"]]);
 
-echo count($data);
-
-/*$database->insert("account", [*/
-/*	"name" => $_SESSION["name"],*/
-/*	"game" => $_SESSION["code"],*/
-/*]);*/
+if (count($data) != 0) {
+  $database->insert("account", [
+    "name" => $_SESSION["name"],
+    "game" => $_SESSION["code"],
+  ]);
+} else {
+  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=true");
+  die();
+}
 
 ?>
 
