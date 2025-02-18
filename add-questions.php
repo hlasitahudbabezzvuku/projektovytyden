@@ -1,23 +1,13 @@
 <?php
 require_once 'database.php';
-
-function generateUUID() {
-    $data = random_bytes(16);
-
-    // Set version (4) in the correct position
-    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
-    // Set the variant to RFC 4122
-    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
-
-    return $data; // Returns binary(16) directly
-}
+require_once 'uuid.php';
 
 function pridatOdpovedi($odpovedi) {
     global $database;
-    $odpovedi_id = generateUUID();
+    $odpovedi_id = uuidb();
 
     while ($database->get('Odpovedi', '*', ['id' => $odpovedi_id])) {
-        $odpovedi_id = generateUUID();
+        $odpovedi_id = uuidb();
     }
 
     $database->insert('Odpovedi', [
@@ -34,9 +24,9 @@ function pridatOdpovedi($odpovedi) {
 
 function pridatOtazku($otazka, $typ) {
     global $database;
-    $otazka_id = generateUUID();
+    $otazka_id = uuidb();
     while ($database->get($typ.'Otazky', '*', ['id' => $otazka_id,])) {
-        $otazka_id = generateUUID();
+        $otazka_id = uuidb();
     }
     $database->insert($typ.'Otazky', [
         'id' => $otazka_id,
