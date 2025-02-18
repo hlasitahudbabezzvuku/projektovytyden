@@ -8,7 +8,7 @@ $data = $database->select("Players", "name", [
 ]);
 
 foreach($data as $item) {
-	echo count($item) . "<br>";
+	echo $item . "<br>";
 }
 
 ?>
