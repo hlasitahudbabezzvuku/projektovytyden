@@ -6,6 +6,6 @@
     session_start();
     require "database.php";
 
-    $text = $database->select('textOtazky', '*');
+    $text = $database->select('textOtazky', 'Odpovedi', '*', []);
     print_r($text);
 ?>
