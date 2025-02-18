@@ -40,7 +40,8 @@ global $database;
       echo(
         "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $code) . "\" alt=\"qr-code\"/>" .
         "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
-        number_format($code, 0, ".", " ")
+        number_format($code, 0, ".", " ") .
+        "<script>fetch('http://pubz.infinityfreeapp.com/api/get_players.php').then(function (response) { return response.text(); }).then(function (text) { console.log(text); });</script>"
       );
     }
 
