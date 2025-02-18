@@ -293,15 +293,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $.ajax({
                 url: 'add-questions.php',
                 type: 'POST',
-                dataType: 'json',
-                data: otazky,
+                contentType: 'application/json', // Specify JSON content type
+                dataType: 'json',                // Expect JSON response
+                data: JSON.stringify(otazky),    // Send JSON data
                 success: function(response) {
-                    console.log(response)
+                    console.log("Success:", response);
                 },
-                error: function (error) {
-                    console.log(error)
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", status, error);
+                    console.error("Response Text:", xhr.responseText); // Logs server error response
                 }
-            })
+            });
         }
         addQuestion()
     </script>
