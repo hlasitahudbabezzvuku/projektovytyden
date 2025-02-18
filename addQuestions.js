@@ -219,3 +219,5 @@ function add() {
         }
     })
 }
+
+add();

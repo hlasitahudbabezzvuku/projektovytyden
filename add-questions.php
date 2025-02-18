@@ -78,11 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="addQuestions.js"></script>
     <title>Document</title>
 </head>
 <body>
 <p>Pridani otazek</p>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="addQuestions.js"></script>
 </body>
 </html>
