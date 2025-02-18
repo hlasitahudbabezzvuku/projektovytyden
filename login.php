@@ -25,7 +25,7 @@ require("database.php");
         "Přezdívka: <input type=\"text\" name=\"name\"><br>"
       );
 
-    } elseif ($_GET["mode"] == "host") {
+    } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
 
       $code = rand(100000, 999999);
 
@@ -39,7 +39,7 @@ require("database.php");
         number_format($code, 0, ".", " ")
       );
 
-    } elseif ($_GET["mode"] == "single") {
+    } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "single") {
 
       echo(
         "<form action=\"connect.php\" method=\"GET\">" .
