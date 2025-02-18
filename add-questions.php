@@ -46,16 +46,10 @@ function pridatOtazku($otazka, $typ) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo json_encode(['success' => 'Questions added successfully']);
+
     $json_data = file_get_contents('php://input');
     $data = json_decode($json_data, true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        echo json_encode(['error' => 'Invalid JSON']);
-        exit;
-    }
-    // Process the $decoded array here, for example:
-    //// Add the questions to your database
-
-    echo json_encode(['success' => 'Questions added successfully']);
 
     $textove = $data['textove'];
     $zvuk = $data['zvuk'];
