@@ -82,9 +82,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <p>Pridani otazek</p>
-<form method="post">
-    <input type="file" accept="application/json" name="otazky">
-    <input type="submit" name="Odeslat" value="Odeslat">
-</form>
 </body>
 </html>
