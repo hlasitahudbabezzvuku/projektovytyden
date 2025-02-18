@@ -79,7 +79,7 @@ if ($_POST) {
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        const data = {
+        const otazky = {
             "textove": {
                 "0": {
                     "text": "What is the capital of France?",
@@ -294,7 +294,7 @@ if ($_POST) {
                 url: 'add-questions.php',
                 type: 'POST',
                 dataType: 'json',
-                data: data,
+                data: otazky,
                 success: function(response) {
                     console.log("Pridane otazky")
                 }
