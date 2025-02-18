@@ -41,12 +41,11 @@ function pridatOtazku($otazka, $typ) {
     $database->insert($typ.'Otazky', [
         'id' => $otazka_id,
         $typ => $otazka[$typ],
-        'odpovedi' => pridatOdpovedi($otazka['odpovedi'])
+        'id_odpovedi' => pridatOdpovedi($otazka['odpovedi'])
     ]);
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    print_r($_POST);
     $json_data = file_get_contents('php://input');
     $data = json_decode($json_data, true);
     $textove = $data['textove'];
@@ -300,8 +299,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     console.log("Success:", response);
                 },
                 error: function(xhr, status, error) {
-                    console.log("AJAX Error:", status, error);
-                    console.log("Response Text:", xhr.responseText); // Logs server error response
+                    console.error("AJAX Error:", status, error);
+                    console.error("Response Text:", xhr.responseText); // Logs server error response
                 }
             });
         }
