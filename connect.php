@@ -16,7 +16,7 @@ if (array_key_exists("code", $_GET)) {
   echo(htmlspecialchars($_GET["name"]));
   echo(htmlspecialchars($_GET["code"]));
 } else {
-
+  header('Location: http://pubz.infinityfreeapp.com');
 }
 
 ?>
