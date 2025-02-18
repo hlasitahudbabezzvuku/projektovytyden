@@ -48,6 +48,15 @@ function pridatOtazku($otazka, $typ) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $json_data = file_get_contents('php://input');
     $data = json_decode($json_data, true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        echo json_encode(['error' => 'Invalid JSON']);
+        exit;
+    }
+    // Process the $decoded array here, for example:
+    //// Add the questions to your database
+
+    echo json_encode(['success' => 'Questions added successfully']);
+
     $textove = $data['textove'];
     $zvuk = $data['zvuk'];
     $video = $data['video'];
@@ -292,9 +301,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $.ajax({
                 url: 'add-questions.php',
                 type: 'POST',
-                contentType: 'application/json', // Specify JSON content type
-                dataType: 'json',                // Expect JSON response
-                data: JSON.stringify(otazky),    // Send JSON data
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(otazky),
                 success: function(response) {
                     console.log("Success:", response);
                 },
