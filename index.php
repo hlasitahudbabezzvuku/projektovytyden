@@ -5,6 +5,7 @@ if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
 }
 
 require "database.php";
+global $database;
 
 ?>
 
