@@ -6,6 +6,6 @@
     session_start();
     require "database.php";
 
-    $text = $database->select('textOtazky', 'Odpovedi', '*', []);
+    $text = $database->select('textOtazky', ['[>]Odpovedi'=>["id_odpovedi" => "id"]], '*');
     print_r($text);
 ?>
