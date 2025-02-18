@@ -10,13 +10,14 @@ require("database.php");
 if (array_key_exists("code", $_GET)) {
   $_SESSION["code"] = $_GET["code"];
 } else {
-  header("Location: http://pubz.infinityfreeapp.com/login.php");
+  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=true");
   die();
 }
 
 if (array_key_exists("name", $_GET)) {
   $_SESSION["name"] = $_GET["name"];
-  header("Location: http://pubz.infinityfreeapp.com/login.php?game=" . $_GET["code"]);
+} else {
+  header("Location: http://pubz.infinityfreeapp.com/login.php?falied=true;game=" . $_GET["code"]);
   die();
 }
 
