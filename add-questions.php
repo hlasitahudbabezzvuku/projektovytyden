@@ -293,7 +293,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $.ajax({
                 url: 'add-questions.php',
                 type: 'POST',
-                // data: otazky,
+                dataType: 'json',
+                data: otazky,
                 success: function(response) {
                     console.log(response)
                 }
