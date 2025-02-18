@@ -30,7 +30,7 @@
       
       if ($_GET["mode"] == "host") {
 
-        $code = rand(100000000, 999999999);
+        $code = rand(100000, 999999);
 
         echo("<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">");
         echo(number_format($code, 0, '.', ' '));
