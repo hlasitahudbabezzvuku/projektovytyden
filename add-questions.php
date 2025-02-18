@@ -54,19 +54,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ilustrace = $data['ilustrace'];
 
     foreach ($textove as $otazka) {
-        pridatOtazku($otazka, "text");
+        pridatOtazku($otazka, "Text");
     }
 
     foreach ($zvuk as $otazka) {
-        pridatOtazku($otazka, "zvuk");
+        pridatOtazku($otazka, "Zvuk");
     }
 
     foreach ($video as $otazka) {
-        pridatOtazku($otazka, "video");
+        pridatOtazku($otazka, "Video");
     }
 
     foreach ($ilustrace as $otazka) {
-        pridatOtazku($otazka, "ilustrace");
+        pridatOtazku($otazka, "Ilustrace");
     }
 }
 ?>
