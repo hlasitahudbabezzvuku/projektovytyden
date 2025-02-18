@@ -9,20 +9,27 @@ require "database.php";
 global $database;
 
 if (array_key_exists("code", $_GET) && !empty($_GET["code"])) {
-  $_SESSION["code"] = $_GET["code"];
+  $_SESSION["code"] = htmlspecialchars($_GET["code"]);
 } else {
   header("Location: http://pubz.infinityfreeapp.com/login.php?failed=true");
   die();
 }
 
 if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
-  $_SESSION["name"] = $_GET["name"];
+  $_SESSION["name"] = htmlspecialchars($_GET["name"]);
 } else {
   header("Location: http://pubz.infinityfreeapp.com/login.php?falied=true&game=" . $_GET["code"]);
   die();
 }
 
+$data = $database->select("Games", ["id"], ["id" => $_SESSION["code"]]);
 
+echo count($data);
+
+/*$database->insert("account", [*/
+/*	"name" => $_SESSION["name"],*/
+/*	"game" => $_SESSION["code"],*/
+/*]);*/
 
 ?>
 
