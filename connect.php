@@ -5,7 +5,8 @@ if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
 }
 
 session_start();
-require("database.php");
+require "database.php";
+global $database;
 
 if (array_key_exists("code", $_GET) && !empty($_GET["code"])) {
   $_SESSION["code"] = $_GET["code"];
@@ -20,6 +21,8 @@ if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
   header("Location: http://pubz.infinityfreeapp.com/login.php?falied=true&game=" . $_GET["code"]);
   die();
 }
+
+
 
 ?>
 
