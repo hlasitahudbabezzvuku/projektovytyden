@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($ilustrace as $otazka) {
         pridatOtazku($otazka, "ilustrace");
     }
+    exit();
 }
 ?>
 
