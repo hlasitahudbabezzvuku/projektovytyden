@@ -1,4 +1,7 @@
 <?php
+    require_once 'Medoo.php';
+    use Medoo\Medoo;
+
     $database = new Medoo([
         'type' => 'mysql',
         'host' => 'sql105.infinityfree.com',
