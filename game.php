@@ -5,6 +5,7 @@
 
     session_start();
     require "database.php";
+    global $database;
 
     $textOtazky = $database->select('textOtazky', ['[>]Odpovedi'=>["id_odpovedi" => "id"]], '*');
 
