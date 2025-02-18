@@ -38,7 +38,7 @@ global $database;
       if (!array_key_exists("code", $_SESSION)) {
         $code = rand(100000, 999999);
         $database->insert("Games", [
-          "id" => $_SESSION["code"]
+          "id" => $code
         ]);
       } else {
         $code = (int)$_SESSION["code"];
