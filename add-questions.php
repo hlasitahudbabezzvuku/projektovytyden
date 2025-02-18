@@ -45,7 +45,7 @@ function pridatOtazku($otazka, $typ) {
     ]);
 }
 
-if ($_POST) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $json_data = file_get_contents('php://input');
     $data = json_decode($json_data, true);
     $textove = $data['textove'];
@@ -54,19 +54,19 @@ if ($_POST) {
     $ilustrace = $data['ilustrace'];
 
     foreach ($textove as $otazka) {
-        pridatOtazku($otazka, "Text");
+        pridatOtazku($otazka, "text");
     }
 
     foreach ($zvuk as $otazka) {
-        pridatOtazku($otazka, "Zvuk");
+        pridatOtazku($otazka, "zvuk");
     }
 
     foreach ($video as $otazka) {
-        pridatOtazku($otazka, "Video");
+        pridatOtazku($otazka, "video");
     }
 
     foreach ($ilustrace as $otazka) {
-        pridatOtazku($otazka, "Ilustrace");
+        pridatOtazku($otazka, "ilustrace");
     }
 }
 ?>
@@ -75,6 +75,9 @@ if ($_POST) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
