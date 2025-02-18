@@ -13,7 +13,7 @@ global $database;
 
     if (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
       session_start();
-      echo("<meta http-equiv=\"refresh\" content=\"4\" />");
+      echo("<meta http-equiv=\"refresh\" content=\"30\" />");
     }
 
     ?>
@@ -35,18 +35,19 @@ global $database;
     }
     
     elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
-      if (!array_key_exists("code", $_SESSION)) {
-        $_SESSION["code"] = rand(100000, 999999);
-
+      if (!array_key_exists("code", $_SESSION) {
+        $code = rand(100000, 999999);
         $database->insert("Games", [
           "id" => $_SESSION["code"]
         ]);
+      } else {
+        $code = (int)$_SESSION["code"];
       }
 
       echo(
-        "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $_SESSION["code"]) . "\" alt=\"qr-code\"/>" .
-        "<form action=\"monitor.php?id=" . $_SESSION["code"] . "\" method=\"GET\">" .
-        number_format((int)$_SESSION["code"], 0, ".", " ")
+        "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $code) . "\" alt=\"qr-code\"/>" .
+        "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
+        number_format($code, 0, ".", " ")
       );
     }
 
