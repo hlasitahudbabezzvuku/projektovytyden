@@ -8,9 +8,9 @@
 
     $textOtazky = $database->select('textOtazky', ['[>]Odpovedi'=>["id_odpovedi" => "id"]], '*');
 
-    foreach ($textOtazky as $otazka) {
-        $otazka['id'] = bin2hex($otazka['id']);
-        $otazka['id_odpovedi'] = bin2hex($otazka['id_odpovedi']);
+    for ($i = 0; $i < count($textOtazky); $i++) {
+        $textOtazky[$i]['id'] = bin2hex($textOtazky[$i]['id']);
+        $textOtazky[$i]['id_odpovedi'] = bin2hex($textOtazky[$i]['id_odpovedi']);
     }
     print_r($textOtazky);
 ?>
