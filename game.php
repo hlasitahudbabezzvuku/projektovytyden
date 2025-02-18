@@ -7,5 +7,5 @@
     require "database.php";
 
     $text = $database->select('textOtazky', '*');
-    echo $text;
+    print_r($text);
 ?>
