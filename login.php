@@ -1,5 +1,9 @@
 <?php
 
+if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
+  session_destroy();
+}
+
 require "database.php";
 global $database;
 
@@ -9,14 +13,6 @@ global $database;
 <html lang="cz">
   <head>
     <meta charset="UTF-8">
-    <?php
-
-    if (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
-      session_start();
-      echo("<meta http-equiv=\"refresh\" content=\"4\" />");
-    }
-
-    ?>
     <title>PubZ</title>
   </head>
   <body>
@@ -35,17 +31,11 @@ global $database;
     }
     
     elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
-      if (!array_key_exists("game", $_SESSION)) {
-        $code = rand(100000, 999999);
+      $code = rand(100000, 999999);
 
-        $database->insert("Games", [
-          "id" => $code
-        ]);
-
-        $_SESSION["game"] = $code;
-      } else {
-        $code = (int)$_SESSION["game"];
-      }
+      $database->insert("Games", [
+        "id" => $code
+      ]);
 
       echo(
         "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $code) . "\" alt=\"qr-code\"/>" .
