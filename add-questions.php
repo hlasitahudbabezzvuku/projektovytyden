@@ -292,21 +292,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         };
-        function addQuestion() {
-            $.ajax({
-                url: 'add-questions.php',
-                type: 'POST',
-                contentType: 'application/json',
-                dataType: 'json',
-                data: JSON.stringify(otazky),
-                success: function(response) {
-                    console.log("Success:", response);
-                },
-                error: function(xhr, status, error) {
-                    console.error("AJAX Error:", status, error);
-                    console.error("Response Text:", xhr.responseText); // Logs server error response
-                }
-            });
+        async function addQuestion() {
+            fetch('http://pubz.infinityfreeapp.com/add-questions.php', {
+                method: 'POST',
+                body: otazky
+            })
         }
         addQuestion()
     </script>
