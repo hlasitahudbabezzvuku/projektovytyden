@@ -43,7 +43,10 @@ global $database;
         number_format($code, 0, ".", " ") .
         "<div id=\"players\"></div>" .
         "<script>" .
-        "alert(\"test\")" .
+          "function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get_players.php?game=" . $code . "')" .
+          ".then(function (response) { return response.text(); })" .
+          ".then(function (text) { document.getElementById('players').innerHTML = text; }); };" .
+          "setInterval(get_players, 5000);" .
         "</script>"
       );
     }
