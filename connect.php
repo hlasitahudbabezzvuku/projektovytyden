@@ -32,7 +32,7 @@ if (count($data) != 0) {
     "game" => $_SESSION["code"],
   ]);
 } else {
-  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Kód bohužel neexistuje :("));
+  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Kód je bohužel neplatný :("));
   die();
 }
 
