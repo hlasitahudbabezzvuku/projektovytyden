@@ -13,14 +13,14 @@ function generateUUID() {
 }
 
 function pridatOdpovedi($odpovedi) {
-    global $databaseLocal;
+    global $database;
     $odpovedi_id = generateUUID();
 
-    while ($databaseLocal->get('Odpovedi', '*', ['id' => $odpovedi_id])) {
+    while ($database->get('Odpovedi', '*', ['id' => $odpovedi_id])) {
         $odpovedi_id = generateUUID();
     }
 
-    $databaseLocal->insert('Odpovedi', [
+    $database->insert('Odpovedi', [
         'id' => $odpovedi_id,
         'a' => $odpovedi['a'],
         'b' => $odpovedi['b'],
@@ -33,12 +33,12 @@ function pridatOdpovedi($odpovedi) {
 }
 
 function pridatOtazku($otazka, $typ) {
-    global $databaseLocal;
+    global $database;
     $otazka_id = generateUUID();
-    while ($databaseLocal->get($typ.'Otazky', '*', ['id' => $otazka_id,])) {
+    while ($database->get($typ.'Otazky', '*', ['id' => $otazka_id,])) {
         $otazka_id = generateUUID();
     }
-    $databaseLocal->insert($typ.'Otazky', [
+    $database->insert($typ.'Otazky', [
         'id' => $otazka_id,
         $typ => $otazka[$typ],
         'odpovedi' => pridatOdpovedi($otazka['odpovedi'])
@@ -82,5 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <p>Pridani otazek</p>
+<form method="post">
+    <input type="file" accept="application/json" name="otazky">
+    <input type="submit" name="Odeslat" value="Odeslat">
+</form>
 </body>
 </html>

@@ -14,12 +14,4 @@ $database = new Medoo([
   ]
 ]);
 
-$databaseLocal = new Medoo([
-    "type" => "mysql",
-    "host" => "localhost",
-    "database" => "text_pubz",
-    "username" => "root",
-    "password" => "root",
-])
-
 ?>
