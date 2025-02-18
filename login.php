@@ -19,15 +19,14 @@ global $database;
     <?php
 
     if (array_key_exists("game", $_GET)) {
-
       echo(
         "<form action=\"connect.php\" method=\"GET\">" .
         "<input type=\"hidden\" name=\"code\" value=\"" . htmlspecialchars($_GET["game"]) . "\">" .
         "Přezdívka: <input type=\"text\" name=\"name\"><br>"
       );
-
-    } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
-
+    }
+    
+    elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
       $code = rand(100000, 999999);
 
       $database->insert("Games", [
@@ -39,23 +38,23 @@ global $database;
         "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
         number_format($code, 0, ".", " ")
       );
+    }
 
-    } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "single") {
-
+    elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "single") {
       echo(
         "<form action=\"connect.php\" method=\"GET\">" .
         "Přezdívka: <input type=\"text\" name=\"name\"><br>"
       );
+    }
 
-    } else {
-
+    else {
       echo(
         "<form action=\"connect.php\" method=\"GET\">" .
         "Přezdívka: <input type=\"text\" name=\"name\"><br>" .
         "Kód: <input type=\"text\" name=\"code\"><br>"
       ); 
-
     }     
+
     ?>
     <input type="submit">
     </form>
