@@ -24,8 +24,11 @@
 
         $code = rand(100000, 999999);
 
-        echo("<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">");
-        echo(number_format($code, 0, '.', ' '));
+        echo(
+          "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $code) . ";size=400x400\" alt=\"qr-code\"/>" .
+          "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
+          number_format($code, 0, '.', ' ')
+        );
 
       } elseif ($_GET["mode"] == "single") {
         echo(
