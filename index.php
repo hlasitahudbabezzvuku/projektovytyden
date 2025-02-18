@@ -4,7 +4,7 @@ if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
   session_destroy();
 }
 
-require "./utils/database.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/utils/database.php";
 global $database;
 
 ?>

@@ -4,7 +4,7 @@
     }
 
     session_start();
-    require "./utils/database.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/utils/database.php";
     global $database;
 
     $textOtazky = $database->select('textOtazky', ['[>]Odpovedi'=>["id_odpovedi" => "id"]], '*');

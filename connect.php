@@ -5,8 +5,8 @@ if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
 }
 
 session_start();
-require "./utils/database.php";
-require "./utils/uuid.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/utils/database.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/utils/uuid.php";
 global $database;
 
 if (array_key_exists("code", $_GET) && !empty($_GET["code"])) {
