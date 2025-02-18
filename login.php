@@ -19,7 +19,7 @@ global $database;
     <?php
 
     if (array_key_exists("failed", $_GET)) {
-      echo("<span style=\"color: #ff0000;\">Invalid credentials</span>");
+      echo("<span style=\"color: #ff0000;\">" . $_GET["failed"] . "</span>");
     }
 
     if (array_key_exists("game", $_GET)) {

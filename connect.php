@@ -12,14 +12,14 @@ global $database;
 if (array_key_exists("code", $_GET) && !empty($_GET["code"])) {
   $_SESSION["code"] = htmlspecialchars($_GET["code"]);
 } else {
-  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=true");
+  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Nezadal jsi kód :("));
   die();
 }
 
 if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
   $_SESSION["name"] = htmlspecialchars($_GET["name"]);
 } else {
-  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=true&game=" . $_GET["code"]);
+  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Nezadal jsi jméno :(") . "&game=" . $_GET["code"]);
   die();
 }
 
@@ -32,7 +32,7 @@ if (count($data) != 0) {
     "game" => $_SESSION["code"],
   ]);
 } else {
-  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=true");
+  header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Kód bohužel neexistuje :("));
   die();
 }
 
