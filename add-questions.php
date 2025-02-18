@@ -293,6 +293,7 @@ if ($_POST) {
             $.ajax({
                 url: 'add-questions.php',
                 type: 'POST',
+                dataType: 'json',
                 data: data,
                 success: function(response) {
                     console.log("Pridane otazky")
