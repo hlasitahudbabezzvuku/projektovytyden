@@ -297,6 +297,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 data: otazky,
                 success: function(response) {
                     console.log(response)
+                },
+                error: function (error) {
+                    console.log(error)
                 }
             })
         }
