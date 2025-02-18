@@ -82,5 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <p>Pridani otazek</p>
+<script src="addQuestions.js"></script>
 </body>
 </html>
