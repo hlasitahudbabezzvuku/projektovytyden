@@ -42,9 +42,11 @@ global $database;
         "<form action=\"monitor.php?id=" . $code . "\" method=\"GET\">" .
         number_format($code, 0, ".", " ") .
         "<div id=\"players\"></div>" .
-        "<script>fetch('http://pubz.infinityfreeapp.com/api/get_players.php')" .
+        "<script>" .
+          "setInterval(fetch('http://pubz.infinityfreeapp.com/api/get_players.php')" .
           ".then(function (response) { return response.text(); })" .
-          ".then(function (text) { document.getElementById('players').innerHTML = text; });</script>"
+          ".then(function (text) { document.getElementById('players').innerHTML = text; }), 5);" .
+        "</script>"
       );
     }
 
