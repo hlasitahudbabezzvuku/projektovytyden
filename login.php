@@ -24,9 +24,7 @@
       $code = rand(100000, 999999);
 
       $database->insert("Games", [
-        "id" => $code,
-        "creation" => "current_timestamp()",
-        "stage" => "0"
+        "id" => $code
       ]);
 
       echo(
