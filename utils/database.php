@@ -1,6 +1,6 @@
 <?php
 
-require_once "Medoo.php";
+require_once "../libs/Medoo.php";
 use Medoo\Medoo;
 
 $database = new Medoo([
