@@ -290,11 +290,12 @@ if ($_POST) {
         };
         function addQuestion() {
             $.ajax({
-                url: 'add-question.php',
+                url: 'add-questions.php',
                 type: 'POST',
                 body: data
             })
         }
+        addQuestion()
     </script>
 </head>
 <body>
