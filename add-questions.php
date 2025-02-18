@@ -295,7 +295,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         async function addQuestion() {
             fetch('http://pubz.infinityfreeapp.com/add-questions.php', {
                 method: 'POST',
-                body: otazky
+                body: JSON.stringify(otazky)
             })
         }
     </script>
