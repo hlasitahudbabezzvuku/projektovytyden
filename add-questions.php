@@ -295,7 +295,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 type: 'POST',
                 // data: otazky,
                 success: function(response) {
-                    console.log("Pridane otazky")
+                    if (response) console.log("Pridane otazky")
+                    else console.log("Nelze pridat")
                 }
             })
         }
