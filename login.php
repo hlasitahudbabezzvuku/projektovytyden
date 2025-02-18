@@ -23,7 +23,7 @@
 
       $code = rand(100000, 999999);
 
-      $_SESSION["database"]->insert("Games", [
+      $database->insert("Games", [
         "id" => $code,
         "creation" => "current_timestamp()",
         "stage" => "0"
