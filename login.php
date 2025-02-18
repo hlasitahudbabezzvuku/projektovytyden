@@ -4,17 +4,8 @@
     <meta charset="UTF-8">
     <title>PubZ</title>
     <?php
-
-    session_start();
-
-    require('Medoo.php');
-    require_once 'database.php';
-    use Medoo\Medoo;
-
-    if (!array_key_exists('database', $_SESSION)) {
-    $_SESSION["database"] = $database;
-    }
-
+      session_start();
+      require('database.php');
     ?>
   </head>
   <body>
@@ -32,7 +23,7 @@
 
       $code = rand(100000, 999999);
 
-      $_SESSION["$database"]->insert("Games", [
+      $_SESSION["database"]->insert("Games", [
         "id" => $code,
         "creation" => "current_timestamp()",
         "stage" => "0"
