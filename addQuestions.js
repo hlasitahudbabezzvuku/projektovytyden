@@ -209,10 +209,13 @@ const data = {
     }
 };
 
-fetch('http://pubz.infinityfreeapp.com/add-questions.php', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-})
+function add() {
+    $.ajax({
+        url: 'http://pubz.infinityfreeapp.com/add-questions.php',
+        type: 'POST',
+        data: data,
+        success: function(response) {
+            console.log("Otazky pridany")
+        }
+    })
+}
