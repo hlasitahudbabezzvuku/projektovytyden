@@ -6,6 +6,7 @@ if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
 
 session_start();
 require "database.php";
+require "uuid.php";
 global $database;
 
 if (array_key_exists("code", $_GET) && !empty($_GET["code"])) {
