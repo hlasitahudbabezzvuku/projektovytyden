@@ -209,15 +209,15 @@ const data = {
     }
 };
 
-function add() {
-    $.ajax({
-        url: 'http://pubz.infinityfreeapp.com/add-questions.php',
-        type: 'POST',
-        data: data,
-        success: function(response) {
-            console.log("Otazky pridany")
-        }
-    })
-}
-
-add();
+// function add() {
+//     $.ajax({
+//         url: 'http://pubz.infinityfreeapp.com/add-questions.php',
+//         type: 'POST',
+//         data: data,
+//         success: function(response) {
+//             console.log("Otazky pridany")
+//         }
+//     })
+// }
+//
+// add();
