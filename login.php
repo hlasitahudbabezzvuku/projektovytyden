@@ -46,7 +46,7 @@ global $database;
       echo(
         "<img src=\"https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode("http://pubz.infinityfreeapp.com/login.php?game=" . $_SESSION["code"]) . "\" alt=\"qr-code\"/>" .
         "<form action=\"monitor.php?id=" . $_SESSION["code"] . "\" method=\"GET\">" .
-        number_format($_SESSION["code"], 0, ".", " ")
+        number_format((float)$_SESSION["code"], 0, ".", " ")
       );
     }
 
