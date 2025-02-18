@@ -216,9 +216,15 @@ fetch('http://pubz.infinityfreeapp.com/add-questions.php', {
     },
     body: JSON.stringify(data)
 })
-    .then(response => response.json())
-    .then(responseData => {
-        console.log('Response from server:', responseData);
+    .then(response => response.text())  // Use text() instead of json() to inspect the response
+    .then(responseText => {
+        console.log('Raw response from server:', responseText); // Log raw response
+        try {
+            const jsonResponse = JSON.parse(responseText);  // Manually parse JSON if it is actually JSON
+            console.log('Parsed response:', jsonResponse);
+        } catch (error) {
+            console.error('Failed to parse JSON:', error);
+        }
     })
     .catch(error => {
         console.error('Error:', error);
