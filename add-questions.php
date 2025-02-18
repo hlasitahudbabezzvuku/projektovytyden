@@ -298,10 +298,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 body: otazky
             })
         }
-        addQuestion()
     </script>
 </head>
 <body>
-<p>Pridani otazek</p>
+<button onclick="addQuestion()">Pridat otazky</button>
 </body>
 </html>
