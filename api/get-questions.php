@@ -3,6 +3,7 @@
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
     $gameCode = $_SESSION["code"];
+    echo $gameCode;
 
     $currentStage = $database->select("Games", 'stage', [
         "id" => $gameCode
