@@ -50,7 +50,7 @@ if (count($data) != 0) {
   <body>
     <span>Vyčkejte na začátek hry.</span>
     <script>
-    function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $code ?>)
+    function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
       .then(function (response) { return response.text(); })
       .then(function (text) {
         console.log(text);
