@@ -49,6 +49,15 @@ if (count($data) != 0) {
   </head>
   <body>
     <span>Vyčkejte na začátek hry.</span>
+    <script>
+    function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=" . $code . "')
+      .then(function (response) { return response.text(); })
+      .then(function (text) {
+        if (text != '0')
+          window.location.replace('http://pubz.infinityfreeapp.com/game.php');
+      });}
+    setInterval(get_players, 2000);
+    </script>
   </body>
 </html>
 
