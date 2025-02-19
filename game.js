@@ -36,6 +36,7 @@ async function getFinished(gameCode) {
     })
 
   if (playerFinished.allFinished === true) {
+    console.log('ahoj')
     resetStage()
   }
 }
@@ -48,6 +49,10 @@ async function finishStage(playerId) {
   fetch(
     'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
   )
+}
+
+async function addStage(gameCode) {
+  fetch('http://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode)
 }
 
 console.log(data)

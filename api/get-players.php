@@ -1,5 +1,4 @@
 <?php
-
 require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 global $database;
 

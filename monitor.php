@@ -20,28 +20,6 @@
       "game" => $gameCode
     ]);
   }
-  
-  function addStage() {
-    global $database;
-    $gameCode = $_SESSION['code'];
-
-    $currentStage = $database->get("Games", 'stage', [
-      "id" => $gameCode
-    ]);
-
-    if ($currentStage == 8) {
-      deleteGame();
-      header("Location: http://pubz.infinityfreeapp.com/index.php");
-      die();
-    }
-
-    if ($currentStage < 0 || $currentStage > 8) {
-      header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
-      die();
-    }
-    
-    $database->update("Games", ['stage[+]' => 1], ["id" => $gameCode]);
-  }
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +33,7 @@
   <?php if (isset($_GET["allFinished"])) { ?>
     <button onclick="resetStage(<?php echo $_SESSION['code']; ?>)">Continue</button>
   <?php } ?>
-  <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
+  <?php if ($_SERVER['REQUEST_METHOD'] == "GET") {?>
     <script>generateQuestions(<?php echo $_SESSION['code']; ?>)</script>
   <?php } ?>
   <script>let gameInterval = setInterval(getFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
