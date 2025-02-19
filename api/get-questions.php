@@ -4,7 +4,7 @@
 
     $gameCode = $_SESSION["code"];
 
-    $currentStage = $database->get("Games",'stage', ['id' => $gameCode]);
+    $currentStage = $database->get("Games", 'stage', ['id' => $gameCode]);
     $typ = "";
 
     if ($currentStage < 0 || $currentStage > 8) {
@@ -28,7 +28,7 @@
     }
 
     if ($typ != "") {
-        $otazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], [$typ, "a", "b", "c", "d"]);
+        $otazky = $database->select("Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], [$typ, "a", "b", "c", "d"]);
 
         $randomOtazky = array_rand($diceNumbers, 3);
         print_r($randomOtazky);
