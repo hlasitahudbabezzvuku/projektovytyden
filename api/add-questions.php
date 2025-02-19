@@ -29,10 +29,10 @@ function pridatOtazku($otazka, $typ) {
   while ($database->get($typ."Otazky", "*", ["id" => $otazka_id,])) {
     $otazka_id = uuidb();
   }
+  $database->insert("Otazky", ["id" => $otazka_id, "type" => $typ, "id_odpovedi" => pridatOdpovedi($otazka['odpovedi'])]);
   $database->insert($typ."Otazky", [
     "id" => $otazka_id,
-    $typ => $otazka[$typ],
-    "id_odpovedi" => pridatOdpovedi($otazka["odpovedi"])
+    $typ => $otazka[$typ]
   ]);
 }
 
