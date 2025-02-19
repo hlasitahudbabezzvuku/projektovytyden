@@ -32,7 +32,7 @@ function pridatOtazku($otazka, $typ) {
   }
   $database->insert("Otazky", ["id" => $otazka_id, "type" => $typ, "id_odpovedi" => pridatOdpovedi($otazka['odpovedi'])]);
   $database->insert($typ."Otazky", [
-    "id" => $otazka_id,
+    "id_otazky" => $otazka_id,
     $typ => $otazka[$typ]
   ]);
 }
