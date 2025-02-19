@@ -62,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   foreach ($ilustrace as $otazka) {
     pridatOtazku($otazka, "ilustrace");
   }
-  $response = json_encode(["success" => "Questions added successfully"]);
-  die($response);
+  echo json_encode(["success" => "Questions added successfully"]);
+  exit();
 }
 
 ?>

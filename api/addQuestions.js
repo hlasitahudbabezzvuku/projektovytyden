@@ -228,6 +228,6 @@ async function addQuestion() {
         let data = await response.json() // Parse JSON response
         console.log('Server Response:', data)
     } catch (error) {
-        console.error('Fetch Error:', error)
+        console.log(error)
     }
 }
