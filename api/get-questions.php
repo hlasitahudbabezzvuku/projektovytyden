@@ -65,7 +65,8 @@
                 "Odpovedi.a", 
                 "Odpovedi.b", 
                 "Odpovedi.c", 
-                "Odpovedi.d"
+                "Odpovedi.d",
+                "GamesOtazky.position"
             ], [
                 "GamesOtazky.game_id" => $gameCode
             ], [
