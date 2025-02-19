@@ -58,7 +58,7 @@ if (count($data) != 0) {
           console.log("nevim");
           window.location.replace('http://pubz.infinityfreeapp.com/game.php');
       });}
-    setInterval(get_players, 2000);
+    setInterval(get_stage, 2000);
     </script>
   </body>
 </html>
