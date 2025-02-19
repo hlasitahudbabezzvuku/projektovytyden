@@ -14,6 +14,12 @@
     $currentStage = $database->get("Games", 'stage', [
       "id" => $gameCode
     ]);
+
+    if ($currentStage < 0 || $currentStage > 8) {
+      header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
+      die();
+    }
+    
     $database->update("Games", ['stage[+]' => 1], ["id" => $gameCode]);
   }
 ?>
@@ -27,7 +33,7 @@
 </head>
   <script src="game.js"></script>
   <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
-    <script>generateQuestions((<?php echo $_SESSION['code'] ?>)</script>
+    <script>generateQuestions(<?php echo $_SESSION['code']; ?>)</script>
   <?php } ?>
 </body>
 </html>
