@@ -38,7 +38,7 @@ async function getFinished(gameCode) {
     method: 'POST',
     body: formData
   })
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then((responseData) => {
       console.log(responseData)
     })
