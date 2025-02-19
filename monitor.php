@@ -15,6 +15,10 @@
     $database->delete("Games", [
       "id" => $gameCode
     ]);
+
+    $database->delete("Players", [
+      "game_id" => $gameCode
+    ]);
   }
   
   function addStage() {

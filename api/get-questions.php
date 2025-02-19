@@ -1,7 +1,7 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if ($_SERVER["REQUEST_METHOD"] == "GET" || !isset($_POST['code'])) {
         header("Location: http://pubz.infinityfreeapp.com/index.php");
         die();
     }
@@ -90,6 +90,11 @@
 
             // Return the result as a JSON response
             echo json_encode($jsonOtazky);
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["playersFinished"])) {
+          $players = $database->select("Players", "stage_finished", ["game" => $gameCode]);
+          print_r($players);
         }
     }
 

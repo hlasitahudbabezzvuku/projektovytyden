@@ -33,6 +33,7 @@ if (count($data) != 0) {
     "id" => $uuid,
     "name" => $_SESSION["name"],
     "game" => $_SESSION["code"],
+    "stage_finished" => false,
   ]);
 } else {
   header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Kód je bohužel neplatný :("));
