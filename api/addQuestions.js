@@ -209,15 +209,25 @@ const otazky = {
     }
 }
 async function addQuestion() {
-    fetch('http://pubz.infinityfreeapp.com/api/add-questions.php', {
-        method: 'POST',
-        body: JSON.stringify(otazky),
-        success: function (response) {
-            console.log(response)
-        },
-        error: function (a, b, c) {
-            console.error(a, b)
-            console.error(c)
+    try {
+        let response = await fetch(
+            'http://pubz.infinityfreeapp.com/api/add-questions.php',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(otazky)
+            }
+        )
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`)
         }
-    })
+
+        let data = await response.json() // Parse JSON response
+        console.log('Server Response:', data)
+    } catch (error) {
+        console.error('Fetch Error:', error)
+    }
 }
