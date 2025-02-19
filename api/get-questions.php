@@ -46,6 +46,7 @@
                 "otazka_id" => $otazky[$key],
                 "position" => $order,
             ]);
+            $order++;
         }
         
 
