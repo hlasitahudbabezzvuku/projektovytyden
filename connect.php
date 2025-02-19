@@ -53,10 +53,12 @@ if (count($data) != 0) {
     function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=" . $code . "')
       .then(function (response) { return response.text(); })
       .then(function (text) {
+        console.log("idk");
         if (text != '0')
+          console.log("nevim");
           window.location.replace('http://pubz.infinityfreeapp.com/game.php');
       });}
-    setInterval(get_players, 2000);
+    setInterval(get_stage, 2000);
     </script>
   </body>
 </html>
