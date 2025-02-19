@@ -22,9 +22,7 @@ global $database;
   <body>
     <h1>PubZ</h1>
     <span><a href="login.php?mode=join">Připojit se</a></span>
-    <?php $nevim = "hello"; ?>
     <span><a href="login.php?mode=host">Vytvořit</a></span>
-    <?php echo $nevim; ?>
     <span><a href="login.php?mode=single">Hrát sám</a></span>
   </body>
 </html>
