@@ -41,8 +41,8 @@ async function getFinished(gameCode) {
     .then((responseData) => {
       if (responseData.allFinished === true) {
         // clearInterval(gameUpdate)
-        formData.append('allFinished', 'true')
-        fetch('http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode, {
+        formData.append('resetStage', 'true')
+        fetch('http://pubz.infinityfreeapp.com/api/get-question.php', {
           method: 'POST',
           body: formData
         })

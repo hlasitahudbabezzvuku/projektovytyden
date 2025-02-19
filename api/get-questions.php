@@ -108,4 +108,24 @@
       ]);
       exit();
     }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["resetStage"])) {
+      $database->update("Players", [
+        "stage_finished" => 0
+      ], [
+        "game" => $gameCode
+      ]);
+      exit();
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["getFinishedPlayers"])) {
+      $players = $database->select("Players", ["name", "score"], [
+        "AND" => [
+          "game" => $gameCode,
+          "stage_finished" => 1
+        ]
+      ]);
+      echo json_encode($players);
+      exit();
+    }
 ?>
