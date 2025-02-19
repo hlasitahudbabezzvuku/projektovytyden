@@ -84,7 +84,8 @@
                         "b" => $otazka["b"],
                         "c" => $otazka["c"],
                         "d" => $otazka["d"]
-                    ]
+                    ],
+                    "pozice" => $otazka["position"]
                 ];
                 $jsonOtazky[] = $questionData;  // Add each question's data to the array
             }
