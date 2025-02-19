@@ -35,22 +35,22 @@
     if ($typ != "") {
         $otazky = $database->select("Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"], "[<]".$typ."Otazky"=>["id"=>"id_otazky"]], [$typ, "a", "b", "c", "d"]);
 
-        $randomOtazky = array_rand($diceNumbers, 3);
+        $randomOtazky = array_rand($otazky, 3);
         print_r($randomOtazky);
 
         $jsonOtazky = json_encode($otazky);
-        echo "{";
+        // echo "{";
         
-        foreach ($otazky as $otazka) {
-            echo "'".$typ."': ".$otazka[$typ].",";
-            echo "odpovedi: {";
-            echo "'a': ".$otazka["a"].",";
-            echo "'b': ".$otazka["b"].",";
-            echo "'c': ".$otazka["c"].",";
-            echo "'d': ".$otazka["d"].",";
-            echo "}";
-        }
-        echo "}";
+        // foreach ($otazky as $otazka) {
+        //     echo "'".$typ."': ".$otazka[$typ].",";
+        //     echo "odpovedi: {";
+        //     echo "'a': ".$otazka["a"].",";
+        //     echo "'b': ".$otazka["b"].",";
+        //     echo "'c': ".$otazka["c"].",";
+        //     echo "'d': ".$otazka["d"].",";
+        //     echo "}";
+        // }
+        // echo "}";
         // print_r($jsonOtazky);
     }
 
