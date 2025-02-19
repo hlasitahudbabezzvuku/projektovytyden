@@ -24,7 +24,7 @@
     ]);
 
     if ($currentStage == 8) {
-      delete();
+      deleteGame();
     }
 
     if ($currentStage < 0 || $currentStage > 8) {
