@@ -82,15 +82,4 @@
       echo json_encode($jsonResponse);
       exit();
     }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["getFinishedPlayers"])) {
-      $players = $database->select("Players", ["name", "score"], [
-        "AND" => [
-          "game" => $gameCode,
-          "stage_finished" => 1
-        ]
-      ]);
-      echo json_encode($players);
-      exit();
-    }
 ?>
