@@ -34,11 +34,11 @@ async function getFinished(gameCode) {
       playerFinished = responseData
       console.log(playerFinished)
     })
-
-  if (playerFinished.allFinished === true) {
-    console.log('ahoj')
-    resetStage()
-  }
+    .then(() => {
+      if (playerFinished.allFinished === true) {
+        console.log('ahoj')
+      }
+    })
 }
 
 async function resetStage(gameCode) {
