@@ -35,7 +35,9 @@ async function getFinished(gameCode) {
   fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
     method: 'POST',
     body: formData
-  }).then((response) => console.log(response))
+  })
+    .then((response) => response.json())
+    .then((responseData) => console.log(responseData))
 }
 
 console.log(data)
