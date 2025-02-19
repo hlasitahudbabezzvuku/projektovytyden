@@ -31,6 +31,4 @@ async function getQuestions(gameCode) {
         })
 }
 
-generateQuestions()
-
 console.log(data)
