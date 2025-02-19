@@ -53,6 +53,7 @@
                 ]);
                 $order++;
             }
+            exit();
         }
     
         if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["getJSON"])) {
@@ -91,13 +92,13 @@
 
             // Return the result as a JSON response
             echo json_encode($jsonOtazky);
+            exit();
         }
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["getFinished"])) {
       $players = $database->select("Players", "stage_finished", ["game" => $gameCode]);
-      echo in_array("0", $players);
+      echo json_encode(in_array("0", $players));
+      exit();
     }
-
-    exit();
 ?>
