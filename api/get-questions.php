@@ -34,7 +34,7 @@
     if ($typ != "") {
         $otazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], [$typ, "a", "b", "c", "d"]);
 
-        $jsonOtazky = json_encode($textOtazky);
+        $jsonOtazky = json_encode($otazky);
 
         echo "{";
         
