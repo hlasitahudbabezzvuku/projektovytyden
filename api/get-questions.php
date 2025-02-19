@@ -31,6 +31,11 @@
             break;
     }
 
+    if ($typ = "") {
+        header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Nastala chyba"));
+        die();
+    }
+
 
     $textOtazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], '*');
     
