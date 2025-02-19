@@ -53,6 +53,7 @@
 </head>
   <button>Continue</button>
   <script src="game.js"></script>
+  <?php echo $_SESISON['code']?>
   <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
     <script>generateQuestions(<?php echo $_SESSION['code']; ?>)</script>
   <?php } ?>
