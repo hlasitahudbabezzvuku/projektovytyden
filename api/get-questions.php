@@ -1,12 +1,12 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
-    // if ($_SERVER["REQUEST_METHOD"] == "GET" || !isset($_POST['code'])) {
-    //     header("Location: http://pubz.infinityfreeapp.com/index.php");
-    //     die();
-    // }
+    if ($_SERVER["REQUEST_METHOD"] == "GET" || !isset($_POST['code'])) {
+        header("Location: http://pubz.infinityfreeapp.com/index.php");
+        die();
+    }
 
-    $gameCode = $_GET["code"];
+    $gameCode = $_POST["code"];
     echo $gameCode;
 
     $currentStage = $database->get("Games", 'stage', [
@@ -94,11 +94,9 @@
         }
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-      echo "OK";
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["getFinished"])) {
       $players = $database->select("Players", "stage_finished", ["game" => $gameCode]);
       echo in_array("0", $players);
-      return in_array("0", $players);
     }
 
     exit();

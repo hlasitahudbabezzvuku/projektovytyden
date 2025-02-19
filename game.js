@@ -31,4 +31,14 @@ async function getQuestions(gameCode) {
         })
 }
 
+async function getFinished(gameCode) {
+    const formData = new FormData()
+    formData.append('getFinished', 'true')
+    formData.append('code', gameCode)
+    fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
+        method: 'POST',
+        body: formData
+    }).then((response) => console.log(response))
+}
+
 console.log(data)

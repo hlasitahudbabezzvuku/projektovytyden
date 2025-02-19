@@ -51,9 +51,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+  <button>Continue</button>
   <script src="game.js"></script>
   <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
     <script>generateQuestions(<?php echo $_SESSION['code']; ?>)</script>
+  <?php } ?>
+  <?php if () { ?>
+    <button>Continue</button>
   <?php } ?>
 </body>
 </html>
