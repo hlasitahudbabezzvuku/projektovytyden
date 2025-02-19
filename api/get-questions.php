@@ -115,6 +115,8 @@
       ], [
         "game" => $gameCode
       ]);
+      $jsonResponse = ["success" => "true"];
+      echo json_encode($jsonResponse);
       exit();
     }
 
