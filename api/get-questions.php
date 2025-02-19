@@ -34,7 +34,7 @@
 
     if ($typ != "") {
         // $otazky = $database->select("Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"], "[<]".$typ."Otazky"=>["id"=>"id_otazky"]], [$typ, "a", "b", "c", "d"]);
-        $otazky = $database->select("Otazky", ["id", "id_odpovedi"], ["type" => $typ]);
+        $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
 
         $keys = array_rand($otazky, 3);
         print_r($keys);
@@ -44,7 +44,7 @@
             echo $key;
             $database->insert("GamesOtazky", [
                 "game_id" => $gameCode,
-                "otazka_id" => $otazky[$key],
+                "otazka_id" => $otazky[$key]["id"],
                 "position" => $order,
             ]);
             $order++;
