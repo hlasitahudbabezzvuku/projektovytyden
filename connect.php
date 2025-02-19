@@ -54,8 +54,8 @@ if (count($data) != 0) {
       .then(function (response) { return response.text(); })
       .then(function (text) {
         console.log(text);
-        //if (text != '0')
-        //  window.location.replace('http://pubz.infinityfreeapp.com/game.php');
+        if (text != '0')
+          window.location.replace('http://pubz.infinityfreeapp.com/game.php');
       });}
     setInterval(get_stage, 2000);
     </script>
