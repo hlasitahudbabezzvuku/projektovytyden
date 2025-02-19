@@ -9,7 +9,8 @@
   } 
   
   function addStage() {
-    $gameCode = $_SESSION['code']
+    global $database;
+    $gameCode = $_SESSION['code'];
     $currentStage = $database->get("Games", 'stage', [
       "id" => $gameCode
     ]);
