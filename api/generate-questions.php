@@ -2,6 +2,8 @@
   require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
   global $database;
 
+  $gameCode = $_GET["code"];
+
   $currentStage = $database->get("Games", 'stage', [
     "id" => $gameCode
   ]);
@@ -37,7 +39,7 @@
   $order = 0;
   foreach ($keys as $key) {
     $database->insert("GamesOtazky", [
-      "game_id" => $_GET['code'],
+      "game_id" => $gameCode,
       "otazka_id" => $otazky[$key]["id"],
       "position" => $order,
     ]);
