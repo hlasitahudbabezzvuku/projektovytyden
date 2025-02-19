@@ -30,8 +30,10 @@
     if ($typ != "") {
         $otazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], [$typ, "a", "b", "c", "d"]);
 
-        $jsonOtazky = json_encode($otazky);
+        $randomOtazky = array_rand($diceNumbers, 3);
+        print_r($randomOtazky);
 
+        $jsonOtazky = json_encode($otazky);
         echo "{";
         
         foreach ($otazky as $otazka) {
@@ -43,7 +45,6 @@
             echo "'d': ".$otazka["d"].",";
             echo "}";
         }
-
         echo "}";
         // print_r($jsonOtazky);
     }
