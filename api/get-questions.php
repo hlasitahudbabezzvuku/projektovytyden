@@ -106,5 +106,6 @@
       ], [
         ["id" => $_POST["finishStage"]]
       ]);
+      exit();
     }
 ?>
