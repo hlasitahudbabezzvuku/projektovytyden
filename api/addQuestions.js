@@ -214,6 +214,10 @@ async function addQuestion() {
         body: JSON.stringify(otazky),
         success: function (response) {
             console.log(response)
+        },
+        error: function (a, b, c) {
+            console.error(a, b)
+            console.error(c)
         }
     })
 }
