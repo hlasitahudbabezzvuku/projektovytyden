@@ -36,7 +36,7 @@ async function getFinished(gameCode) {
     })
     .then(() => {
       if (playerFinished.allFinished === true) {
-        console.log('ahoj')
+        resetStage(gameCode)
       }
     })
 }
