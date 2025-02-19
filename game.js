@@ -39,11 +39,12 @@ async function getFinished(gameCode) {
   })
     .then((response) => response.json())
     .then((responseData) => {
-      if (responseData.allFinished === true) {
-        // clearInterval(gameUpdate)
-        resetStage(gameCode)
-      }
+      playerFinished = responseData
     })
+
+  if (playerFinished.allFinished === true) {
+    resetStage(gameCode)
+  }
 }
 
 async function resetStage(gameCode) {
