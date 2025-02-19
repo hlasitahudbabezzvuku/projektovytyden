@@ -27,7 +27,7 @@
 </head>
   <script src="game.js"></script>
   <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
-    <script>generateQuestions()</script>
+    <script>generateQuestions((<?php echo $_SESSION['code'] ?>)</script>
   <?php } ?>
 </body>
 </html>

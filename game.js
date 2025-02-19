@@ -1,6 +1,7 @@
-async function generateQuestions() {
+async function generateQuestions(gameCode) {
     const formData = new FormData()
     formData.append('generate', 'true')
+    formData.append('code', gameCode)
 
     fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
         method: 'POST',
@@ -10,9 +11,10 @@ async function generateQuestions() {
 
 data = {}
 
-async function getQuestions() {
+async function getQuestions(gameCode) {
     const formData = new FormData()
     formData.append('getJSON', 'true')
+    formData.append('code', gameCode)
     fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
         method: 'POST',
         body: formData

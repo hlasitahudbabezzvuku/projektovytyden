@@ -13,7 +13,7 @@
 <body>
     <script src="game.js"></script>
     <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
-      <script>getQuestions()</script>
+      <script>getQuestions(<?php echo $_SESSION['code'] ?>)</script>
     <?php } ?>
 </body>
 </html>

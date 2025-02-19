@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -7,7 +6,7 @@
         die();
     }
 
-    $gameCode = $_SESSION["code"];
+    $gameCode = $_POST["code"];
 
     $currentStage = $database->get("Games", 'stage', [
         "id" => $gameCode
