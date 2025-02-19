@@ -1,11 +1,12 @@
 <?php
     session_start();
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
+    require $_SERVER["DOCUMENT_ROOT"] . "/api/get-stage.php";
 
     $gameCode = $_SESSION["code"];
-    echo $gameCode;
 
-    $currentStage = $database->get("Games", [], 'stage', ['id' => $gameCode]);
+    $currentStage = $data;
+    echo $currentStage;
     $typ = "";
 
     if ($currentStage < 0 || $currentStage > 8) {
