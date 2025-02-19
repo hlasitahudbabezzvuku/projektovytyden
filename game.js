@@ -20,10 +20,9 @@ async function getQuestions(gameCode) {
     body: formData
   })
     .then((response) => response.json()) // Parse the JSON response
-    .then((data) => {
+    .then((responseData) => {
       // Store the response in a variable
-      const responseData = data
-      console.log(responseData) // This will log the response to the console
+      data = responseData // This will log the response to the console
       // You can now use responseData as needed in your application
     })
     .catch((error) => {
@@ -38,7 +37,11 @@ async function getFinished(gameCode) {
   fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
     method: 'POST',
     body: formData
-  }).then((response) => console.log(response))
+  })
+    .then((response) => response.json)
+    .then((responseData) => {
+      console.log(responseData)
+    })
 }
 
 console.log(data)
