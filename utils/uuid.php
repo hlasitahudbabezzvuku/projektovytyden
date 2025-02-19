@@ -1,6 +1,5 @@
 <?php
 
-// Generates UUID
 function uuid() {
   $data = random_bytes(16);
   assert(strlen($data) == 16);
@@ -11,7 +10,6 @@ function uuid() {
   return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 }
 
-// Generates UUID in bytes
 function uuidb() {
   $data = random_bytes(16);
   assert(strlen($data) == 16);
