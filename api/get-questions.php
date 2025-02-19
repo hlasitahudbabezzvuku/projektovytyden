@@ -7,7 +7,7 @@
     $currentStage = $database->get("Games", ["stage"], [
         "id" => $gameCode
     ]);
-    echo $currentStage;
+    print_r($currentStage);
     $typ = "";
 
     if ($currentStage < 0 || $currentStage > 8) {
