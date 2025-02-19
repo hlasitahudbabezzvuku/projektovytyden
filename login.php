@@ -37,10 +37,9 @@ global $database;
       ?>
 
       <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo urlencode('http://pubz.infinityfreeapp.com/login.php?game=' . $code) ?>" alt="qr-code"/>
-      <form action="monitor.php?id=<?php echo $code ?>" method="GET">
-
+      <form action="monitor.php" method="GET">
+      <input type="hidden" name='id' value=<?php $code ?>>
       <?php echo $code ?>
-
       <div id="players"></div>
       <script>
         function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=' + <?php echo $code ?>)
