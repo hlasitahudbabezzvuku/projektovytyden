@@ -68,19 +68,24 @@
                 "GamesOtazky.game_id" => $gameCode
             ]);
     
-            echo "{";
-            
+            // Create an array to hold the results
+            $jsonOtazky = [];
+
             foreach ($otazky as $otazka) {
-                echo "'".$typ."': ".$otazka[$typ].",";
-                echo "odpovedi: {";
-                echo "'a': ".$otazka["a"].",";
-                echo "'b': ".$otazka["b"].",";
-                echo "'c': ".$otazka["c"].",";
-                echo "'d': ".$otazka["d"].",";
-                echo "}";
+                $questionData = [
+                    $typ => $otazka[$typ],
+                    "odpovedi" => [
+                        "a" => $otazka["a"],
+                        "b" => $otazka["b"],
+                        "c" => $otazka["c"],
+                        "d" => $otazka["d"]
+                    ]
+                ];
+                $jsonOtazky[] = $questionData;  // Add each question's data to the array
             }
-            echo "}";
-            print_r($jsonOtazky);
+
+            // Return the result as a JSON response
+            echo json_encode($jsonOtazky);
         }
     }
 
