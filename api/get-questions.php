@@ -37,10 +37,11 @@
         $otazky = $database->select("Otazky", ["id", "id_odpovedi"], ["type" => $typ]);
 
         $keys = array_rand($otazky, 3);
-        print_r($otazky[$keys[0]]);
+        print_r($keys);
 
         $order = 0;
         foreach ($keys as $key) {
+            echo $key;
             $database->insert("GamesOtazky", [
                 "game_id" => $gameCode,
                 "otazka_id" => $otazky[$key],
