@@ -54,16 +54,10 @@ async function resetStage(gameCode) {
   })
 }
 
-async function finishStage(playerId, gameCode) {
-  console.log(playerId, gameCode)
-
-  const formData = new FormData()
-  formData.append('finishStage', playerId)
-  formData.append('code', gameCode)
-  fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
-    method: 'POST',
-    body: formData
-  })
+async function finishStage(playerId) {
+  fetch(
+    'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
+  )
 }
 
 console.log(data)

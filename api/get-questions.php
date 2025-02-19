@@ -72,15 +72,6 @@
       exit();
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["finishStage"])) {
-      $database->update("Players", [
-        "stage_finished" => 1
-      ], [
-        "id" => hex2bin($_POST["finishStage"])
-      ]);
-      exit();
-    }
-
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["resetStage"])) {
       $database->update("Players", [
         "stage_finished" => 0
