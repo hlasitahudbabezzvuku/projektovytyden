@@ -1,7 +1,7 @@
 <?php
 
-require "database.php";
-require "uuid.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/utils/database.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/utils/uuid.php";
 
 function pridatOdpovedi($odpovedi) {
   global $database;
