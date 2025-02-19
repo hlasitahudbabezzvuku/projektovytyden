@@ -102,7 +102,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["finishStage"])) {
       $database->update("Players", [
-        "stage_finished" => 0
+        "stage_finished" => 1
       ], [
         "id" => hex2bin($_POST["finishStage"])
       ]);
