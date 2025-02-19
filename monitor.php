@@ -52,8 +52,8 @@
   <title>Document</title>
 </head>
   <script src="game.js"></script>
-  <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["allFinished"])) { ?>
-    <button onclick="">Continue</button>
+  <?php if (isset($_GET["allFinished"])) { ?>
+    <button onclick="resetStage(<?php echo $_SESSION['code']; ?>)">Continue</button>
   <?php } ?>
   <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
     <script>generateQuestions(<?php echo $_SESSION['code']; ?>)</script>

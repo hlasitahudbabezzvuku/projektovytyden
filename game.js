@@ -43,7 +43,9 @@ async function getFinished(gameCode) {
     })
 
   if (playerFinished.allFinished === true) {
-    resetStage(gameCode)
+    window.location.replace(
+      'https://pubz.infinityfreeapp.com/monitor.php?continue=true'
+    )
   }
 }
 
