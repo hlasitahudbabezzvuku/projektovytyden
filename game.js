@@ -11,10 +11,11 @@ async function getQuestions(gameCode) {
   fetch(
     'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
   )
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then((responseData) => {
-      data = responseData
-      console.log(data)
+      console.log(JSON.parse(response))
+      // data = responseData
+      // console.log(data)
     })
     .catch((error) => {
       console.error('Error:', error)
