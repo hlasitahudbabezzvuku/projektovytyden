@@ -13,7 +13,6 @@
 <body>
     <script src="game.js"></script>
     <?php
-        if ($)
     ?>
 </body>
 </html>
