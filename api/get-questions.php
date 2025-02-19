@@ -31,21 +31,17 @@
             break;
     }
 
-    if ($typ = "") {
-        header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Nastala chyba"));
-        die();
+    if ($typ != "") {
+        $textOtazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], '*');
+        
+        for ($i = 0; $i < count($textOtazky); $i++) {
+            $textOtazky[$i]["id"] = bin2hex($textOtazky[$i]["id"]);
+            $textOtazky[$i]["id_odpovedi"] = bin2hex($textOtazky[$i]["id_odpovedi"]);
+        }
+        $jsonOtazky = json_encode($textOtazky);
+        print_r($currentStage);
+        print_r($textOtazky);
     }
-
-
-    $textOtazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], '*');
-    
-    for ($i = 0; $i < count($textOtazky); $i++) {
-        $textOtazky[$i]["id"] = bin2hex($textOtazky[$i]["id"]);
-        $textOtazky[$i]["id_odpovedi"] = bin2hex($textOtazky[$i]["id_odpovedi"]);
-    }
-    $jsonOtazky = json_encode($textOtazky);
-    print_r($currentStage);
-    print_r($textOtazky);
 
     exit();
 ?>
