@@ -93,6 +93,7 @@
         }
 
         if (isset($_GET["playersFinished"])) {
+          echo "OK";
           $players = $database->select("Players", "stage_finished", ["game" => $gameCode]);
           print_r($players);
         }
