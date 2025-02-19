@@ -208,26 +208,25 @@ const otazky = {
         }
     }
 }
+
 async function addQuestion() {
-    // try {
     let response = await fetch(
         'http://pubz.infinityfreeapp.com/api/add-questions.php',
         {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(otazky)
         }
     )
 
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`)
-    }
+    let rawText = await response.text()
+    console.log('Full Raw Response:', rawText)
 
-    let data = await response.json() // Parse JSON response
-    console.log('Server Response:', data)
-    // } catch (error) {
-    //     console.log(error)
-    // }
+    let data
+    try {
+        data = JSON.parse(rawText)
+        console.log('Parsed JSON Response:', data)
+    } catch {
+        console.log('Response is not valid JSON, returning raw text')
+    }
 }
