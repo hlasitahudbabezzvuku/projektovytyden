@@ -37,7 +37,7 @@
             "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
             "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]], [$typ."Otazky.".$typ, "Odpovedi.a", "Odpovedi.b", "Odpovedi.c", "Odpovedi.d"], ["GamesOtazky.game_id" => $gameCode]);
         // $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
-        print_r($otazky);
+        // print_r($otazky);
         // $keys = array_rand($otazky, 3);
         // print_r($keys);
 
@@ -54,7 +54,7 @@
         
 
         $jsonOtazky = json_encode($otazky);
-        print_r($jsonOtazky)
+        print_r($jsonOtazky);
         // echo "{";
         
         // foreach ($otazky as $otazka) {
