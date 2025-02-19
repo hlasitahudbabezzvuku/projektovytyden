@@ -9,8 +9,8 @@ async function generateQuestions(gameCode) {
   })
 }
 
-data = {}
-playerFinished = {}
+let data = {}
+let playerFinished = {}
 
 async function getQuestions(gameCode) {
   const formData = new FormData()
