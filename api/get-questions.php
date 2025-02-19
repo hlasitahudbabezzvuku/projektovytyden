@@ -2,6 +2,11 @@
     session_start();
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        header("Location: http://pubz.infinityfreeapp.com/index.php");
+        die();
+    }
+
     $gameCode = $_SESSION["code"];
     echo $gameCode;
 
@@ -11,10 +16,10 @@
     print_r($currentStage);
     $typ = "";
 
-    // if ($currentStage < 0 || $currentStage > 8) {
-    //     header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
-    //     die();
-    // }
+    if ($currentStage < 0 || $currentStage > 8) {
+        header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
+        die();
+    }
 
     switch ($currentStage) {
         case 1:
@@ -32,42 +37,53 @@
     }
 
     if ($typ != "") {
-        $otazky = $database->select("GamesOtazky", [
-            "[<]Otazky"=>["otazka_id" => "id"], 
-            "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
-            "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]], [$typ."Otazky.".$typ, "Odpovedi.a", "Odpovedi.b", "Odpovedi.c", "Odpovedi.d"], ["GamesOtazky.game_id" => $gameCode]);
-        // $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
-        // print_r($otazky);
-        // $keys = array_rand($otazky, 3);
-        // print_r($keys);
-
-        // $order = 0;
-        // foreach ($keys as $key) {
-        //     echo $key;
-        //     $database->insert("GamesOtazky", [
-        //         "game_id" => $gameCode,
-        //         "otazka_id" => $otazky[$key]["id"],
-        //         "position" => $order,
-        //     ]);
-        //     $order++;
-        // }
-        
-
-        $jsonOtazky = json_encode($otazky);
-        print_r($jsonOtazky);
-        // echo "{";
-        
-        // foreach ($otazky as $otazka) {
-        //     echo "'".$typ."': ".$otazka[$typ].",";
-        //     echo "odpovedi: {";
-        //     echo "'a': ".$otazka["a"].",";
-        //     echo "'b': ".$otazka["b"].",";
-        //     echo "'c': ".$otazka["c"].",";
-        //     echo "'d': ".$otazka["d"].",";
-        //     echo "}";
-        // }
-        // echo "}";
-        // print_r($jsonOtazky);
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["generate"])) {
+            $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
+            print_r($otazky);
+            $keys = array_rand($otazky, 3);
+            print_r($keys);
+    
+            $order = 0;
+            foreach ($keys as $key) {
+                echo $key;
+                $database->insert("GamesOtazky", [
+                    "game_id" => $gameCode,
+                    "otazka_id" => $otazky[$key]["id"],
+                    "position" => $order,
+                ]);
+                $order++;
+            }
+        }
+    
+        if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["getJSON"])) {
+            $otazky = $database->select("GamesOtazky", [
+                "[<]Otazky"=>["otazka_id" => "id"], 
+                "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
+                "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]
+            ], [
+                $typ."Otazky.".$typ, 
+                "Odpovedi.a", 
+                "Odpovedi.b", 
+                "Odpovedi.c", 
+                "Odpovedi.d"
+            ], [
+                "GamesOtazky.game_id" => $gameCode
+            ]);
+    
+            echo "{";
+            
+            foreach ($otazky as $otazka) {
+                echo "'".$typ."': ".$otazka[$typ].",";
+                echo "odpovedi: {";
+                echo "'a': ".$otazka["a"].",";
+                echo "'b': ".$otazka["b"].",";
+                echo "'c': ".$otazka["c"].",";
+                echo "'d': ".$otazka["d"].",";
+                echo "}";
+            }
+            echo "}";
+            print_r($jsonOtazky);
+        }
     }
 
     exit();
