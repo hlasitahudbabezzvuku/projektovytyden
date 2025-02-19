@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/libs/Medoo.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/libs/Medoo.php";
 use Medoo\Medoo;
 
 $database = new Medoo([
