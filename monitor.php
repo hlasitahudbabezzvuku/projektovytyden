@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    if (array_key_exists("code", $_GET)) {
-        $_SESSION['code'] = $_GET["code"];
+    if (array_key_exists("id", $_GET)) {
+        $_SESSION['code'] = $_GET["id"];
     } else {
         header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Prvni musis hru zalozit :("));
     }    
