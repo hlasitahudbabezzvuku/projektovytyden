@@ -92,12 +92,12 @@
             // Return the result as a JSON response
             echo json_encode($jsonOtazky);
         }
+    }
 
-        if ($_SERVER["REQUEST_METHOD"] == "GET") {
-          echo "OK";
-          $players = $database->select("Players", ["stage_finished"], ["game" => $gameCode]);
-          print_r($players);
-        }
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+      echo "OK";
+      $players = $database->select("Players", ["stage_finished"], ["game" => $gameCode]);
+      print_r($players);
     }
 
     exit();
