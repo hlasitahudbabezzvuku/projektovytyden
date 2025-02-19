@@ -5,13 +5,4 @@
 
     session_start();
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
-
-    $textOtazky = $database->select("textOtazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], ["text", "a", "b", "c", "d", "spravna"]);
-
-    for ($i = 0; $i < count($textOtazky); $i++) {
-        $textOtazky[$i]["id"] = bin2hex($textOtazky[$i]["id"]);
-        $textOtazky[$i]["id_odpovedi"] = bin2hex($textOtazky[$i]["id_odpovedi"]);
-    }
-    // $jsonOtazky = json_encode($textOtazky);
-    print_r($textOtazky);
 ?>
