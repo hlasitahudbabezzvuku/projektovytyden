@@ -6,7 +6,7 @@
 
     $currentStage = $database->get("Games", ["stage"], [
         "id" => $gameCode
-    ]);
+    ])["stage"];
     print_r($currentStage);
     $typ = "";
 
@@ -34,8 +34,8 @@
     if ($typ != "") {
         $otazky = $database->select("Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"], "[>]".$typ."Otazky"=>["id"=>"id_otazky"]], [$typ, "a", "b", "c", "d"]);
 
-        $randomOtazky = array_rand($diceNumbers, 3);
-        print_r($randomOtazky);
+        // $randomOtazky = array_rand($diceNumbers, 3);
+        print_r($$otazky);
 
         $jsonOtazky = json_encode($otazky);
         echo "{";
