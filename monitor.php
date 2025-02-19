@@ -3,14 +3,14 @@
   session_start();
 
   if (array_key_exists("id", $_GET)) {
-      $_SESSION['code'] = $_GET["id"];
-      $gameCode = $_SESSION['code'];
+    $_SESSION['code'] = $_GET["id"];
   } else {
-      header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Prvni musis hru zalozit :("));
+    header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Prvni musis hru zalozit :("));
   } 
 
   function deleteGame() {
-    global $database, $gameCode;
+    global $database;
+    $gameCode = $_SESSION['code'];
 
     $database->delete("Games", [
       "id" => $gameCode
@@ -18,14 +18,16 @@
   }
   
   function addStage() {
-    global $database, $gameCode;
+    global $database;
+    $gameCode = $_SESSION['code'];
+
     $currentStage = $database->get("Games", 'stage', [
       "id" => $gameCode
     ]);
 
     if ($currentStage == 8) {
-      header("Location: http://pubz.infinityfreeapp.com/index.php");
       deleteGame();
+      header("Location: http://pubz.infinityfreeapp.com/index.php");
       die();
     }
 
