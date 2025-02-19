@@ -1,10 +1,10 @@
 <?php
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET" || !isset($_POST['code'])) {
-        header("Location: http://pubz.infinityfreeapp.com/index.php");
-        die();
-    }
+    // if ($_SERVER["REQUEST_METHOD"] == "GET" || !isset($_POST['code'])) {
+    //     header("Location: http://pubz.infinityfreeapp.com/index.php");
+    //     die();
+    // }
 
     $gameCode = $_POST["code"];
 
