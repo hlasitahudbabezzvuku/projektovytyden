@@ -24,7 +24,9 @@
     ]);
 
     if ($currentStage == 8) {
+      header("Location: http://pubz.infinityfreeapp.com/index.php");
       deleteGame();
+      die();
     }
 
     if ($currentStage < 0 || $currentStage > 8) {
