@@ -64,7 +64,7 @@ global $database;
         "Přezdívka: <input type=\"text\" name=\"name\"><br>" .
         "Kód: <input type=\"text\" name=\"code\"><br>"
       ); 
-    }     
+    }
 
     ?>
     <input type="submit">
