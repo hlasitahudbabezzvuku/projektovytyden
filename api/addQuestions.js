@@ -211,6 +211,9 @@ const otazky = {
 async function addQuestion() {
     fetch('http://pubz.infinityfreeapp.com/api/add-questions.php', {
         method: 'POST',
-        body: JSON.stringify(otazky)
+        body: JSON.stringify(otazky),
+        success: function (response) {
+            console.log(response)
+        }
     })
 }
