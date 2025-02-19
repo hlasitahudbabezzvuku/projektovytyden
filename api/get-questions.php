@@ -8,12 +8,10 @@
     }
 
     $gameCode = $_SESSION["code"];
-    echo $gameCode;
 
     $currentStage = $database->get("Games", 'stage', [
         "id" => $gameCode
     ]);
-    print_r($currentStage);
     $typ = "";
 
     if ($currentStage < 0 || $currentStage > 8) {
