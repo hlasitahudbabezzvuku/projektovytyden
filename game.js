@@ -40,4 +40,16 @@ async function getFinished(gameCode) {
     .then((responseData) => console.log(responseData))
 }
 
+const finish = document.getElementById('finish')
+
+async function finishStage(playerId) {
+  const formData = new FormData()
+  formData.append('finishStage', playerId)
+  formData.append('code', gameCode)
+  fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
+    method: 'POST',
+    body: formData
+  })
+}
+
 console.log(data)

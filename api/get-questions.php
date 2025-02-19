@@ -104,7 +104,7 @@
       $database->update("Players", [
         "stage_finished" => 0
       ], [
-        ["game" => $gameCode]
+        ["id" => $_POST["finishStage"]]
       ]);
     }
 ?>
