@@ -25,6 +25,7 @@ function pridatOdpovedi($odpovedi) {
 
 function pridatOtazku($otazka, $typ) {
   global $database;
+  echo "Success";
   $otazka_id = uuidb();
   while ($database->get($typ."Otazky", "*", ["id" => $otazka_id,])) {
     $otazka_id = uuidb();
