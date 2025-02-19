@@ -64,22 +64,4 @@
       echo json_encode($jsonOtazky);
       exit();
     }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["getFinished"])) {
-      $players = $database->select("Players", "stage_finished", ["game" => $gameCode]);
-      $jsonResponse = ["allFinished" => !in_array("0", $players)];
-      echo json_encode($jsonResponse);
-      exit();
-    }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["resetStage"])) {
-      $database->update("Players", [
-        "stage_finished" => 0
-      ], [
-        "game" => $gameCode
-      ]);
-      $jsonResponse = ["success" => "true"];
-      echo json_encode($jsonResponse);
-      exit();
-    }
 ?>
