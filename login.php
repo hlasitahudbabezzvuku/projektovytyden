@@ -26,7 +26,7 @@ global $database;
       Přezdívka: <input type="text" name="name"><br>
     <?php } ?>
     
-    <?php>
+    <?php
     elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") {
       $code = rand(100000, 999999);
       $database->insert("Games", [
@@ -35,7 +35,7 @@ global $database;
     ?>
       <img src="https://api.qrserver.com/v1/create-qr-code/?data="<?php echo "http://pubz.infinityfreeapp.com/login.php?game=" . $code ?>" alt="qr-code"/>
       <form action="monitor.php?id=" . $code . "" method="GET">" .
-      $code .
+      $code
       <div id="players"></div>
       <script>
         function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=" . $code . "')
