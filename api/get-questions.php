@@ -54,6 +54,7 @@
         
 
         $jsonOtazky = json_encode($otazky);
+        print_r($jsonOtazky)
         // echo "{";
         
         // foreach ($otazky as $otazka) {
