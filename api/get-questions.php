@@ -5,7 +5,7 @@
     $gameCode = $_SESSION["code"];
     echo $gameCode;
 
-    $currentStage = $database->get("Games", 'stage', ['id' => $gameCode]);
+    $currentStage = $database->get("Games", [], 'stage', ['id' => $gameCode]);
     $typ = "";
 
     if ($currentStage < 0 || $currentStage > 8) {
@@ -27,6 +27,7 @@
             $typ = "ilustrace";
             break;
     }
+    echo $typ;
 
     if ($typ != "") {
         $otazky = $database->select("Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"], "[>]".$typ."Otazky"=>["id"=>"id_otazky"]], [$typ, "a", "b", "c", "d"]);
