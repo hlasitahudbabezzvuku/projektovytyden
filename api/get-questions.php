@@ -35,7 +35,7 @@
         $otazky = $database->select("GamesOtazky", [
             "[<]Otazky"=>["otazka_id" => "id"], 
             "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
-            "[<]Odpovedi"=>["Otazky.id"=>"id"]], [$typ."Otazky.".$typ, "Odpovedi.a", "Odpovedi.b", "Odpovedi.c", "Odpovedi.d"], ["GamesOtazky.game_id" => $gameCode]);
+            "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]], [$typ."Otazky.".$typ, "Odpovedi.a", "Odpovedi.b", "Odpovedi.c", "Odpovedi.d"], ["GamesOtazky.game_id" => $gameCode]);
         // $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
         print_r($otazky);
         // $keys = array_rand($otazky, 3);
