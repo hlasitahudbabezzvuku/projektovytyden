@@ -41,13 +41,19 @@ async function getFinished(gameCode) {
     .then((responseData) => {
       if (responseData.allFinished === true) {
         // clearInterval(gameUpdate)
-        formData.append('resetStage', 'true')
-        fetch('http://pubz.infinityfreeapp.com/api/get-question.php', {
-          method: 'POST',
-          body: formData
-        })
+        resetStage(gameCode)
       }
     })
+}
+
+async function resetStage(gameCode) {
+  const formData = new FormData()
+  formData.append('code', gameCode)
+  formData.append('resetStage', 'true')
+  fetch('http://pubz.infinityfreeapp.com/api/get-question.php', {
+    method: 'POST',
+    body: formData
+  })
 }
 
 async function finishStage(playerId, gameCode) {
