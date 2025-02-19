@@ -30,15 +30,13 @@
             $typ = "ilustrace";
             break;
     }
-    echo $typ;
 
     if ($typ != "") {
         $otazky = $database->select("GamesOtazky", [
             "[<]Otazky"=>["otazka_id" => "id"], 
             "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
-            "[<]Odpovedi"=>["Otazky.id"=>"id"]], [$typ, "a", "b", "c", "d"], ["game_id" => $gameCode]);
+            "[<]Odpovedi"=>["Otazky.id"=>"id"]], [$typ, "a", "b", "c", "d"], ["GamesOtakzy.game_id" => $gameCode]);
         // $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
-        echo "Proc to nic nevypisuje";
         print_r($otazky);
         // $keys = array_rand($otazky, 3);
         // print_r($keys);
