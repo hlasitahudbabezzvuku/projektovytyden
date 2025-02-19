@@ -4,7 +4,7 @@
 
     $gameCode = $_SESSION["code"];
 
-    $currentStage = $database->get("Games", null, 'stage', ['id' => $gameCode]);
+    $currentStage = $database->get("Games", [], 'stage', ['id' => $gameCode]);
     $typ = "";
 
     if ($currentStage < 0 || $currentStage > 8) {
