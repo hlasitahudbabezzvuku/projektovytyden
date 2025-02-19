@@ -8,7 +8,7 @@
 
     $gameCode = $_SESSION["code"];
 
-    $currentStage = $database->get("Games", null, 'stage');
+    $currentStage = $database->get("Games",'stage');
     $textOtazky = $database->select("textOtazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], ["text", "a", "b", "c", "d", "spravna"]);
     
     for ($i = 0; $i < count($textOtazky); $i++) {
