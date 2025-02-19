@@ -6,7 +6,7 @@
     //     die();
     // }
 
-    $gameCode = $_POST["code"];
+    $gameCode = $_GET["code"];
 
     $currentStage = $database->get("Games", 'stage', [
         "id" => $gameCode
