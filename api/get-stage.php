@@ -7,6 +7,6 @@ $data = $database->select("Games", "stage", [
 	"id" => $_GET["game"]
 ]);
 
-echo $data[0];
+echo $data;
 
 ?>
