@@ -23,11 +23,14 @@ if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
   die();
 }
 
+$uuid = uuidb();
+$_SESSION["uuid"] = $uuid;
+
 $data = $database->select("Games", ["id"], ["id" => $_SESSION["code"]]);
 
 if (count($data) != 0) {
   $database->insert("Players", [
-    "id" => uuidb(),
+    "id" => $uuid,
     "name" => $_SESSION["name"],
     "game" => $_SESSION["code"],
   ]);
