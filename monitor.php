@@ -58,6 +58,6 @@
   <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
     <script>generateQuestions(<?php echo $_SESSION['code']; ?>)</script>
   <?php } ?>
-  <script>setInterval(getFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
+  <script>gameUpdate = setInterval(getFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
 </body>
 </html>
