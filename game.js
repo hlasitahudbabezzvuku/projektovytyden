@@ -36,7 +36,7 @@ async function getFinished(gameCode) {
     })
     .then(() => {
       if (playerFinished.allFinished === true) {
-        document.getElementById('continueButton').disabled = false
+        document.getElementById('continue-button').disabled = false
       }
     })
 }
