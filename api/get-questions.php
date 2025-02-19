@@ -33,7 +33,10 @@
     echo $typ;
 
     if ($typ != "") {
-        $otazky = $database->select("GamesOtazky", ["[<]Otazky"=>["otazka_id" => "id"], "[<]".$typ."Otazky"=>["id"=>"id_otazky"], "[<]Odpovedi"=>["Otazky.id"=>"id"]], [$typ, "a", "b", "c", "d"], ["game_id" => $gameCode]);
+        $otazky = $database->select("GamesOtazky", [
+            "[<]Otazky"=>["otazka_id" => "id"], 
+            "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
+             "[<]Odpovedi"=>["Otazky.id"=>"id"]], [$typ, "a", "b", "c", "d"], ["game_id" => $gameCode]);
         // $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
 
         print_r($otazky);
