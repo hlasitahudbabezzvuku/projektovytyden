@@ -6,7 +6,7 @@
 
     $currentStage = $database->select("Games", 'stage', [
         "id" => $gameCode
-    ])["stage"];
+    ]);
     print_r($currentStage);
     $typ = "";
 
