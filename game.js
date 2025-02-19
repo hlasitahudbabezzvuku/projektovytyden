@@ -44,7 +44,7 @@ async function getFinished(gameCode) {
 
   if (playerFinished.allFinished === true) {
     window.location.replace(
-      'https://pubz.infinityfreeapp.com/monitor.php?continue=true'
+      'http://pubz.infinityfreeapp.com/monitor.php?continue=true'
     )
   }
 }
