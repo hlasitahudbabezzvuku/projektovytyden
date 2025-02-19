@@ -5,7 +5,9 @@
 
     $gameCode = $_SESSION["code"];
 
-    $currentStage = $data;
+    $currentStage = $database->get("Games", "stage", [
+        "id" => $gameCode
+    ]);;
     echo $currentStage;
     $typ = "";
 
