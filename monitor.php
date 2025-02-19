@@ -30,9 +30,7 @@
   <title>Document</title>
 </head>
   <script src="game.js"></script>
-  <?php if (isset($_GET["allFinished"])) { ?>
-    <button onclick="resetStage(<?php echo $_SESSION['code']; ?>)">Continue</button>
-  <?php } ?>
+    <button onclick="resetStage(<?php echo $_SESSION['code']; ?>)" disabled>Continue</button>
   <?php if ($_SERVER['REQUEST_METHOD'] == "GET") {?>
     <script>generateQuestions(<?php echo $_SESSION['code']; ?>)</script>
   <?php } ?>
