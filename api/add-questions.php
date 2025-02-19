@@ -25,7 +25,6 @@ function pridatOdpovedi($odpovedi) {
 
 function pridatOtazku($otazka, $typ) {
   global $database;
-  echo "Success";
   $otazka_id = uuidb();
   while ($database->get($typ."Otazky", "*", ["id" => $otazka_id,])) {
     $otazka_id = uuidb();
@@ -40,7 +39,6 @@ function pridatOtazku($otazka, $typ) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $json_data = file_get_contents("php://input");
   $data = json_decode($json_data, true);
-  print_r($data);
 
   $textove = $data["textove"];
   $zvuk = $data["zvuk"];
