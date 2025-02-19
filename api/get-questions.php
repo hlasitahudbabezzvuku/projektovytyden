@@ -1,7 +1,6 @@
 <?php
     session_start();
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
-    require $_SERVER["DOCUMENT_ROOT"] . "/api/get-stage.php";
 
     $gameCode = $_SESSION["code"];
 
