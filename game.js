@@ -10,6 +10,7 @@ async function generateQuestions(gameCode) {
 }
 
 data = {}
+playerFinished = {}
 
 async function getQuestions(gameCode) {
   const formData = new FormData()
@@ -37,10 +38,16 @@ async function getFinished(gameCode) {
     body: formData
   })
     .then((response) => response.json())
-    .then((responseData) => console.log(responseData))
+    .then((responseData) => {
+      if (responseData.allFinished === true) {
+        formData.append('allFinished')
+        fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
+          method: 'POST',
+          body: formData
+        })
+      }
+    })
 }
-
-const finish = document.getElementById('finish')
 
 async function finishStage(playerId, gameCode) {
   console.log(playerId, gameCode)
