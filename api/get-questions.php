@@ -68,6 +68,8 @@
                 "Odpovedi.d"
             ], [
                 "GamesOtazky.game_id" => $gameCode
+            ], [
+                "ORDER" => ["GamesOtazky.position" => "ASC"]
             ]);
     
             // Create an array to hold the results
