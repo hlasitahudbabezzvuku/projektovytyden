@@ -68,8 +68,7 @@
                 "Odpovedi.d",
                 "GamesOtazky.position"
             ], [
-                "GamesOtazky.game_id" => $gameCode
-            ], [
+                "GamesOtazky.game_id" => $gameCode,
                 "ORDER" => ["GamesOtazky.position" => "ASC"]
             ]);
     
