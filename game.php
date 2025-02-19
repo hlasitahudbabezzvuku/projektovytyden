@@ -6,7 +6,7 @@
     session_start();
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
-    $textOtazky = $database->select("textOtazky", ["[>]Odpovedi"=>["id_odpovedi" => "Odpovedi.id"]], ["text", "a", "b", "c", "d", "spravna"]);
+    $textOtazky = $database->select("textOtazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], ["text", "a", "b", "c", "d", "spravna"]);
 
     for ($i = 0; $i < count($textOtazky); $i++) {
         $textOtazky[$i]["id"] = bin2hex($textOtazky[$i]["id"]);
