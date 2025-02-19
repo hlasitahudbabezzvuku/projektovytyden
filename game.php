@@ -13,6 +13,11 @@
 <body>
     <script src="game.js"></script>
     <?php
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    ?>
+    <script>getQuestions()</script>
+    <?php
+        }
     ?>
 </body>
 </html>

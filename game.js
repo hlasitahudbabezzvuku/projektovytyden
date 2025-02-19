@@ -30,6 +30,5 @@ async function getQuestions() {
 }
 
 generateQuestions()
-getQuestions()
 
 console.log(data)
