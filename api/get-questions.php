@@ -32,10 +32,24 @@
     }
 
     if ($typ != "") {
-        $textOtazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], [$typ, "a", "b", "c", "d"]);
+        $otazky = $database->select($typ."Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"]], [$typ, "a", "b", "c", "d"]);
 
         $jsonOtazky = json_encode($textOtazky);
-        print_r($jsonOtazky);
+
+        echo "{";
+        
+        foreach ($otazky as $otazka) {
+            echo "'".$typ."': ".$otazka[$typ].",";
+            echo "odpovedi: {";
+            echo "'a': ".$otazka["a"].",";
+            echo "'b': ".$otazka["b"].",";
+            echo "'c': ".$otazka["c"].",";
+            echo "'d': ".$otazka["d"].",";
+            echo "}";
+        }
+
+        echo "}";
+        // print_r($jsonOtazky);
     }
 
     exit();
