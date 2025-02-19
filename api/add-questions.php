@@ -38,8 +38,6 @@ function pridatOtazku($otazka, $typ) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  echo json_encode(["success" => "Questions added successfully"]);
-
   $json_data = file_get_contents("php://input");
   $data = json_decode($json_data, true);
 
@@ -63,7 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   foreach ($ilustrace as $otazka) {
     pridatOtazku($otazka, "ilustrace");
   }
-  exit();
+  $response = json_encode(["success" => "Questions added successfully"]);
+  die($response);
 }
 
 ?>
