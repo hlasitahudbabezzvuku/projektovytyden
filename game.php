@@ -12,6 +12,6 @@
         $textOtazky[$i]["id"] = bin2hex($textOtazky[$i]["id"]);
         $textOtazky[$i]["id_odpovedi"] = bin2hex($textOtazky[$i]["id_odpovedi"]);
     }
-    $jsonOtazky = json_encode($textOtazky);
-    print_r($jsonOtazky);
+    // $jsonOtazky = json_encode($textOtazky);
+    print_r($textOtazky);
 ?>
