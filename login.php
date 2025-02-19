@@ -46,7 +46,7 @@ global $database;
           "function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=" . $code . "')" .
           ".then(function (response) { return response.text(); })" .
           ".then(function (text) { document.getElementById('players').innerHTML = text; }); };" .
-          "setInterval(get_players, 5000);" .
+          "setInterval(get_players, 2000);" .
         "</script>"
       );
     }
