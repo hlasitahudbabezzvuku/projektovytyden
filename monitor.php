@@ -17,7 +17,7 @@
     ]);
 
     $database->delete("Players", [
-      "game_id" => $gameCode
+      "game" => $gameCode
     ]);
   }
   
