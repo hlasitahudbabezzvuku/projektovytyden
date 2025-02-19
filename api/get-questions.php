@@ -4,7 +4,7 @@
 
     $gameCode = $_SESSION["code"];
 
-    $currentStage = $database->get("Games", "stage", [
+    $currentStage = $database->get("Games", ["stage"], [
         "id" => $gameCode
     ]);
     echo $currentStage;
