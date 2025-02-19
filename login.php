@@ -21,10 +21,13 @@ global $database;
     <?php } ?>
 
     <?php if (array_key_exists("game", $_GET)) { ?>
+
       <form action="connect.php" method="GET">
       <input type="hidden" name="code" value="<?php echo htmlspecialchars($_GET['game']); ?>">
       Přezdívka: <input type="text" name="name"><br>
+
     <?php } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") { ?>
+
       <?php
       $code = rand(100000, 999999);
       global $code;
@@ -32,9 +35,12 @@ global $database;
         "id" => $code
       ]);
       ?>
+
       <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo urlencode('http://pubz.infinityfreeapp.com/login.php?game=' . $code) ?>" alt="qr-code"/>
       <form action="monitor.php?id=<?php echo $code ?>" method="GET">" .
+
       <?php echo $code ?>
+
       <div id="players"></div>
       <script>
         function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=" . $code . "')
@@ -42,13 +48,18 @@ global $database;
         .then(function (text) { document.getElementById('players').innerHTML = text; }); };
         setInterval(get_players, 2000);
       </script>
+
     <?php } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "single") { ?>
+
       <form action="connect.php" method="GET">
       Přezdívka: <input type="text" name="name"><br>
+
     <?php } else { ?>
+
       <form action="connect.php" method="GET">
       Přezdívka: <input type="text" name="name"><br>
       Kód: <input type="text" name="code"><br>
+
     <?php } ?>
 
     <input type="submit">
