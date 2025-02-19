@@ -7,7 +7,6 @@
     }
 
     $gameCode = $_POST["code"];
-    echo $gameCode;
 
     $currentStage = $database->get("Games", 'stage', [
         "id" => $gameCode
@@ -73,7 +72,6 @@
                 "ORDER" => ["GamesOtazky.position" => "ASC"]
             ]);
     
-            // Create an array to hold the results
             $jsonOtazky = [];
 
             foreach ($otazky as $otazka) {
@@ -87,10 +85,9 @@
                     ],
                     "pozice" => $otazka["position"]
                 ];
-                $jsonOtazky[] = $questionData;  // Add each question's data to the array
+                $jsonOtazky[] = $questionData; 
             }
 
-            // Return the result as a JSON response
             echo json_encode($jsonOtazky);
             exit();
         }
