@@ -93,7 +93,7 @@
             echo json_encode($jsonOtazky);
         }
 
-        if (isset($_GET["playersFinished"])) {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
           echo "OK";
           $players = $database->select("Players", "stage_finished", ["game" => $gameCode]);
           print_r($players);
