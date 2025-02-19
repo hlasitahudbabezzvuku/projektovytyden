@@ -43,6 +43,8 @@ async function getFinished(gameCode) {
 const finish = document.getElementById('finish')
 
 async function finishStage(playerId, gameCode) {
+  console.log(playerId, gameCode)
+
   const formData = new FormData()
   formData.append('finishStage', playerId)
   formData.append('code', gameCode)
