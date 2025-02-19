@@ -4,18 +4,30 @@
 
   if (array_key_exists("id", $_GET)) {
       $_SESSION['code'] = $_GET["id"];
+      $gameCode = $_SESSION['code'];
   } else {
       header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Prvni musis hru zalozit :("));
   } 
+
+  function deleteGame() {
+    global $database, $gameCode;
+
+    $database->delete("Games", [
+      "id" => $gameCode
+    ]);
+  }
   
   function addStage() {
-    global $database;
-    $gameCode = $_SESSION['code'];
+    global $database, $gameCode;
     $currentStage = $database->get("Games", 'stage', [
       "id" => $gameCode
     ]);
 
-    if ($currentStage < 0 || $currentStage+1 > 8) {
+    if ($currentStage == 8) {
+      
+    }
+
+    if ($currentStage < 0 || $currentStage > 8) {
       header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
       die();
     }
