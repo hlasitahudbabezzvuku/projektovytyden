@@ -45,6 +45,7 @@ if (count($data) != 0) {
     <title>PubZ</title>
   </head>
   <body>
+    <span>Vyčkejte na začátek hry.</span>
   </body>
 </html>
 
