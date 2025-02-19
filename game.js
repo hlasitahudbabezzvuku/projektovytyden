@@ -13,9 +13,8 @@ async function getQuestions(gameCode) {
   )
     .then((response) => response.text())
     .then((responseData) => {
-      console.log(JSON.parse(response))
-      // data = responseData
-      // console.log(data)
+      data = JSON.parse(responseData)
+      console.log(data)
     })
     .catch((error) => {
       console.error('Error:', error)
