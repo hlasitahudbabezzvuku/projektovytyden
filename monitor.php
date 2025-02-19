@@ -26,7 +26,7 @@
   <title>Document</title>
 </head>
   <script src="game.js"></script>
-  <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { ?>
+  <?php if ($_SERVER['REQUEST_METHOD'] == "GET") { addStage();?>
     <script>generateQuestions()</script>
   <?php } ?>
 </body>
