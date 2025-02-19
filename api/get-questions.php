@@ -37,7 +37,7 @@
         $otazky = $database->select("Otazky", ["id", "id_odpovedi"], ["type" => $typ]);
 
         $keys = array_rand($otazky, 3);
-        print_r(bin2hex($otazky[$keys[0]]));
+        print_r($otazky[$keys[0]]);
 
         $order = 0;
         foreach ($keys as $key) {
