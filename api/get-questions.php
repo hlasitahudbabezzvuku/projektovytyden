@@ -33,22 +33,23 @@
     echo $typ;
 
     if ($typ != "") {
-        // $otazky = $database->select("Otazky", ["[>]Odpovedi"=>["id_odpovedi" => "id"], "[<]".$typ."Otazky"=>["id"=>"id_otazky"]], [$typ, "a", "b", "c", "d"]);
-        $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
+        $otazky = $database->select("GamesOtazky", ["[<]Otazky"=>["otazka_id" => "id"], "[<]".$typ."Otazky"=>["id"=>"id_otazky"], "[<]Odpovedi"=>["Otazky.id"=>"id"]], [$typ, "a", "b", "c", "d"], ["game_id" => $gameCode]);
+        // $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
 
-        $keys = array_rand($otazky, 3);
-        print_r($keys);
+        print_r($otazky);
+        // $keys = array_rand($otazky, 3);
+        // print_r($keys);
 
-        $order = 0;
-        foreach ($keys as $key) {
-            echo $key;
-            $database->insert("GamesOtazky", [
-                "game_id" => $gameCode,
-                "otazka_id" => $otazky[$key]["id"],
-                "position" => $order,
-            ]);
-            $order++;
-        }
+        // $order = 0;
+        // foreach ($keys as $key) {
+        //     echo $key;
+        //     $database->insert("GamesOtazky", [
+        //         "game_id" => $gameCode,
+        //         "otazka_id" => $otazky[$key]["id"],
+        //         "position" => $order,
+        //     ]);
+        //     $order++;
+        // }
         
 
         $jsonOtazky = json_encode($otazky);
