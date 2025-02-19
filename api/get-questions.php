@@ -104,7 +104,7 @@
       $database->update("Players", [
         "stage_finished" => 0
       ], [
-        ["id" => $_POST["finishStage"]]
+        "id" => hex2bin($_POST["finishStage"])
       ]);
       exit();
     }
