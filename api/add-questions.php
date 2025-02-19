@@ -73,9 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src=<?php echo "'".$_SERVER["DOCUMENT_ROOT"]."addQuestions.js"."'" ?>></script>
   </head>
   <body>
     <button onclick="addQuestion()">Pridat otazky</button>
+    <script src='addQuestions.js'></script>
   </body>
 </html>
