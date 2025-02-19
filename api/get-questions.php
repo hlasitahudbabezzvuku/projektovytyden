@@ -99,4 +99,12 @@
       echo json_encode($jsonResponse);
       exit();
     }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["finishStage"])) {
+      $database->update("Players", [
+        "stage_finished" => 0
+      ], [
+        ["game" => $gameCode]
+      ]);
+    }
 ?>
