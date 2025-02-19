@@ -1,12 +1,7 @@
 async function generateQuestions(gameCode) {
-  const formData = new FormData()
-  formData.append('generate', 'true')
-  formData.append('code', gameCode)
-
-  fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
-    method: 'POST',
-    body: formData
-  })
+  fetch(
+    'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
+  )
 }
 
 let data = {}
