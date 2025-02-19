@@ -17,6 +17,12 @@ async function getQuestions() {
         method: 'POST',
         body: formData
     })
+        .then((response) => {
+            data = response
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 }
 
 generateQuestions()
