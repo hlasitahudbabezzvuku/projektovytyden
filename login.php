@@ -27,6 +27,7 @@ global $database;
     <?php } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") { ?>
       <?php
       $code = rand(100000, 999999);
+      global $code;
       $database->insert("Games", [
         "id" => $code
       ]);
