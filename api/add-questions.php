@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="addQuestions.js"></script>
+    <script src="../addQuestions.js"></script>
   </head>
   <body>
     <button onclick="addQuestion()">Pridat otazky</button>
