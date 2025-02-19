@@ -43,7 +43,7 @@ global $database;
 
       <div id="players"></div>
       <script>
-        function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=" . $code . "')
+        function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=' + <?php echo $code ?>)
         .then(function (response) { return response.text(); })
         .then(function (text) { document.getElementById('players').innerHTML = text; }); };
         setInterval(get_players, 2000);
