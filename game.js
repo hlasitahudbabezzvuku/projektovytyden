@@ -42,6 +42,9 @@ async function getFinished(gameCode) {
     .then((responseData) => {
       console.log(responseData)
     })
+    .catch((error) => {
+      console.error('Error:', error) // Handle any errors
+    })
 }
 
 console.log(data)
