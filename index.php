@@ -4,6 +4,10 @@ if (isset($_SESSION) || session_status() !== PHP_SESSION_NONE) {
   session_destroy();
 }
 
+if (array_key_exists("failed", $_GET)) {
+  echo("<span style=\"color: #ff0000;\">" . $_GET["failed"] . "</span>");
+}
+
 require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 global $database;
 
