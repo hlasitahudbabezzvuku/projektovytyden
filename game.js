@@ -13,7 +13,7 @@ data = {}
 async function getQuestions() {
     const formData = new FormData()
     formData.append('getJSON', 'true')
-    data = fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
+    fetch('http://pubz.infinityfreeapp.com/api/get-questions.php', {
         method: 'POST',
         body: formData
     })
