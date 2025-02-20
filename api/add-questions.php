@@ -49,7 +49,7 @@ function pridatVideoOtazku($otazka) {
   }
   $database->insert("Otazky", [
     "id" => $otazka_id, 
-    "type" => "video", 
+    "type" => "zvuk", 
     "id_odpovedi" => pridatOdpovedi($otazka['odpovedi']),
     "vysvetlivka" => isset($otazka["vysvetlivka"]) ? $otazka["vysvetlivka"] : null
   ]);
