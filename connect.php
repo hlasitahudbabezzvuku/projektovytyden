@@ -68,7 +68,7 @@ if (count($data) != 0) {
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-player.php')
         .then(function (response) { return response.text(); })
         .then(function (text) {
-          if (text.length == 0)
+          if (text == '')
             console.log("Ping OK");
           else
             console.log("[ERROR]: " + text);
