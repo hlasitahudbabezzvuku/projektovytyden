@@ -206,6 +206,13 @@ body {
           .forEach((el) => el.classList.add('show'))
         loadQuestion(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>')
       })
+
+      // frantovo - nesahat!
+      function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping.php')
+        .then(function (response) { return response.text(); })
+        .then(function (text) { console.log(text); });
+      setInterval(get_players, 10000);
+
     </script>
   </body>
 </html>
