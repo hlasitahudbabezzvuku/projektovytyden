@@ -209,7 +209,7 @@ const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
 //promenne pro rozeznavani kategorii a skore
 
 //funkce pro loadovani otazek
-async function loadQuestion(gameCode, playerId) {
+async function loadQuestion(gameCode, playerId, home) {
   const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
   await getQuestions(gameCode)
   // if (currentCategoryIndex >= categories.length) {
@@ -238,7 +238,8 @@ async function loadQuestion(gameCode, playerId) {
       if (categories[currentCategoryIndex] === 'Zvuk') {
         mediaPlaceholder.style.height = '80px'
         mediaPlaceholder.innerHTML =
-          '<audio width="100%" heigh="50%" id="myAudio" src="/home/vol15_3/infinityfree.com/if0_38314982/' +
+          '<audio width="100%" heigh="50%" id="myAudio" src="' +
+          home +
           questions[currentQuestionIndex].zvuk +
           '" preload="auto"></audio><button onclick="playAudio()">Play Audio</button><button onclick="pauseAudio()">Pause Audio</button>'
       } else if (categories[currentCategoryIndex] === 'Video') {

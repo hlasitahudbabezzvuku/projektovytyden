@@ -204,7 +204,7 @@ body {
         document
           .querySelectorAll('.fade-in')
           .forEach((el) => el.classList.add('show'))
-        loadQuestion(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>')
+        loadQuestion(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>', '<?php echo $_SERVER["DOCUMENT_ROOT"];?>')
       })
 
       // frantovo - nesahat!
