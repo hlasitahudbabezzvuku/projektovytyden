@@ -6,14 +6,14 @@ global $database;
 session_start();
 
 if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
-
-  if(empty($database->get("Players", "id", [ "id" => $_SESSION["uuid"] ]))) {
-    echo("Player not found");
+  
+  if (empty($database->get("Games", "id", [ "id" => $_SESSION["code"] ]))) {
+    echo("Game is no longer avalible");
     die();
   }
 
-  if (empty($database->get("Games", "id", [ "id" => $_SESSION["code"] ]))) {
-    echo("Game is no longer avalible");
+  if(empty($database->get("Players", "game", [ "game" => $_SESSION["code"] ]))) {
+    echo("Player not found");
     die();
   }
 
