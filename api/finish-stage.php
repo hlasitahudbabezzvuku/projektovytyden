@@ -16,7 +16,10 @@
   ], [
     "spravna"
   ], [
-    "game_id" => $_GET["code"]
+    "game_id" => $_GET["code"],
+    "ORDER" => [
+      "position" => "ACS"
+    ]
   ]);
 
   $pocetSpravnych = 0;
