@@ -157,7 +157,7 @@
 <body>
   <div class="logo">
     <a href="index.html">
-      <img src="ada.png" alt="PUBS logo"/>
+      <img src="src/ada.png" alt="PUBS logo"/>
     </a>
   </div>
   <div class="container show">
