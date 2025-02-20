@@ -58,10 +58,10 @@ async function printQuestions(gameCode) {
   let div = document.getElementById('question')
   div.innerHTML = '' // Clear previous content
 
-  if (!data || !data[index]) {
-    div.innerText = 'No questions available.'
-    return
-  }
+  // if (!data || !data[index]) {
+  //   div.innerText = 'No questions available.'
+  //   return
+  // }
 
   // Add question text
   let p = document.createElement('p')
