@@ -207,7 +207,7 @@ async function getResult(playerId, gameCode) {
       '&code=' +
       gameCode
   )
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then((response) => console.log(response))
 
   // let results = response.json()
