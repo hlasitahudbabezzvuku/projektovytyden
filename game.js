@@ -292,12 +292,14 @@ async function loadQuestion(gameCode, playerId, home) {
         Object.keys(questions[currentQuestionIndex].odpovedi)[index]
       ]
     }`
-    btn.onclick = () =>
+    btn.onclick = () => {
+      btn.disabled = false
       nextQuestion(
         gameCode,
         playerId,
         Object.keys(questions[currentQuestionIndex]['odpovedi'])[index]
       )
+    }
   })
   // document.querySelector('.feedback').textContent = ''
   // document.querySelector('.feedback').style.color = '#ffffff'
