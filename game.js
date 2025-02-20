@@ -242,9 +242,15 @@ async function loadQuestion(gameCode, playerId) {
       } else if (categories[currentCategoryIndex] === 'Video') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
-          '<iframe width="100%" height="100%" src="' +
+          '<video id="player" data-plyr-provider="youtube" data-plyr-embed-id="' +
           questions[currentQuestionIndex].otazka +
-          '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
+          '"></video>'
+        const medial = new Plyr('#player', {
+          youtube: { modestbranding: 1, rel: 0 }
+        })
+        // '<iframe width="100%" height="100%" src="' +
+        // questions[currentQuestionIndex].otazka +
+        // '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
       } else if (categories[currentCategoryIndex] === 'Obrázek') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
