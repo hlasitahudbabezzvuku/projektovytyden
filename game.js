@@ -58,7 +58,7 @@ async function printQuestions(gameCode) {
 
   let div = document.getElementById('question')
   div.innerHTML = '' // Clear previous content
-  console.log(data[0])
+  console.log(data)
 
   if (!data || !data[index]) {
     div.innerText = 'No questions available.'
