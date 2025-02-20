@@ -67,7 +67,8 @@ async function finishStage(playerId, gameCode) {
       '&code=' +
       gameCode
   ).then((response) => {
-    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+    console.log(response.json())
+    // window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
   })
 }
 
