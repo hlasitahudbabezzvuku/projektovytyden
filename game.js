@@ -131,7 +131,7 @@ async function nextQuestion(gameCode, playerId, value) {
     localStorage.removeItem('answers')
     finishStage(playerId, gameCode)
   } else {
-    printQuestions(gameCode, playerId)
+    loadQuestion(gameCode, playerId)
   }
 }
 
@@ -260,7 +260,7 @@ async function loadQuestion(gameCode, playerId) {
       ]
     }`
     btn.onclick = () =>
-      checkAnswer(
+      nextQuestion(
         gameCode,
         playerId,
         Object.keys(questions[currentQuestionIndex]['odpovedi'])[index]
