@@ -6,21 +6,25 @@ global $database;
 session_start();
 
 if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
-  if(!empty($database->get("Players", "id", [ "id" => $_SESSION["uuid"] ]))) {
-    if (!empty($database->get("Games", "id", [ "id" => $_SESSION["code"] ]))) {
-      $database->update("Players", [ "last_ping" => time() ], [ "id" => $_SESSION["uuid"] ]);
-    } else {
-      echo("Game is no longer avalible");
-    }
-  } else {
-    echo("Error: Player not found");
+
+  if(empty($database->get("Players", "id", [ "id" => $_SESSION["uuid"] ]))) {
+    echo("Player not found");
+    die();
   }
+
+  if (empty($database->get("Games", "id", [ "id" => $_SESSION["code"] ]))) {
+    echo("Game is no longer avalible");
+    die();
+  }
+
+  $database->update("Players", [ "last_ping" => time() ], [ "id" => $_SESSION["uuid"] ]);
+
 } else {
-  echo("Error: Not in game");
+  echo("Not in game");
 }
 
 $database->delete("Players", [
-  "last_ping[<]" => ( time() - 20 )
+  "last_ping[<]" => ( time() - 10 )
 ]);
 
 ?>
