@@ -79,7 +79,7 @@ async function finishStage(playerId, gameCode) {
   if (stage == '7') {
     await fetch(
       'http://pubz.infinityfreeapp.com/api/update-leaderboard.php/player_id=' +
-        encodeURIComponent(playerId)
+        playerId
     )
     window.location.replace('http://pubz.infinityfreeapp.com/end.php')
   } else {

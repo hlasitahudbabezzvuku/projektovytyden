@@ -3,7 +3,7 @@
   global $database;
 
   $player = $database->select("Players", ["name", "score"], [
-    "id" => hex2bin(urldecode($_GET["player_id"]))
+    "id" => hex2bin($_GET["player_id"])
   ]);
 
   $database->insert("LeaderBoard", [
