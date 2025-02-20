@@ -47,8 +47,8 @@ async function resetStage(gameCode) {
 async function finishStage(playerId) {
   fetch(
     'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
-  ).then(() =>
-    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+  ).then((response) =>
+    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php');
   )
 }
 
