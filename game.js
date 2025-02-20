@@ -85,12 +85,7 @@ async function resetStage(gameCode) {
 
 async function finishStage(playerId, gameCode) {
   await fetch(
-    'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' +
-      playerId +
-      '&answers=' +
-      encodeURIComponent(JSON.stringify(answers)) +
-      '&code=' +
-      gameCode
+    'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
   )
 
   let response = await fetch(
@@ -200,6 +195,23 @@ async function getFinishedPlayers(gameCode) {
         div.appendChild(btnContainer)
       })
     })
+}
+
+async function getResult(playerId) {
+  let resultList = document.getElementById('results-list')
+
+  let response = await fetch(
+    'http://pubz.infinityfreeapp.com/api/get-finished-players.php?player_id=' +
+      playerId +
+      '&answers=' +
+      encodeURIComponent(JSON.stringify(answers))
+  )
+
+  let results = response.json()
+
+  console.log(results)
+
+  if (localStorage.getItem('answers')) localStorage.removeItem('answers')
 }
 
 // NOVY
