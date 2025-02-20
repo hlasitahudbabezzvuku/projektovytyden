@@ -25,7 +25,6 @@ function pridatOdpovedi($odpovedi) {
 
 function pridatOtazku($otazka, $typ) {
   global $database;
-  global $database;
   $otazka_id = uuidb();
   while ($database->get("Otazky", "*", ["id" => $otazka_id,])) {
     $otazka_id = uuidb();
@@ -34,6 +33,26 @@ function pridatOtazku($otazka, $typ) {
   $database->insert($typ."Otazky", [
     "id_otazky" => $otazka_id,
     $typ => $otazka[$typ]
+  ]);
+}
+
+function pridatVideoOtazku($otazka) {
+  global $database;
+  $otazka_id = uuidb();
+  while ($database->get("Otazky", "*", ["id" => $otazka_id])) {
+    $otazka_id = uuidb();
+  }
+  $database->insert("Otazky", [
+    "id" => $otazka_id, 
+    "type" => "video", 
+    "id_odpovedi" => pridatOdpovedi($otazka['odpovedi']),
+    "vysvetlivka" => isset($otazka["vysvetlivka"]) ? $otazka["vysvetlivka"] : null
+  ]);
+  $database->insert("videoOtazky", [
+    "id_otazky" => $otazka_id,
+    "video" => $otazka["video"],
+    "odpoved" => isset($otazka["odpoved"]) ? $otazka["odpoved"] : null,
+    "otazka" => $otazka["otazka"]
   ]);
 }
 
@@ -50,17 +69,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     pridatOtazku($otazka, "text");
   }
 
-  foreach ($zvuk as $otazka) {
-    pridatOtazku($otazka, "zvuk");
-  }
+  // foreach ($zvuk as $otazka) {
+  //   pridatOtazku($otazka, "zvuk");
+  // }
 
   foreach ($video as $otazka) {
-    pridatOtazku($otazka, "video");
+    pridatVideoOtazku($otazka);
   }
 
-  foreach ($ilustrace as $otazka) {
-    pridatOtazku($otazka, "ilustrace");
-  }
+  // foreach ($ilustrace as $otazka) {
+  //   pridatOtazku($otazka, "ilustrace");
+  // }
   echo json_encode(["success" => "Questions added successfully"]);
   exit();
 }
