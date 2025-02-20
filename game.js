@@ -5,7 +5,7 @@ let playerFinished = {}
 
 if (localStorage.getItem('answers')) {
   answers = localStorage.getItem('answers')
-  index = answers.length()
+  index = answers.length
 }
 
 async function generateQuestions(gameCode) {
