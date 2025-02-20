@@ -140,7 +140,6 @@ async function nextQuestion(gameCode, playerId, value) {
   buttons.forEach((button) => {
     button.disabled = true
   })
-  buttons = []
 
   answers.push(value)
   localStorage.setItem('answers', JSON.stringify(answers))
