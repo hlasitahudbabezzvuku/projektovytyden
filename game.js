@@ -9,18 +9,23 @@ let data = {}
 let playerFinished = {}
 
 async function getQuestions(gameCode) {
-  console.log('ahoj')
-  fetch(
-    'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
-  )
-    .then((response) => response.text())
-    .then((responseData) => {
-      data = JSON.parse(responseData)
-      console.log(data)
-    })
-    .catch((error) => {
-      console.error('Error:', error)
-    })
+  console.log('Fetching questions...')
+
+  try {
+    const response = await fetch(
+      'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
+    )
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch questions: ' + response.status)
+    }
+
+    data = await response.json() // Parse response as JSON
+    console.log('Fetched questions:', data)
+  } catch (error) {
+    console.error('Error:', error)
+    data = null // Reset data if the request fails
+  }
 }
 
 async function getFinished(gameCode) {
@@ -58,12 +63,13 @@ async function printQuestions(gameCode) {
 
   let div = document.getElementById('question')
   div.innerHTML = '' // Clear previous content
-  console.log(data.text())
 
-  if (!data || !data[index]) {
+  if (!data || !Array.isArray(data) || data.length === 0) {
     div.innerText = 'No questions available.'
     return
   }
+
+  console.log('Displaying question:', data[index])
 
   // Add question text
   let p = document.createElement('p')
@@ -71,14 +77,14 @@ async function printQuestions(gameCode) {
   div.append(p)
 
   // Loop through odpovedi (answers)
-  Object.entries(data[index]['odpovedi']).forEach(([key, value]) => {
+  for (const [key, value] of Object.entries(data[index]['odpovedi'])) {
     let btnContainer = document.createElement('div')
     let button = document.createElement('button')
     button.innerText = value
     button.dataset.answer = key // Store the answer key (optional)
-    btnContainer.append(button)
-    div.append(btnContainer)
-  })
+    btnContainer.appendChild(button)
+    div.appendChild(btnContainer)
+  }
 }
 
 async function addStage(gameCode) {
