@@ -18,8 +18,8 @@
   $spravne = [];
 
   $i = 0;
-  foreach ($spravne as $ks) {
-    if ($answers[$i] == $spravne) {
+  foreach ($spravne as $s) {
+    if ($answers[$i] == $s) {
       $pocetSpravnych++;
       $spravne[] = [$i => "correct"];
     } else {
