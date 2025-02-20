@@ -14,7 +14,7 @@
     ]
   ]);
 
-  print_r($spravne);
+  print_r($spravne[0]);
 
   $pocetSpravnych = 0;
   $spravne = [];
