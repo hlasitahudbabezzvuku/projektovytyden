@@ -78,9 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //   pridatOtazku($otazka, "zvuk");
   // }
 
-  // foreach ($video as $otazka) {
-  //   pridatVideoOtazku($otazka);
-  // }
+  foreach ($video as $otazka) {
+    pridatVideoOtazku($otazka);
+  }
 
   // foreach ($ilustrace as $otazka) {
   //   pridatOtazku($otazka, "ilustrace");
