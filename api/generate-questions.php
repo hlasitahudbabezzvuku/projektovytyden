@@ -18,13 +18,13 @@
     case 1:
         $typ = "text";
         break;
-    case 3:
+    case 2: case 3:
         $typ = "video";
         break;
-    case 5:
+    case 4: case 5:
         $typ = "zvuk";
         break;
-    case 7:
+    case 6: case 7:
         $typ = "ilustrace";
         break;
   }
