@@ -71,7 +71,7 @@ if (count($data) != 0) {
           if (text.length == 1)
             console.log("Ping: OK");
           else
-            window.location.replace("http://pubz.infinityfreeapp.com/index.php?" + encodeURIComponent(text));
+            window.location.replace(encodeURI("http://pubz.infinityfreeapp.com/index.php?failed=" + text));
         })};
       setInterval(ping, 5000);
 
