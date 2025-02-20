@@ -55,7 +55,7 @@ function pridatVideoOtazku($otazka) {
   ]);
   $database->insert("videoOtazky", [
     "id_otazky" => $otazka_id,
-    "video" => $otazka["video"],
+    "zvuk" => $otazka["zvuk"],
     "odpoved" => isset($otazka["odpoved"]) ? $otazka["odpoved"] : null,
     "otazka" => $otazka["otazka"]
   ]);
@@ -74,13 +74,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //   pridatOtazku($otazka, "text");
   // }
 
-  // foreach ($zvuk as $otazka) {
-  //   pridatOtazku($otazka, "zvuk");
-  // }
-
-  foreach ($video as $otazka) {
+  foreach ($zvuk as $otazka) {
     pridatVideoOtazku($otazka);
   }
+
+  // foreach ($video as $otazka) {
+  //   pridatVideoOtazku($otazka);
+  // }
 
   // foreach ($ilustrace as $otazka) {
   //   pridatOtazku($otazka, "ilustrace");

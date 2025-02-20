@@ -205,53 +205,64 @@ const otazky = {
   },
   zvuk: {
     0: {
-      zvuk: 'https://example.com/audio1.mp3',
+      zvuk: 'audio/rizzupnul-jsem-caji.mp3',
       odpovedi: {
-        a: 'Lions',
-        b: 'Tigers',
-        c: 'Bears',
-        d: 'Wolves',
+        a: 'osladil jsem si čaj',
+        b: 'vylil jsem čaj',
+        c: 'sehnal jsem si partnerku',
+        d: 'zaplatil jsem si prostitutku',
         spravna: 'a'
       }
     },
     1: {
-      zvuk: 'https://example.com/audio2.mp3',
+      zvuk: 'audio/spill-the-tea.mp3',
       odpovedi: {
-        a: 'Elephants',
-        b: 'Lions',
-        c: 'Monkeys',
-        d: 'Giraffes',
-        spravna: 'b'
+        a: 'přestaň mluvit',
+        b: 'vylij čaj',
+        c: 'pověz mi o tom víc',
+        d: 'sedni si',
+        spravna: 'c'
       }
     },
     2: {
-      zvuk: 'https://example.com/audio3.mp3',
+      zvuk: 'audio/svarta.mp3',
       odpovedi: {
-        a: 'Owls',
-        b: 'Hawks',
-        c: 'Pigeons',
-        d: 'Eagles',
-        spravna: 'd'
+        a: 'krade hasičák',
+        b: 'skáče z Karlova mostu',
+        c: 'skáče ze střechy garáže',
+        d: 'mlátí bezdomovce',
+        spravna: 'c'
       }
     },
     3: {
-      zvuk: 'https://example.com/audio4.mp3',
+      zvuk: 'audio/to-je-real.mp3',
       odpovedi: {
-        a: 'Frogs',
-        b: 'Toads',
-        c: 'Snakes',
-        d: 'Crocodiles',
+        a: 'souhlasím',
+        b: 'je to rozporné',
+        c: 'nesouhlasím',
+        d: 'moc pěkné',
         spravna: 'a'
       }
     },
     4: {
-      zvuk: 'https://example.com/audio5.mp3',
+      zvuk: 'audio/pochcal-cut.mp3',
+      odpoved: 'audio/pochcal-full.mp3',
       odpovedi: {
-        a: 'Cats',
-        b: 'Dogs',
-        c: 'Birds',
-        d: 'Rats',
-        spravna: 'b'
+        a: 'pokadil',
+        b: 'obejmul',
+        c: 'pochcal',
+        d: 'poblil',
+        spravna: 'c'
+      }
+    },
+    5: {
+      zvuk: 'audio/to-si-zabil.mp3',
+      odpovedi: {
+        a: 'uprav to',
+        b: 'to si moc nedal',
+        c: 'to se ti povedlo',
+        d: 'ty ses poblil',
+        spravna: 'c'
       }
     }
   },
