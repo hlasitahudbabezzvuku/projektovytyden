@@ -50,7 +50,7 @@
 
       $jsonOtazky = [];
 
-      if ($typ != "text") {
+      if ($typ == "text") {
         foreach ($otazky as $otazka) {
             $questionData = [
                 "otazka" => $otazka[$typ],
