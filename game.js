@@ -92,12 +92,10 @@ async function nextQuestion(gameCode, playerId, value) {
   answers += value
   index++
   if (index > data.length - 1) {
-    console.log('Player id: ' + playerId)
-
-    // finishStage(playerId)
+    finishStage(playerId)
   }
 
-  printQuestions(gameCode)
+  printQuestions(gameCode, playerId)
 }
 
 async function addStage(gameCode) {
@@ -110,7 +108,6 @@ async function startGame(gameCode) {
   window.location.replace(
     'http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
   )
-  printQuestions(gameCode, playerId)
 }
 
 async function nextStage(gameCode) {
