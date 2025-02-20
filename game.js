@@ -259,8 +259,8 @@ async function loadQuestion(gameCode, playerId) {
         questions[currentQuestionIndex]['odpovedi'].keys[index]
       )
   })
-  document.querySelector('.feedback').textContent = ''
-  document.querySelector('.feedback').style.color = '#ffffff'
+  // document.querySelector('.feedback').textContent = ''
+  // document.querySelector('.feedback').style.color = '#ffffff'
 }
 
 // //funkce pro kontrolu odpovedi
