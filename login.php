@@ -45,7 +45,7 @@ global $database;
         <?php
         function GenerateCode() {
           global $database;
-          $code = rand(1, 10);
+          $code = rand(100000, 999999);
           if (!empty($database->get("Games", "id", [ "id" => $code ]))) {
             return GenerateCode();
           } else {
