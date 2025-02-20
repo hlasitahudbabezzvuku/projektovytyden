@@ -43,9 +43,19 @@ global $database;
       <?php } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") { ?>
 
         <?php
-        // TODO: add check for same game in db
-        $code = rand(100000, 999999);
+        function GenerateCode() {
+          global $database;
+          $code = rand(100000, 999999);
+          if (!empty($database->get("Games", "id", [ "id" => $code ]))) {
+            return GenerateCode();
+          } else {
+            return $code;
+          }
+        }
+
+        $code = GenerateCode();
         global $code;
+
         $database->insert("Games", [
           "id" => $code
         ]);
