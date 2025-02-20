@@ -204,7 +204,9 @@ async function getResult(playerId, gameCode) {
     'http://pubz.infinityfreeapp.com/api/get-finished-players.php?player_id=' +
       playerId +
       '&answers=' +
-      encodeURIComponent(JSON.stringify(answers))
+      encodeURIComponent(JSON.stringify(answers)) +
+      '&code=' +
+      gameCode
   )
 
   let results = response.json()
