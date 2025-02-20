@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kvíz Hra Multiplayer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
@@ -120,44 +119,6 @@ body {
     padding-bottom: 3rem;
   }
 }
-
-/* Make the play/pause button larger */
-.plyr__control {
-  font-size: 4rem; /* Make the button larger */
-  width: 80px; /* Larger width */
-  height: 80px; /* Larger height */
-}
-
-/* Adjust the size of the SVG icon inside the play/pause button */
-.plyr__control svg {
-  width: 100%; /* Make the icon fill the button */
-  height: 100%; /* Make the icon fill the button */
-}
-
-/* Position the play/pause button in the center */
-.plyr__controls {
-  position: relative; /* Ensure controls are positioned relative to parent */
-}
-
-.plyr__controls__item[data-plyr="play"] {
-  position: absolute; /* Make button position absolute */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center the button perfectly */
-  z-index: 10; /* Make sure it stays on top */
-}
-/* Or customize the size of the Plyr player wrapper directly */
-.plyr {
-  width: 100%; /* Make the player container fill the width of its parent */
-  height: 100%; /* Make the player container fill the height of its parent */
-}
-
-/* Example: Adjust both width and height with a fixed value */
-.plyr__video-wrapper {
-  width: 100%; /* Ensure video wrapper takes the full width */
-  height: 100%; /* Ensure video wrapper takes the full height */
-}
-
 
 @media (min-width: 1024px) {
   .question-box {
