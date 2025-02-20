@@ -29,6 +29,8 @@
             break;
     }
 
+    echo $typ;
+
     if ($typ != "") {    
       $otazky = $database->select("GamesOtazky", [
           "[<]Otazky"=>["otazka_id" => "id"], 
