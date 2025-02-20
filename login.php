@@ -110,10 +110,10 @@ global $database;
             .then(function (text) { document.getElementById('playerList').innerHTML = text; }); };
           setInterval(get_players, 2000);
 
-          //function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-game.php')
-          //  .then(function (response) { return response.text(); })
-          //  .then(function (text) { console.log('ping' + text); })};
-          //setInterval(ping, 5000);
+          function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-game.php')
+            .then(function (response) { return response.text(); })
+            .then(function (text) { console.log('ping' + text); })};
+          setInterval(ping, 5000);
 
         </script>
 
