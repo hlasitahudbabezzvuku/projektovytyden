@@ -57,13 +57,15 @@ async function resetStage(gameCode) {
   gameInterval = setInterval(checkFinished, 2000, gameCode)
 }
 
-async function finishStage(playerId, answers) {
+async function finishStage(playerId, gameCode) {
   console.log('ahoj')
   fetch(
     'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' +
       playerId +
       '&answers=' +
-      answers
+      encodeURIComponent(JSON.stringify(answers)) +
+      '&code=' +
+      gameCode
   ).then((response) => {
     console.log(response.json())
 
@@ -104,7 +106,7 @@ async function nextQuestion(gameCode, playerId, value) {
   index++
   if (index > data.length - 1) {
     localStorage.removeItem('answers')
-    finishStage(playerId, answers)
+    finishStage(playerId, gameCode)
   } else {
     printQuestions(gameCode, playerId)
   }
