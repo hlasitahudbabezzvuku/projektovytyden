@@ -3,8 +3,7 @@ let questions = {}
 let answers = []
 let playerFinished = {}
 let buttons = []
-
-// let currentCategoryIndex = 0
+let currentCategoryIndex = 0
 // let totalScore = 0
 // let categoryScore = 0
 
