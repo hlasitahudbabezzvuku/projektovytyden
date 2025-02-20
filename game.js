@@ -242,7 +242,7 @@ async function loadQuestion(gameCode, playerId) {
       } else if (categories[currentCategoryIndex] === 'Video') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
-          '<video id="player" data-plyr-provider="youtube" data-plyr-embed-id="' +
+          '<video width="100%" height="100%" id="player" data-plyr-provider="youtube" data-plyr-embed-id="' +
           questions[currentQuestionIndex].otazka +
           '"></video>'
         const medial = new Plyr('#player', {
