@@ -59,7 +59,7 @@ error_reporting(E_ALL);  // Report all errors, warnings, and notices
     }
     
 
-      echo json_encode($otazky);
+      print_r($otazky);
 
       $jsonOtazky = [];
 
