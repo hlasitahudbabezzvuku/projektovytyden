@@ -61,6 +61,7 @@
           $jsonOtazky[] = $questionData; 
       }
 
-      echo json_encode($jsonOtazky);
+      print_r(json_encode($otazky));
+      // echo json_encode($jsonOtazky);
     }
 ?>
