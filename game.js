@@ -71,6 +71,7 @@ async function finishStage(playerId, gameCode) {
     fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode)
       .then((response) => response.json())
       .then((text) => {
+        console.log(text)
         stage = text
       })
     if (stage === '7') {
