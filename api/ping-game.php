@@ -18,7 +18,7 @@ if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
   echo("Not in game");
 }
 
-$database->delete("Players", [
+$database->delete("Games", [
   "last_ping[<]" => ( time() - 10 )
 ]);
 
