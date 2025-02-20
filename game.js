@@ -76,11 +76,11 @@ async function finishStage(playerId, gameCode) {
 
   console.log(stage)
 
-  if (stage === '7') {
-    window.location.replace('http://pubz.infinityfreeapp.com')
-  } else {
-    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
-  }
+  // if (stage === '7') {
+  //   window.location.replace('http://pubz.infinityfreeapp.com')
+  // } else {
+  //   window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+  // }
 }
 
 async function printQuestions(gameCode, playerId) {
