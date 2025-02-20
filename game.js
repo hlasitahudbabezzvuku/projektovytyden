@@ -250,6 +250,8 @@ async function loadQuestion(gameCode, playerId) {
     questionBox.style.opacity = 1
   }, 300)
   const buttons = document.querySelectorAll('.answer-button')
+  console.log(questinos)
+
   buttons.forEach((btn, index) => {
     btn.textContent = `${questions[currentQuestionIndex]['odpovedi'].keys[index]}) ${questions[currentQuestionIndex]['odpovedi'][index]}`
     btn.onclick = () =>
