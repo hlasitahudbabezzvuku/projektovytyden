@@ -61,7 +61,7 @@ if (count($data) != 0) {
           if (text != '0')
             window.location.replace('http://pubz.infinityfreeapp.com/game.php');
         });}
-      setInterval(get_stage, 2000);
+      setInterval(ping, 2000);
 
       // frantovo - nesahat!
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping.php')
