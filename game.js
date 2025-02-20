@@ -206,6 +206,9 @@ async function getFinishedPlayers(gameCode) {
 // NOVY
 //jsony s kategoriema + v nich otázky === jen pro vyplnění (smazat)
 const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
+let audio
+let playPauseBtn
+let audioTimeline
 //promenne pro rozeznavani kategorii a skore
 
 //funkce pro loadovani otazek
@@ -238,9 +241,12 @@ async function loadQuestion(gameCode, playerId, home) {
       if (categories[currentCategoryIndex] === 'Zvuk') {
         mediaPlaceholder.style.height = '80px'
         mediaPlaceholder.innerHTML =
-          '<audio width="100%" heigh="50%" id="myAudio" src="' +
+          '<audio id="myAudio" src="' +
           questions[currentQuestionIndex].zvuk +
-          '" preload="auto"></audio><button onclick="playAudio()">Play Audio</button><button onclick="pauseAudio()">Pause Audio</button>'
+          '" preload="auto"></audio><input type="range" id="audioTimeline" value="0" step="1" style="width: 100%; margin-top: 10px;"><button id="playPauseBtn" onclick="togglePlayPause()">Play</button>'
+        audio = document.getElementById('myAudio')
+        playPauseBtn = document.getElementById('playPauseBtn')
+        audioTimeline = document.getElementById('audioTimeline')
       } else if (categories[currentCategoryIndex] === 'Video') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
@@ -312,12 +318,24 @@ async function loadQuestion(gameCode, playerId, home) {
 //   window.location.href = 'index.html'
 // })
 
-// Play the audio
-function playAudio() {
-  document.getElementById('myAudio').play()
-}
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100
+  audioTimeline.value = progress
+})
 
-// Pause the audio
-function pauseAudio() {
-  document.getElementById('myAudio').pause()
+// Update audio time when the timeline is clicked
+audioTimeline.addEventListener('input', () => {
+  const newTime = (audioTimeline.value / 100) * audio.duration
+  audio.currentTime = newTime
+})
+
+// Toggle Play/Pause button functionality
+function togglePlayPause() {
+  if (audio.paused) {
+    audio.play()
+    playPauseBtn.textContent = 'Pause'
+  } else {
+    audio.pause()
+    playPauseBtn.textContent = 'Play'
+  }
 }
