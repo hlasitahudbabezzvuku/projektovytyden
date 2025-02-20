@@ -212,8 +212,9 @@ const otazky = {
         b: 'vylil jsem čaj',
         c: 'sehnal jsem si partnerku',
         d: 'zaplatil jsem si prostitutku',
-        spravna: 'a'
-      }
+        spravna: 'c'
+      },
+      vysvetlivka: 'Slangový výraz pro “sbalil jsem ženu” používaný muži'
     },
     1: {
       zvuk: 'audio/spill-the-tea.mp3',
@@ -224,7 +225,8 @@ const otazky = {
         c: 'pověz mi o tom víc',
         d: 'sedni si',
         spravna: 'c'
-      }
+      },
+      vysvetlivka: 'Fráze využívaná pro potřebu objasnění dané situace.'
     },
     2: {
       zvuk: 'audio/svarta.mp3',
@@ -235,7 +237,8 @@ const otazky = {
         c: 'skáče ze střechy garáže',
         d: 'mlátí bezdomovce',
         spravna: 'c'
-      }
+      },
+      vysvetlivka: 'Jedná se virální video muže, který skáče ze střechy.'
     },
     3: {
       zvuk: 'audio/to-je-real.mp3',
@@ -246,82 +249,114 @@ const otazky = {
         c: 'nesouhlasím',
         d: 'moc pěkné',
         spravna: 'a'
-      }
+      },
+      vysvetlivka: 'Fráze značí souhlas s výrokem druhé osoby.'
     },
     4: {
       zvuk: 'audio/pochcal-cut.mp3',
-      otazka: 'audio/pochcal-full.mp3',
+      odpoved: 'audio/pochcal-full.mp3',
+      otazka:
+        '“Všechny do jednoho z vás, by jsem — Politiky, ministry, by jsem —”',
       odpovedi: {
         a: 'pokadil',
         b: 'obejmul',
         c: 'pochcal',
         d: 'poblil',
         spravna: 'c'
-      }
+      },
+      vysvetlivka: 'Úryvek ze skladby Adama Mišíka z filmu Banger'
     },
     5: {
       zvuk: 'audio/to-si-zabil.mp3',
-      otazka:
-        '“Všechny do jednoho z vás, by jsem — Politiky, ministry, by jsem —”',
+      otazka: 'Co znamená fráze “ to si zabil”?',
       odpovedi: {
         a: 'uprav to',
         b: 'to si moc nedal',
         c: 'to se ti povedlo',
         d: 'ty ses poblil',
         spravna: 'c'
-      }
+      },
+      vysvetlivka: 'Fraze "to jsi zabil" znamená udělat něco skvělého.'
     }
   },
   ilustrace: {
     0: {
-      ilustrace: 'https://example.com/image1.jpg',
+      ilustrace: 'ilustrace/kazma.png',
+      otazka: 'Kdo je osoba na obrázku?',
       odpovedi: {
-        a: 'A dog',
-        b: 'A cat',
-        c: 'A rabbit',
-        d: 'A horse',
-        spravna: 'b'
-      }
+        a: 'Ondřej Sokol',
+        b: 'Stejk',
+        c: 'Haiset',
+        d: 'Kazma Kazmitch',
+        spravna: 'd'
+      },
+      vysvetlivka:
+        'Český internetový tvůrce a prankster, známý svými virálními projekty a mystifikacemi v pořadu One Man Show.'
     },
     1: {
-      ilustrace: 'https://example.com/image2.jpg',
+      ilustrace: 'ilustrace/jirka_kral.png',
+      otazka: 'Kdo je osoba na obrázku?',
       odpovedi: {
-        a: 'A lion',
-        b: 'A giraffe',
-        c: 'A zebra',
-        d: 'A tiger',
-        spravna: 'a'
-      }
+        a: 'Vláďa videos',
+        b: 'Jirka Král',
+        c: 'Lišák',
+        d: 'Nikos',
+        spravna: 'b'
+      },
+      vysvetlivka:
+        'Bývalý český youtuber, který se proslavil herním obsahem, dnes se věnuje podnikání a marketingu.'
     },
     2: {
-      ilustrace: 'https://example.com/image3.jpg',
+      ilustrace: 'ilustrace/kovy.png',
+      otazka: 'Kdo je osoba na obrázku?',
       odpovedi: {
-        a: 'A bird',
-        b: 'A fish',
-        c: 'A dog',
-        d: 'A cat',
-        spravna: 'c'
-      }
+        a: 'Karel Kovář (Kovy)',
+        b: 'Miroslav Romaniv',
+        c: 'Leoš Mareš',
+        d: 'Jakub Prachař',
+        spravna: 'a'
+      },
+      vysvetlivka:
+        'Karel Kovář aneb Kovy je Český youtuber a influencer, známý svými vzdělávacími a politickými videi.'
     },
     3: {
-      ilustrace: 'https://example.com/image4.jpg',
+      ilustrace: 'ilustrace/yzomandias.png',
+      otazka: 'Jaký rapper je na obrázku?',
       odpovedi: {
-        a: 'A dolphin',
-        b: 'A whale',
-        c: 'A shark',
-        d: 'A seal',
-        spravna: 'b'
-      }
+        a: 'Smack',
+        b: 'Sergei B.',
+        c: 'Gleb',
+        d: 'Yzomandias',
+        spravna: 'd'
+      },
+      vysvetlivka:
+        'Vysvětlivka: Yzo – (Yzomandias) Český rapper a zakladatel labelu Milion+'
     },
     4: {
-      ilustrace: 'https://example.com/image5.jpg',
+      ilustrace: 'ilustrace/side_eye.png',
+      otazka: 'Co znamená výraz na obrázku?',
       odpovedi: {
-        a: 'A mouse',
-        b: 'A rat',
-        c: 'A bat',
-        d: 'A rabbit',
+        a: 'zánět levého oka',
+        b: 'Side eye (boční oko)',
+        c: 'Plastika víčka',
+        d: 'Oční čočky',
+        spravna: 'b'
+      },
+      vysvetlivka:
+        'Side eye aneb boční oko – Výraz nebo meme označující podezřívavý nebo odsuzující pohled, často používaný na sociálních sítích.'
+    },
+    5: {
+      ilustrace: 'ilustrace/fidget_spinner.png',
+      otazka: 'Jak se nazývá věc na obrázku?',
+      odpovedi: {
+        a: 'Točka',
+        b: 'Nástroj pro opravování kolečkových bruslí',
+        c: 'Spinnie',
+        d: 'Fidget spinner',
         spravna: 'd'
-      }
+      },
+      vysvetlivka:
+        'Malá rotační hračka, která byla obrovským trendem kolem roku 2017, původně navržená pro zmírnění stresu'
     }
   }
 }

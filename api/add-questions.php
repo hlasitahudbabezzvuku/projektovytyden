@@ -41,7 +41,7 @@ function pridatOtazku($otazka, $typ) {
   ]);
 }
 
-function pridatVideoOtazku($otazka) {
+function pridatVideoOtazku($otazka, $typ) {
   global $database;
   $otazka_id = uuidb();
   while ($database->get("Otazky", "*", ["id" => $otazka_id])) {
@@ -49,13 +49,13 @@ function pridatVideoOtazku($otazka) {
   }
   $database->insert("Otazky", [
     "id" => $otazka_id, 
-    "type" => "zvuk", 
+    "type" => $typ, 
     "id_odpovedi" => pridatOdpovedi($otazka['odpovedi']),
     "vysvetlivka" => isset($otazka["vysvetlivka"]) ? $otazka["vysvetlivka"] : null
   ]);
-  $database->insert("zvukOtazky", [
+  $database->insert($typ."Otazky", [
     "id_otazky" => $otazka_id,
-    "zvuk" => $otazka["zvuk"],
+    $typ => $otazka[$typ],
     "odpoved" => isset($otazka["odpoved"]) ? $otazka["odpoved"] : null,
     "otazka" => $otazka["otazka"]
   ]);
@@ -75,16 +75,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // }
 
   foreach ($zvuk as $otazka) {
-    pridatVideoOtazku($otazka);
+    pridatVideoOtazku($otazka, "zvuk");
   }
 
   // foreach ($video as $otazka) {
   //   pridatVideoOtazku($otazka);
   // }
 
-  // foreach ($ilustrace as $otazka) {
-  //   pridatOtazku($otazka, "ilustrace");
-  // }
+  foreach ($ilustrace as $otazka) {
+    pridatVideoOtazku($otazka, "ilustrace");
+  }
   echo json_encode(["success" => "Questions added successfully"]);
   exit();
 }
