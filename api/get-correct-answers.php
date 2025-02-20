@@ -17,14 +17,24 @@
   $pocetSpravnych = 0;
   $spravne = [];
 
-  for ($i = 0; $i < count($answers); $i++) {
-    if ($answers[$i] == array_values($spravne)[$i]) {
+  $i = 0;
+  foreach ($spravne as $ks) {
+    if ($answers[$i] == $spravne) {
       $pocetSpravnych++;
       $spravne[] = [$i => "correct"];
     } else {
       $spravne[] = [$i => "incorrect"];
     }
   }
+
+  // for ($i = 0; $i < count($answers); $i++) {
+  //   if ($answers[$i] == array_values($spravne)[$i]) {
+  //     $pocetSpravnych++;
+  //     $spravne[] = [$i => "correct"];
+  //   } else {
+  //     $spravne[] = [$i => "incorrect"];
+  //   }
+  // }
 
   $database->update("Players", [
     "score[+]" => $pocetSpravnych
