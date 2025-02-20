@@ -16,13 +16,15 @@
     ]
   ]);
 
-  $pocetSpravnych = [];
+  $pocetSpravnych = 0;
+  $spravne = []
 
   for ($i = 0; $i < count($answers); $i++) {
     if ($answers[$i] == $spravne[$i]["spravna"]) {
-      $pocetSpravnych[] = [$i => "correct"];
+      $pocetSpravnych++;
+      $spravne[] = [$i => "correct"];
     } else {
-      $pocetSpravnych[] = [$i => "incorrect"];
+      $spravne[] = [$i => "incorrect"];
     }
   }
 
@@ -32,5 +34,5 @@
     "id" => hex2bin($_GET["player_id"])
   ]);
 
-  echo json_encode($pocetSpravnych);
+  echo json_encode($spravne);
 ?>
