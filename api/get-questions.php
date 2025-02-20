@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);  // Show errors
-ini_set('display_startup_errors', 1);  // Show startup errors
-error_reporting(E_ALL);  // Report all errors, warnings, and notices
-
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
     $gameCode = $_GET["code"];
@@ -11,7 +7,6 @@ error_reporting(E_ALL);  // Report all errors, warnings, and notices
         "id" => $gameCode
     ]);
     $typ = "";
-    // echo "ahoj";
 
     if ($currentStage < 0 || $currentStage > 8) {
         header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
@@ -33,33 +28,22 @@ error_reporting(E_ALL);  // Report all errors, warnings, and notices
             break;
     }
 
-    echo $typ;
-
     if ($typ != "") {    
-      try {
-        // Your query here
-        $otazky = $database->select("GamesOtazky", [
-            "[<]Otazky"=>["otazka_id" => "id"], 
-            "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
-            "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]
-        ], [
-            $typ."Otazky.".$typ,
-            "Odpovedi.a", 
-            "Odpovedi.b", 
-            "Odpovedi.c", 
-            "Odpovedi.d",
-            "GamesOtazky.position"
-        ], [
-            "GamesOtazky.game_id" => $gameCode,
-            "ORDER" => ["GamesOtazky.position" => "ASC"]
-        ]);
-    } catch (Exception $e) {
-        echo "SQL Error: " . $e->getMessage();
-        exit;
-    }
-    
-
-      // print_r($otazky);
+      $otazky = $database->select("GamesOtazky", [
+          "[<]Otazky"=>["otazka_id" => "id"], 
+          "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
+          "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]
+      ], [
+          $typ."Otazky.".$typ,
+          "Odpovedi.a", 
+          "Odpovedi.b", 
+          "Odpovedi.c", 
+          "Odpovedi.d",
+          "GamesOtazky.position"
+      ], [
+          "GamesOtazky.game_id" => $gameCode,
+          "ORDER" => ["GamesOtazky.position" => "ASC"]
+      ]);
 
       $jsonOtazky = [];
 
@@ -77,7 +61,6 @@ error_reporting(E_ALL);  // Report all errors, warnings, and notices
           $jsonOtazky[] = $questionData; 
       }
 
-      // print_r(json_encode($otazky));
       echo json_encode($jsonOtazky, JSON_UNESCAPED_UNICODE);
     }
 ?>
