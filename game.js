@@ -6,6 +6,7 @@ async function generateQuestions(gameCode) {
 
 let index = 0
 let data = {}
+let answers = []
 let playerFinished = {}
 
 async function getQuestions(gameCode) {
@@ -58,7 +59,7 @@ async function finishStage(playerId) {
   })
 }
 
-async function printQuestions(gameCode) {
+async function printQuestions(gameCode, playerId) {
   await getQuestions(gameCode) // Wait for data to load
 
   let div = document.getElementById('question')
@@ -81,10 +82,20 @@ async function printQuestions(gameCode) {
     let btnContainer = document.createElement('div')
     let button = document.createElement('button')
     button.innerText = value
-    button.dataset.answer = key // Store the answer key (optional)
+    button.onclick(() => nextQuestion(gameCode, playerId, key))
     btnContainer.appendChild(button)
     div.appendChild(btnContainer)
   }
+}
+
+async function nextQuestion(gameCode, playerId, value) {
+  answers.append(value)
+  index++
+  if (index > data.length - 1) {
+    finishStage(playerId)
+  }
+
+  printQuestions(gameCode)
 }
 
 async function addStage(gameCode) {
