@@ -57,12 +57,17 @@ async function resetStage(gameCode) {
   gameInterval = setInterval(checkFinished, 2000, gameCode)
 }
 
-async function finishStage(playerId) {
+async function finishStage(playerId, answers) {
   console.log('ahoj')
   fetch(
-    'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
+    'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' +
+      playerId +
+      '&answers=' +
+      answers
   ).then((response) => {
-    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+    console.log(response)
+
+    // window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
   })
 }
 
@@ -99,7 +104,7 @@ async function nextQuestion(gameCode, playerId, value) {
   index++
   if (index > data.length - 1) {
     localStorage.removeItem('answers')
-    finishStage(playerId)
+    finishStage(playerId, answers)
   } else {
     printQuestions(gameCode, playerId)
   }
