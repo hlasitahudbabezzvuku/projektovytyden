@@ -115,8 +115,8 @@ async function addStage(gameCode) {
 }
 
 async function startGame(gameCode) {
-  addStage(gameCode)
-  generateQuestions(gameCode)
+  await addStage(gameCode)
+  await generateQuestions(gameCode)
   window.location.replace(
     'http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
   )
