@@ -132,7 +132,22 @@ async function getFinishedPlayers(gameCode) {
   fetch(
     'http://pubz.infinityfreeapp.com/api/get-finished-players.php?code=' +
       gameCode
-  ).then((response) => {
-    console.log(response.json())
-  })
+  )
+    .then((response) => {
+      response = response.json()
+    })
+    .then((responseData) => {
+      console.log(responseData)
+
+      let btnContainer = document.createElement('div')
+      let name = document.createElement('p')
+      let score = document.createElement('p')
+
+      name.innerText = responseData.name
+      score.innerText = responseData.score
+
+      btnContainer.appendChild(name)
+      btnContainer.appendChild(score)
+      div.appendChild(btnContainer)
+    })
 }
