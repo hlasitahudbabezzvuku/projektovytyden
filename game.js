@@ -117,6 +117,7 @@ async function startGame(gameCode) {
 }
 
 async function nextStage(gameCode) {
+  localStorage.removeItem('answers')
   addStage(gameCode)
   generateQuestions(gameCode)
   resetStage(gameCode)
