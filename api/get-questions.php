@@ -7,7 +7,7 @@
         "id" => $gameCode
     ]);
     $typ = "";
-    echo "ahoj";
+    // echo "ahoj";
 
     if ($currentStage < 0 || $currentStage > 8) {
         header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
@@ -62,7 +62,7 @@
           $jsonOtazky[] = $questionData; 
       }
 
-      print_r(json_encode($otazky));
-      // echo json_encode($jsonOtazky);
+      // print_r(json_encode($otazky));
+      echo json_encode($jsonOtazky);
     }
 ?>
