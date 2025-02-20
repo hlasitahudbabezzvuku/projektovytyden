@@ -98,6 +98,7 @@ async function nextQuestion(gameCode, playerId, value) {
 
   index++
   if (index > data.length - 1) {
+    localStorage.removeItem('answers')
     finishStage(playerId)
   } else {
     printQuestions(gameCode, playerId)
@@ -117,7 +118,6 @@ async function startGame(gameCode) {
 }
 
 async function nextStage(gameCode) {
-  localStorage.removeItem('answers')
   addStage(gameCode)
   generateQuestions(gameCode)
   resetStage(gameCode)
