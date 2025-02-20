@@ -7,6 +7,7 @@
         "id" => $gameCode
     ]);
     $typ = "";
+    echo "ahoj";
 
     if ($currentStage < 0 || $currentStage > 8) {
         header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
