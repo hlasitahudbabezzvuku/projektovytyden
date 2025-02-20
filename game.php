@@ -210,7 +210,7 @@ body {
       // frantovo - nesahat!
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping.php')
         .then(function (response) { return response.text(); })
-        .then(function (text) { console.log(text); })};
+        .then(function (text) { console.log('ping' + text); })};
       setInterval(get_players, 10000);
 
     </script>
