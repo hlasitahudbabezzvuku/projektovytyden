@@ -23,7 +23,7 @@ body {
   padding: 12px 20px;
   border-radius: 10px;
   color: #fff;
-  border: 1px solid #aaa;
+  border: 0.5px solid #fff;
 }
 .hidden-buttons {
   opacity: 0;
@@ -63,3 +63,52 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+#leaderboardList {
+  position: relative;
+  scroll-behavior: smooth;
+}
+/* Pseudo-element s gradientem na spodním okraji leaderboardu */
+#leaderboardList::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2rem; /* Výška gradientu – upravte dle potřeby */
+  background: linear-gradient(to top, #000, transparent);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+/* Když je uživatel téměř na konci, gradient postupně zmizí */
+#leaderboardList.at-bottom::after {
+  opacity: 0;
+}
+
+/* === Styly pro stránku "Vyčkejte na začátek hry" === */
+.wait-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.wait-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+}
+
+.wait-card h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
