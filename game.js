@@ -102,3 +102,10 @@ async function nextQuestion(gameCode, playerId, value) {
 async function addStage(gameCode) {
   fetch('http://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode)
 }
+
+async function startGame(event, gameCode) {
+  event.preventDefault()
+  addStage(gameCode)
+  generateQuestions(gameCode)
+  window.location.replace('http://pubz.infinityfreeapp.com/monitor.php')
+}
