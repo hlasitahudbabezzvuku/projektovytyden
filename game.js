@@ -190,8 +190,8 @@ const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
 //promenne pro rozeznavani kategorii a skore
 
 //funkce pro loadovani otazek
-function loadQuestion(gameCode, playerId) {
-  getQuestions(gameCode)
+async function loadQuestion(gameCode, playerId) {
+  await getQuestions(gameCode)
   // if (currentCategoryIndex >= categories.length) {
   //   //kdyz se odpovi vsechny otazky (hrac dokonci posledni kategorii)
   //   console.log('kviz dokoncen!!')
