@@ -210,9 +210,9 @@ async function getResult(playerId, gameCode) {
     .then((response) => response.json())
     .then((response) => console.log(response))
 
-  let results = response.json()
+  // let results = response.json()
 
-  console.log(results)
+  // console.log(results)
 
   if (localStorage.getItem('answers')) localStorage.removeItem('answers')
 }
