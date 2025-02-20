@@ -250,13 +250,15 @@ async function loadQuestion(gameCode, playerId) {
     questionBox.style.opacity = 1
   }, 300)
   const buttons = document.querySelectorAll('.answer-button')
-  let btnIndex = 0
-  for (const [key, value] of Object.entries(
-    questions[currentQuestionIndex]['odpovedi']
-  )) {
-    buttons[btnIndex].textContent = `${key}) ${value}`
-    buttons[btnIndex].onclick = () => nextQuestion(gameCode, playerId, key)
-  }
+  buttons.forEach((btn, index) => {
+    btn.textContent = `${questions[currentQuestionIndex]['odpovedi'].keys[index]}) ${questions[currentQuestionIndex]['odpovedi'][index]}`
+    btn.onclick = () =>
+      checkAnswer(
+        gameCode,
+        playerId,
+        questions[currentQuestionIndex]['odpovedi'].keys[index]
+      )
+  })
   document.querySelector('.feedback').textContent = ''
   document.querySelector('.feedback').style.color = '#ffffff'
 }
