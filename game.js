@@ -242,16 +242,16 @@ async function loadQuestion(gameCode, playerId) {
       } else if (categories[currentCategoryIndex] === 'Video') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
-          '<video width="100%" height="100%" id="player" data-plyr-provider="youtube" data-plyr-embed-id="' +
+          //   '<video width="100%" height="100%" id="player" data-plyr-provider="youtube" data-plyr-embed-id="' +
+          //   questions[currentQuestionIndex].otazka +
+          //   '"></video>'
+          // const medial = new Plyr('#player', {
+          //   controls: ['play'],
+          //   youtube: { modestbranding: 1, rel: 0, showinfo: 0 }
+          // })
+          '<iframe width="100%" height="100%" src="' +
           questions[currentQuestionIndex].otazka +
-          '"></video>'
-        const medial = new Plyr('#player', {
-          controls: ['play'],
-          youtube: { modestbranding: 1, rel: 0, showinfo: 0 }
-        })
-        // '<iframe width="100%" height="100%" src="' +
-        // questions[currentQuestionIndex].otazka +
-        // '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
+          '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
       } else if (categories[currentCategoryIndex] === 'Obrázek') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
