@@ -241,11 +241,11 @@ async function loadQuestion(gameCode, playerId) {
       } else if (categories[currentCategoryIndex] === 'Video') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
-          '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
+          '<iframe width="100%" height="100%" src="`${questions[currentQuestionsIndex].otazka}`" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
       } else if (categories[currentCategoryIndex] === 'Obrázek') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
-          '<img src="https://via.placeholder.com/600x300?text=Obrázek" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
+          '<img src="${questions[currentQuestionsIndex].otazka}" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
       }
       mediaPlaceholder.style.opacity = 1
     }, 500)
