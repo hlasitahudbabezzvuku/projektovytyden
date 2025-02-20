@@ -12,9 +12,6 @@
 </head>
 <body>
     <script src="game.js"></script>
-    <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
-      <script>getQuestions(<?php echo $_SESSION['code'] ?>)</script>
-    <?php } ?>
     <button onclick="finishStage('<?php echo bin2hex($_SESSION['uuid']); ?>')"
 >Finish</button>
       <div id='question'></div>

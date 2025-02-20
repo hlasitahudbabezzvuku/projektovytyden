@@ -63,6 +63,7 @@ async function finishStage(playerId) {
 
 async function printQuestions(gameCode, playerId) {
   await getQuestions(gameCode) // Wait for data to load
+  console.log('print game code: ' + gameCode)
 
   let div = document.getElementById('question')
   div.innerHTML = '' // Clear previous content
@@ -90,7 +91,7 @@ async function printQuestions(gameCode, playerId) {
 
 async function nextQuestion(gameCode, playerId, value) {
   answers += value
-  console.log(answers)
+  console.log('next game code' + gameCode)
 
   index++
   if (index > data.length - 1) {
