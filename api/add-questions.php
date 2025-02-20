@@ -70,9 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $video = $data["video"];
   $ilustrace = $data["ilustrace"];
 
-  foreach ($textove as $otazka) {
-    pridatOtazku($otazka, "text");
-  }
+  // foreach ($textove as $otazka) {
+  //   pridatOtazku($otazka, "text");
+  // }
 
   // foreach ($zvuk as $otazka) {
   //   pridatOtazku($otazka, "zvuk");

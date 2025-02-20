@@ -128,7 +128,7 @@ const otazky = {
   video: {
     0: {
       video: 'https://youtu.be/Bbe9D4_D80M?si=neE0MLUueFMAyc6q',
-      text: 'Dokonči větu: Jožo, ty prestaň klamať...',
+      otazka: 'Dokonči větu: Jožo, ty prestaň klamať...',
       odpovedi: {
         a: 'tomu ujovi',
         b: 'do reportáže',
@@ -140,7 +140,7 @@ const otazky = {
     },
     1: {
       video: 'https://www.youtube.com/watch?v=OSJ-YC4LEL8',
-      text: 'Co dělá člověk na videu?',
+      otazka: 'Co dělá člověk na videu?',
       odpovedi: {
         a: 'bělí si zuby',
         b: 'nabíjí si',
@@ -153,7 +153,7 @@ const otazky = {
     },
     2: {
       video: 'https://www.youtube.com/shorts/4FXpfLDhvuo',
-      text: 'Jak se jmenuje interpret na videu?',
+      otazka: 'Jak se jmenuje interpret na videu?',
       odpovedi: {
         a: 'Sergei B',
         b: 'Viktor S',
@@ -166,7 +166,7 @@ const otazky = {
     },
     3: {
       video: 'https://www.youtube.com/watch?v=6V7_LNhqI1k',
-      text: 'Pro koho video točí?',
+      otazka: 'Pro koho video točí?',
       odpovedi: {
         a: 'pro babičku',
         b: 'pro manžela',
@@ -178,7 +178,7 @@ const otazky = {
     },
     4: {
       video: 'https://youtu.be/C4FOiXdDpJ8?si=BJGRWO4vtinGFyzW',
-      text: 'Jak se nazývá tento typ videa?',
+      otazka: 'Jak se nazývá tento typ videa?',
       odpovedi: {
         a: 'rozbalovačka',
         b: 'boxing',
@@ -191,7 +191,7 @@ const otazky = {
     },
     5: {
       video: 'https://www.youtube.com/watch?v=FtXMyOz01sk',
-      text: 'Co míchá muž na videu?',
+      otazka: 'Co míchá muž na videu?',
       odpovedi: {
         a: 'kratom',
         b: 'matcha',
