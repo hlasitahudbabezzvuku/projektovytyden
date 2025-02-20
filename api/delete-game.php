@@ -13,5 +13,5 @@
 
   $jsonResponse = ["success" => "true"];
   echo json_encode($jsonResponse);
-}
+
 ?>
