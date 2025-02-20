@@ -14,13 +14,11 @@
     ]
   ]);
 
-  print_r($spravne[0]);
-
   $pocetSpravnych = 0;
   $spravne = [];
 
   for ($i = 0; $i < count($answers); $i++) {
-    if ($answers[$i] == $spravne[$i]) {
+    if ($answers[$i] == array_values($spravne)[$i]) {
       $pocetSpravnych++;
       $spravne[] = [$i => "correct"];
     } else {
