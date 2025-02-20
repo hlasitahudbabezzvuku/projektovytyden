@@ -2,7 +2,7 @@ let currentQuestionIndex = 0
 let questions = {}
 let answers = []
 let playerFinished = {}
-let buttons = []
+let buttons = document.querySelectorAll('.answer-button')
 let currentCategoryIndex = 0
 // let totalScore = 0
 // let categoryScore = 0
@@ -281,10 +281,10 @@ async function loadQuestion(gameCode, playerId, home) {
     questionBox.textContent = questions[currentQuestionIndex].otazka
     questionBox.style.opacity = 1
   }, 300)
-  buttons = document.querySelectorAll('.answer-button')
   console.log('Load otazky: ' + JSON.stringify(questions))
 
   buttons.forEach((btn, index) => {
+    btn.disabled = false
     btn.textContent = `${
       Object.keys(questions[currentQuestionIndex].odpovedi)[index]
     }) ${
@@ -293,7 +293,6 @@ async function loadQuestion(gameCode, playerId, home) {
       ]
     }`
     btn.onclick = () => {
-      btn.disabled = false
       nextQuestion(
         gameCode,
         playerId,
