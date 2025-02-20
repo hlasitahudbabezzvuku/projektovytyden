@@ -7,11 +7,6 @@ session_start();
 
 if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
 
-  if(empty($database->get("Players", "id", [ "id" => $_SESSION["uuid"] ]))) {
-    echo("Player not found");
-    die();
-  }
-
   if (empty($database->get("Games", "id", [ "id" => $_SESSION["code"] ]))) {
     echo("Game is no longer avalible");
     die();
