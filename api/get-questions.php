@@ -34,7 +34,13 @@
           "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
           "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]
       ], [
-          "*"
+          $typ."Otazky.".$typ,
+          $typ."Otazky.otazka",
+          "Odpovedi.a", 
+          "Odpovedi.b", 
+          "Odpovedi.c", 
+          "Odpovedi.d",
+          "GamesOtazky.position"
       ], [
           "GamesOtazky.game_id" => $gameCode,
           "ORDER" => ["GamesOtazky.position" => "ASC"]
