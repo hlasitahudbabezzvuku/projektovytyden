@@ -76,6 +76,10 @@ async function finishStage(playerId, gameCode) {
   console.log('Stage: ' + stage)
 
   if (stage == '7') {
+    await fetch(
+      'http://pubz.infinityfreeapp.com/api/update-leaderboard.php/player_id=' +
+        playerId
+    )
     window.location.replace('http://pubz.infinityfreeapp.com/end.php')
   } else {
     window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
