@@ -67,7 +67,12 @@ if (count($data) != 0) {
       // frantovo - nesahat!
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-player.php')
         .then(function (response) { return response.text(); })
-        .then(function (text) { console.log('ping' + text); })};
+        .then(function (text) {
+          if (text.length == 0)
+            console.log("Ping OK");
+          else
+            console.log("[ERROR]: " + text);
+        })};
       setInterval(ping, 5000);
 
       </script>
