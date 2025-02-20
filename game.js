@@ -107,5 +107,5 @@ async function startGame(event, gameCode) {
   event.preventDefault()
   addStage(gameCode)
   generateQuestions(gameCode)
-  return true
+  window.location.replace('http://pubz.infinityfreeapp.com/monitor.php')
 }
