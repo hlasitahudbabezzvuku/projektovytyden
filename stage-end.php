@@ -177,6 +177,7 @@
       Čeká se na hostitele, který potvrdí přechod do další kategorie...
     </div>
   </div>
+  <script src="game.js"></script>
   <script>
     getResult('<?php echo bin2hex($_SESSION["uuid"]);?>, <?php echo $_SESSION['code']; ?>');
     setInterval(() => {
@@ -197,6 +198,5 @@
       setInterval(ping, 5000);
     
     </script>
-  <script src="game.js"></script>
 </body>
 </html>
