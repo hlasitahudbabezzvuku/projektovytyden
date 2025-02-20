@@ -139,6 +139,8 @@ async function getFinishedPlayers(gameCode) {
 
       let div = document.getElementById('score-board')
 
+      div.innerHTML = ''
+
       responseData.forEach((player) => {
         let btnContainer = document.createElement('div')
         let name = document.createElement('p')
