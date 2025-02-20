@@ -241,9 +241,9 @@ async function loadQuestion(gameCode, playerId, home) {
       if (categories[currentCategoryIndex] === 'Zvuk') {
         mediaPlaceholder.style.height = '80px'
         mediaPlaceholder.innerHTML =
-          '<audio id="myAudio" src="' +
+          '<audio ontimeupdate="changeTimeLine" id="myAudio" src="' +
           questions[currentQuestionIndex].zvuk +
-          '" preload="auto"></audio><input type="range" id="audioTimeline" value="0" step="1" style="width: 100%; margin-top: 10px;"><button id="playPauseBtn" onclick="togglePlayPause()">Play</button>'
+          '" preload="auto"></audio><input type="range" id="audioTimeline" oninput="acceptInput()" value="0" step="1" style="width: 100%; margin-top: 10px;"><button id="playPauseBtn" onclick="togglePlayPause()">Play</button>'
         audio = document.getElementById('myAudio')
         playPauseBtn = document.getElementById('playPauseBtn')
         audioTimeline = document.getElementById('audioTimeline')
@@ -318,16 +318,16 @@ async function loadQuestion(gameCode, playerId, home) {
 //   window.location.href = 'index.html'
 // })
 
-audio.addEventListener('timeupdate', () => {
+function changeTimeLine() {
   const progress = (audio.currentTime / audio.duration) * 100
   audioTimeline.value = progress
-})
+}
 
 // Update audio time when the timeline is clicked
-audioTimeline.addEventListener('input', () => {
+function acceptInput() {
   const newTime = (audioTimeline.value / 100) * audio.duration
   audio.currentTime = newTime
-})
+}
 
 // Toggle Play/Pause button functionality
 function togglePlayPause() {
