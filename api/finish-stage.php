@@ -37,5 +37,5 @@
   ]);
 
   $jsonResponse = ["spravne" => $pocetSpravnych];
-  echo json_encode($spravne);
+  echo json_encode($jsonResponse);
 ?>
