@@ -90,12 +90,14 @@ async function printQuestions(gameCode, playerId) {
 
 async function nextQuestion(gameCode, playerId, value) {
   answers += value
+  console.log(answers)
+
   index++
   if (index > data.length - 1) {
     finishStage(playerId)
+  } else {
+    printQuestions(gameCode, playerId)
   }
-
-  printQuestions(gameCode, playerId)
 }
 
 async function addStage(gameCode) {
