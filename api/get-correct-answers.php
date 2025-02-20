@@ -7,9 +7,7 @@
   $spravne = $database->select("GamesOtazky", [
     "[>]Otazky" => ["otazka_id" => "id"],
     "[>]Odpovedi" => ["Otazky.id_odpovedi" => "id"]
-  ], [
-    "spravna"
-  ], [
+  ], "spravna", [
     "game_id" => $_GET["code"],
     "ORDER" => [
       "position" => "ASC"
