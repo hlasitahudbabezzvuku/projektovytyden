@@ -22,7 +22,7 @@
     <script>startGame(<?php echo $_SESSION['code']?>)</script>
   <?php } ?>
   <script>let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
-
+  <script>let scoreboardInterval = setInterval(getFinishedPlayers, 2000, <?php echo $_SESSION["code"] ?>)</script>
   //  TODO: Seznam lidi, kteri uz dokoncili + jejich skore
 </body>
 </html>

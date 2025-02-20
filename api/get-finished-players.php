@@ -8,6 +8,9 @@
     "AND" => [
       "game" => $gameCode,
       "stage_finished" => 1
+    ],
+    "ORDER" => [
+      "score" => "DESC"
     ]
   ]);
   echo json_encode($players);

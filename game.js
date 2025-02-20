@@ -67,9 +67,7 @@ async function finishStage(playerId, gameCode) {
       '&code=' +
       gameCode
   ).then((response) => {
-    console.log(response.json())
-
-    // window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
   })
 }
 
@@ -128,4 +126,13 @@ async function nextStage(gameCode) {
   addStage(gameCode)
   generateQuestions(gameCode)
   resetStage(gameCode)
+}
+
+async function getFinishedPlayers(gameCode) {
+  fetch(
+    'http://pubz.infinityfreeapp.com/api/get-finished-players.php?code=' +
+      gameCode
+  ).then((response) => {
+    console.log(response.json())
+  })
 }
