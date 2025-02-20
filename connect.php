@@ -46,20 +46,24 @@ if (count($data) != 0) {
 <html lang="cz">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PubZ</title>
+    <link href="styles.css" rel="stylesheet" />
   </head>
-  <body>
-    <span>Vyčkejte na začátek hry.</span>
-    <script>
-    function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
-      .then(function (response) { return response.text(); })
-      .then(function (text) {
-        console.log(text);
-        if (text != '0')
-          window.location.replace('http://pubz.infinityfreeapp.com/game.php');
-      });}
-    setInterval(get_stage, 2000);
-    </script>
+  <body class="wait-page">
+    <div class="wait-card">
+      <h1>Vyčkejte na začátek hry</h1>
+      <script>
+      function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
+        .then(function (response) { return response.text(); })
+        .then(function (text) {
+          console.log(text);
+          if (text != '0')
+            window.location.replace('http://pubz.infinityfreeapp.com/game.php');
+        });}
+      setInterval(get_stage, 2000);
+      </script>
+    </div>
   </body>
 </html>
 
