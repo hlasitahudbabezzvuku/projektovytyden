@@ -82,7 +82,7 @@ async function printQuestions(gameCode, playerId) {
     let btnContainer = document.createElement('div')
     let button = document.createElement('button')
     button.innerText = value
-    button.onclick(() => nextQuestion(gameCode, playerId, key))
+    button.onclick = () => nextQuestion(gameCode, playerId, key)
     btnContainer.appendChild(button)
     div.appendChild(btnContainer)
   }
