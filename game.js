@@ -245,7 +245,7 @@ async function loadQuestion(gameCode, playerId) {
   const questionBox = document.querySelector('.question-box')
   questionBox.style.opacity = 0
   setTimeout(() => {
-    questionBox.textContent = questions.otazka
+    questionBox.textContent = questions[currentQuestionIndex].otazka
     questionBox.style.opacity = 1
   }, 300)
   const buttons = document.querySelectorAll('.answer-button')
