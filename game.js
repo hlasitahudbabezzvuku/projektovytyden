@@ -279,13 +279,6 @@ async function loadQuestion(gameCode, playerId) {
 //   loadQuestion()
 // }
 
-document.addEventListener('DOMContentLoaded', () => {
-  document
-    .querySelectorAll('.fade-in')
-    .forEach((el) => el.classList.add('show'))
-  loadQuestion()
-})
-
 // document.getElementById('menuBtn').addEventListener('click', () => {
 //   window.location.href = 'index.html'
 // })

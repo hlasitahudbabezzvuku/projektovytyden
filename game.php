@@ -199,7 +199,14 @@ body {
     </div>
 
     <script src="game.js"></script>
-    <!-- <script>loadQuestion(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>')</script> -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document
+          .querySelectorAll('.fade-in')
+          .forEach((el) => el.classList.add('show'))
+        loadQuestion(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>')
+      })
+    </script>
   </body>
 </html>
 
@@ -211,7 +218,7 @@ body {
     <title>Document</title>
 </head>
 <body>
-    <script src="game.js"></script>
+    <script src="game.js"></>
     <button onclick="finishStage('<?php echo bin2hex($_SESSION['uuid']); ?>')"
 >Finish</button>
       <div id='question'></div>
