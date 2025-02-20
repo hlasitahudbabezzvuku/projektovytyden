@@ -53,31 +53,31 @@ async function finishStage(playerId) {
   })
 }
 
-function printQuestions(gameCode) {
-  await getQuestions(); // Wait for data to load
+async function printQuestions(gameCode) {
+  await getQuestions() // Wait for data to load
 
-  let div = document.getElementById("question");
-  div.innerHTML = ""; // Clear previous content
+  let div = document.getElementById('question')
+  div.innerHTML = '' // Clear previous content
 
   if (!data || !data[index]) {
-    div.innerText = "No questions available.";
-    return;
+    div.innerText = 'No questions available.'
+    return
   }
 
   // Add question text
-  let p = document.createElement("p");
-  p.innerText = data[index].text; // Use "text" instead of "otazka"
-  div.append(p);
+  let p = document.createElement('p')
+  p.innerText = data[index].text // Use "text" instead of "otazka"
+  div.append(p)
 
   // Loop through odpovedi (answers)
-  Object.entries(data[index]["odpovedi"]).forEach(([key, value]) => {
-    let btnContainer = document.createElement("div");
-    let button = document.createElement("button");
-    button.innerText = value;
-    button.dataset.answer = key; // Store the answer key (optional)
-    btnContainer.append(button);
-    div.append(btnContainer);
-  });
+  Object.entries(data[index]['odpovedi']).forEach(([key, value]) => {
+    let btnContainer = document.createElement('div')
+    let button = document.createElement('button')
+    button.innerText = value
+    button.dataset.answer = key // Store the answer key (optional)
+    btnContainer.append(button)
+    div.append(btnContainer)
+  })
 }
 
 async function addStage(gameCode) {
