@@ -68,7 +68,7 @@ global $database;
         </div>
         <div class="mb-4">
           <p class="mb-1 text-white">QR kód:</p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo urlencode('http://pubz.infinityfreeapp.com/login.php?game=' . $code) ?>" alt="QR kód" class="w-32 h-auto object-contain bg-white p-1 rounded"/>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo urlencode('http://pubz.infinityfreeapp.com/login.php?game=' . $code) ?>" alt="QR kód" class="w-3/4 h-auto object-contain bg-white p-1 rounded"/>
         </div>
         <div class="mb-4">
           <p class="mb-1 text-white">Připojeni hráči</p>
