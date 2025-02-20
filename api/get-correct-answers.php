@@ -21,8 +21,8 @@
   $pocetSpravnych = 0;
   $spravne = [];
 
-  for ($i = 0; $i < count($answers); $i++) {
-    if ($answers[$i] == $spravne[$i]["spravna"]) {
+  for ($i = 1; $i <= count($answers); $i++) {
+    if ($answers[$i-1] == $spravne[$i-1]["spravna"]) {
       $pocetSpravnych++;
       $spravne[] = [$i => "correct"];
     } else {
