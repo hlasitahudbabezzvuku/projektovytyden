@@ -178,7 +178,7 @@
     </div>
   </div>
   <script>
-    getResult('<?php echo $_SESSION["uuid"]?>');
+    getResult('<?php echo bin2hex($_SESSION["uuid"]);?>, <?php echo $_SESSION['code']; ?>');
     setInterval(() => {
       fetch('http://pubz.infinityfreeapp.com/api/player-finished.php?uuid=' + '<?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>')
         .then(function (response) { return response.text(); })

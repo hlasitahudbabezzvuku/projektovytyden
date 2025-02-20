@@ -197,7 +197,7 @@ async function getFinishedPlayers(gameCode) {
     })
 }
 
-async function getResult(playerId) {
+async function getResult(playerId, gameCode) {
   let resultList = document.getElementById('results-list')
 
   let response = await fetch(
