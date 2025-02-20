@@ -253,8 +253,12 @@ async function loadQuestion(gameCode, playerId) {
 
   buttons.forEach((btn, index) => {
     btn.textContent = `${
-      Object.keys(questions[currentQuestionIndex]['odpovedi'])[index]
-    }) ${questions[currentQuestionIndex]['odpovedi'][index]}`
+      Object.keys(questions[currentQuestionIndex].odpovedi)[index]
+    }) ${
+      questions[currentQuestionIndex].odpovedi[
+        Object.keys(questions[currentQuestionIndex].odpovedi)[index]
+      ]
+    }`
     btn.onclick = () =>
       checkAnswer(
         gameCode,
