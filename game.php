@@ -15,6 +15,7 @@
     <button onclick="finishStage('<?php echo bin2hex($_SESSION['uuid']); ?>')"
 >Finish</button>
       <div id='question'></div>
+      <div id='score-board'></div>
       <script>printQuestions(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>')</script>
 </body>
 </html>
