@@ -18,7 +18,7 @@
 </head>
   <script src="game.js"></script>
     <button onclick="addStage(<?php echo $_SESSION['code']; ?>); generateQuestions(<?php echo $_SESSION['code']; ?>);  resetStage(<?php echo $_SESSION['code']; ?>);" id="continue-button" disabled>Continue</button>
-  <?php if ($_GET['startGame']) {?>
+  <?php if (isset($_GET['startGame'])) {?>
     <script>startGame(<?php echo $_SESSION['code']?>)</script>
   <?php } ?>
   <script>let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
