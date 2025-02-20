@@ -21,8 +21,8 @@
   <!-- <?php if ($_SERVER['REQUEST_METHOD'] == "GET") {?>
     <script></script>
   <?php } ?> -->
-  <script>let gameInterval = setInterval(getFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
+  <script>let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
 
-  // TODO: Seznam lidi, kteri uz dokoncili + jejich skore
+  //  TODO: Seznam lidi, kteri uz dokoncili + jejich skore
 </body>
 </html>

@@ -15,8 +15,8 @@
     <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
       <script>getQuestions(<?php echo $_SESSION['code'] ?>)</script>
     <?php } ?>
-    <!-- <button onclick="finishStage('<?php echo bin2hex($_SESSION['uuid']); ?>', <?php echo $_SESSION['code'] ?>)"
->Finish</button> -->
+    <button onclick="finishStage('<?php echo bin2hex($_SESSION['uuid']); ?>', <?php echo $_SESSION['code'] ?>)"
+>Finish</button>
       <div id='question'></div>
       <script>printQuestions(<?php echo $_SESSION['code'] ?>)</script>
 </body>
