@@ -107,4 +107,5 @@ async function startGame(event, gameCode) {
   event.preventDefault()
   addStage(gameCode)
   generateQuestions(gameCode)
+  return true
 }
