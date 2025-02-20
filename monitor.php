@@ -14,10 +14,10 @@ if (!array_key_exists("code", $_SESSION)) {
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <script src="game.js"></script>
     <title>PubZ</title>
   </head>
   <body>
+    <script src="game.js"></script>
     <button onclick="nextStage(<?php echo $_SESSION['code'] ?>)" 
     id="continue-button" disabled>Continue</button>
     <?php if (isset($_GET['startGame'])) {?>
