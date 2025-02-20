@@ -55,25 +55,25 @@ if (count($data) != 0) {
     <div class="wait-card">
       <h1>Vyčkejte na začátek hry</h1>
       <script>
-      function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
-        .then(function (response) { return response.text(); })
-        .then(function (text) {
-          console.log(text);
-          if (text != '0')
-            window.location.replace('http://pubz.infinityfreeapp.com/game.php');
-        });}
-      setInterval(get_stage, 2000);
 
-      // frantovo - nesahat!
-      function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-player.php')
-        .then(function (response) { return response.text(); })
-        .then(function (text) {
-          if (text.length == 1)
-            console.log("Ping: OK");
-          else
-            window.location.replace(encodeURI("http://pubz.infinityfreeapp.com/index.php?failed=" + text));
-        })};
-      setInterval(ping, 5000);
+        function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
+          .then(function (response) { return response.text(); })
+          .then(function (text) {
+            console.log(text);
+            if (text != '0')
+              window.location.replace('http://pubz.infinityfreeapp.com/game.php');
+          });}
+        setInterval(get_stage, 2000);
+
+        function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-player.php')
+          .then(function (response) { return response.text(); })
+          .then(function (text) {
+            if (text.length == 1)
+              console.log("Ping: OK");
+            else
+              window.location.replace(encodeURI("http://pubz.infinityfreeapp.com/index.php?failed=" + text));
+          })};
+        setInterval(ping, 5000);
 
       </script>
     </div>
