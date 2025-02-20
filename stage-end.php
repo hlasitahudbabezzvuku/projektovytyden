@@ -26,7 +26,7 @@
       }, 2000)
     
       // frantovo - nesahat!
-      function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping.php')
+      function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-player.php')
         .then(function (response) { return response.text(); })
         .then(function (text) { console.log('ping' + text); })};
       setInterval(ping, 5000);
