@@ -74,6 +74,7 @@ async function finishStage(playerId, gameCode) {
   )
   let stage = await response.json()
 
+  console.log('finishing stage')
   console.log(stage)
 
   // if (stage === '7') {
