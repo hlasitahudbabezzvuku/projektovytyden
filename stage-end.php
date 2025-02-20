@@ -14,7 +14,7 @@
 
   <script src="game.js"></script>
   <script>setInterval(() => {
-    fetch('http://pubz.infinityfreeapp.com/api/player-finished.php?uuid=' + <?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>)
+    fetch('http://pubz.infinityfreeapp.com/api/player-finished.php?uuid=' + '<?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>')
       .then(function (response) { return response.text(); })
       .then(function (text) {
         console.log(text);
