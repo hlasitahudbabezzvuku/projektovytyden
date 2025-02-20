@@ -22,11 +22,11 @@ async function getQuestions(gameCode) {
       throw new Error('Failed to fetch questions: ' + response.status)
     }
 
-    data = await response.json() // Parse response as JSON
+    data = await response.json()
     console.log('Fetched questions:', data)
   } catch (error) {
     console.error('Error:', error)
-    data = null // Reset data if the request fails
+    data = null
   }
 }
 
@@ -62,23 +62,20 @@ async function finishStage(playerId) {
 }
 
 async function printQuestions(gameCode, playerId) {
-  await getQuestions(gameCode) // Wait for data to load
-  console.log('print game code: ' + gameCode)
+  await getQuestions(gameCode)
 
   let div = document.getElementById('question')
-  div.innerHTML = '' // Clear previous content
+  div.innerHTML = ''
 
   if (!data || !Array.isArray(data) || data.length === 0) {
     div.innerText = 'No questions available.'
     return
   }
 
-  // Add question text
   let p = document.createElement('p')
-  p.innerText = data[index].otazka // Use "text" instead of "otazka"
+  p.innerText = data[index].otazka
   div.append(p)
 
-  // Loop through odpovedi (answers)
   for (const [key, value] of Object.entries(data[index]['odpovedi'])) {
     let btnContainer = document.createElement('div')
     let button = document.createElement('button')
@@ -91,7 +88,7 @@ async function printQuestions(gameCode, playerId) {
 
 async function nextQuestion(gameCode, playerId, value) {
   answers += value
-  console.log('next game code' + gameCode)
+  console.log('answers: ' + answers)
 
   index++
   if (index > data.length - 1) {
