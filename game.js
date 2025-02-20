@@ -312,14 +312,12 @@ async function loadQuestion(gameCode, playerId) {
 //   window.location.href = 'index.html'
 // })
 
-const audio = document.getElementById('myAudio')
-
 // Play the audio
 function playAudio() {
-  audio.play()
+  document.getElementById('myAudio').play()
 }
 
 // Pause the audio
 function pauseAudio() {
-  audio.pause()
+  document.getElementById('myAudio').pause()
 }
