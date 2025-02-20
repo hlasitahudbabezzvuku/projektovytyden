@@ -9,7 +9,7 @@ if (localStorage.getItem('answers')) {
 }
 
 async function generateQuestions(gameCode) {
-  fetch(
+  await fetch(
     'http://pubz.infinityfreeapp.com/api/generate-questions.php?code=' +
       gameCode
   )
@@ -53,7 +53,9 @@ async function checkFinished(gameCode) {
 }
 
 async function resetStage(gameCode) {
-  fetch('http://pubz.infinityfreeapp.com/api/reset-stage.php?code=' + gameCode)
+  await fetch(
+    'http://pubz.infinityfreeapp.com/api/reset-stage.php?code=' + gameCode
+  )
   gameInterval = setInterval(checkFinished, 2000, gameCode)
 }
 
@@ -122,7 +124,9 @@ async function nextQuestion(gameCode, playerId, value) {
 }
 
 async function addStage(gameCode) {
-  fetch('http://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode)
+  await fetch(
+    'http://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode
+  )
 }
 
 async function startGame(gameCode) {
