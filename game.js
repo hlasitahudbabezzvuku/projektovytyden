@@ -65,7 +65,7 @@ async function finishStage(playerId, answers) {
       '&answers=' +
       answers
   ).then((response) => {
-    console.log(response)
+    console.log(response.json())
 
     // window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
   })
