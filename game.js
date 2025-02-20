@@ -60,28 +60,27 @@ async function resetStage(gameCode) {
 }
 
 async function finishStage(playerId, gameCode) {
-  console.log('ahoj')
-  fetch(
+  await fetch(
     'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' +
       playerId +
       '&answers=' +
       encodeURIComponent(JSON.stringify(answers)) +
       '&code=' +
       gameCode
-  ).then((response) => {
-    let stage
-    fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode)
-      .then((response) => response.json())
-      .then((text) => {
-        console.log(text)
-        stage = text
-      })
-    if (stage === '7') {
-      window.location.replace('http://pubz.infinityfreeapp.com')
-    } else {
-      window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
-    }
-  })
+  )
+
+  let response = await fetch(
+    'http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
+  )
+  let stage = await response.json()
+
+  console.log(stage)
+
+  if (stage === '7') {
+    window.location.replace('http://pubz.infinityfreeapp.com')
+  } else {
+    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+  }
 }
 
 async function printQuestions(gameCode, playerId) {
