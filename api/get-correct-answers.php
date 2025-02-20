@@ -17,7 +17,7 @@
   ]);
 
   $pocetSpravnych = 0;
-  $spravne = []
+  $spravne = [];
 
   for ($i = 0; $i < count($answers); $i++) {
     if ($answers[$i] == $spravne[$i]["spravna"]) {
