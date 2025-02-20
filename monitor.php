@@ -37,7 +37,7 @@ if (!array_key_exists("code", $_SESSION)) {
           else
             window.location.replace(encodeURI("http://pubz.infinityfreeapp.com/index.php?failed=" + text));
         })};
-      setInterval(ping, 5000);
+      setInterval(ping, 4000);
 
     </script>
 

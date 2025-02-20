@@ -216,7 +216,7 @@ body {
           else
             window.location.replace(encodeURI("http://pubz.infinityfreeapp.com/index.php?failed=" + text));
         })};
-      setInterval(ping, 5000);
+      setInterval(ping, 4000);
 
     </script>
   </body>
