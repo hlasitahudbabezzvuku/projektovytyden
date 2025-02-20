@@ -281,7 +281,7 @@ async function loadQuestion(gameCode, playerId, home) {
     questionBox.textContent = questions[currentQuestionIndex].otazka
     questionBox.style.opacity = 1
   }, 300)
-  const buttons = document.querySelectorAll('.answer-button')
+  buttons = document.querySelectorAll('.answer-button')
   console.log('Load otazky: ' + JSON.stringify(questions))
 
   buttons.forEach((btn, index) => {
