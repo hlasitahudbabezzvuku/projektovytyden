@@ -93,6 +93,7 @@ async function printQuestions(gameCode, playerId) {
 
 async function nextQuestion(gameCode, playerId, value) {
   answers.push(value)
+  localStorage.setItem('answers', answers)
   console.log('answers: ' + answers)
 
   index++
