@@ -215,6 +215,6 @@ body {
     </div>
 
     <script src="game.js"></script>
-    <script>loadQuestions(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>')</script>
+    <script>loadQuestion(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>')</script>
   </body>
 </html>
