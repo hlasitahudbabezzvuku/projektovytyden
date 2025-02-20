@@ -87,7 +87,7 @@ async function printQuestions(gameCode, playerId) {
 }
 
 async function nextQuestion(gameCode, playerId, value) {
-  answers += value
+  answers.push(value)
   console.log('answers: ' + answers)
 
   index++
