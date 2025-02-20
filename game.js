@@ -33,7 +33,6 @@ async function getQuestions(gameCode) {
     }
 
     questions = await response.json()
-    console.log('Fetched questions:', questions)
   } catch (error) {
     console.error('Error:', error)
     questions = null
@@ -250,7 +249,7 @@ async function loadQuestion(gameCode, playerId) {
     questionBox.style.opacity = 1
   }, 300)
   const buttons = document.querySelectorAll('.answer-button')
-  console.log(questions)
+  console.log('Load otazky' + questions)
 
   buttons.forEach((btn, index) => {
     btn.textContent = `${
