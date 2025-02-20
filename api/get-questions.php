@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);  // Show errors
+ini_set('display_startup_errors', 1);  // Show startup errors
+error_reporting(E_ALL);  // Report all errors, warnings, and notices
+
     require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
     $gameCode = $_GET["code"];
