@@ -71,7 +71,7 @@ if (count($data) != 0) {
           if (text.length == 0)
             console.log("Ping OK");
           else
-            console.log("[ERROR]: " + text);
+            console.log("[ERROR]: " + text + "\n[INFO]: text.length == " + text.length);
         })};
       setInterval(ping, 5000);
 
