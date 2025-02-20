@@ -47,7 +47,7 @@ async function checkFinished(gameCode) {
 
 async function resetStage(gameCode) {
   fetch('http://pubz.infinityfreeapp.com/api/reset-stage.php?code=' + gameCode)
-  gameInterval = setInterval(getFinished, 2000, gameCode)
+  gameInterval = setInterval(checkFinished, 2000, gameCode)
 }
 
 async function finishStage(playerId) {
