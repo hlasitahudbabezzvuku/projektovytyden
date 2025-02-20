@@ -6,10 +6,10 @@
     "id" => hex2bin($_GET["player_id"])
   ]);
 
-  // $database->update("LeaderBoard", [
-  //   "name" => $player[0]["name"],
-  //   "core" => $player[0]["score"]
-  // ]);
+  $database->update("LeaderBoard", [
+    "name" => $player[0]["name"],
+    "score" => $player[0]["score"]
+  ]);
 
   echo print_r($player);
 ?>
