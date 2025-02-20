@@ -256,7 +256,9 @@ async function loadQuestion(gameCode, playerId, home) {
       } else if (categories[currentCategoryIndex] === 'Obrázek') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
-          '<img src="${questions[currentQuestionsIndex].otazka}" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
+          '<img src="' +
+          questions[currentQuestionsIndex].otazka +
+          '" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
       }
       mediaPlaceholder.style.opacity = 1
     }, 500)
