@@ -122,7 +122,7 @@ async function startGame(gameCode) {
   )
 }
 
-async function nextStage(gameCode) {
+function nextStage(gameCode) {
   addStage(gameCode)
   generateQuestions(gameCode)
   resetStage(gameCode)
