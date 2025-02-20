@@ -61,13 +61,13 @@ if (count($data) != 0) {
           if (text != '0')
             window.location.replace('http://pubz.infinityfreeapp.com/game.php');
         });}
-      setInterval(ping, 2000);
+      setInterval(get_stage, 2000);
 
       // frantovo - nesahat!
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping.php')
         .then(function (response) { return response.text(); })
         .then(function (text) { console.log('ping' + text); })};
-      setInterval(get_players, 10000);
+      setInterval(ping, 10000);
 
       </script>
     </div>
