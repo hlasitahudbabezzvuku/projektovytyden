@@ -37,6 +37,8 @@ async function getQuestions(gameCode) {
       'http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
     )
     let stage = await stageResponse.text()
+    console.log('Stage: ' + stage)
+
     switch (stage) {
       case '1':
         currentCategoryIndex = 0
