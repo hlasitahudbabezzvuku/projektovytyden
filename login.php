@@ -63,15 +63,6 @@ global $database;
         <div class="mb-4">
           <p class="mb-1 text-white">Připojeni hráči</p>
           <ul id="playerList" class="space-y-2">
-
-            <!-- Každá položka seznamu je nyní stylizovaná s tmavým textem pro lepší čitelnost -->
-            <li class="flex items-center p-2 bg-gray-100 rounded shadow hover:bg-gray-200 transition-colors text-gray-900">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 15c2.485 0 4.802.647 6.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span>Žádní hráči připojeni</span>
-            </li>
-
           </ul>
         </div>
 
