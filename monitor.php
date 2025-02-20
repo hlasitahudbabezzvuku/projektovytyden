@@ -4,9 +4,7 @@ require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 
 session_start();
 
-if (array_key_exists("id", $_GET)) {
-  $_SESSION['code'] = $_GET["id"];
-} else {
+if (!array_key_exists("code", $_SESSION)) {
   header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Je nutné nejprve hru vytvořit"));
 } 
 
