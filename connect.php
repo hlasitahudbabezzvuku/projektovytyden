@@ -34,6 +34,7 @@ if (count($data) != 0) {
     "name" => $_SESSION["name"],
     "game" => $_SESSION["code"],
     "stage_finished" => false,
+    "last_ping" => time()
   ]);
 } else {
   header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Kód je bohužel neplatný :("));
