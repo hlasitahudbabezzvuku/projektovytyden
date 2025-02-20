@@ -29,19 +29,21 @@
     }
 
     if ($typ != "") {    
+      $columns = [
+        $typ."Otazky.".$typ,
+        "Odpovedi.a", 
+        "Odpovedi.b", 
+        "Odpovedi.c", 
+        "Odpovedi.d",
+        "GamesOtazky.position"
+      ];
+      if ($typ == "video") $columns[] = $typ."Otazky.otazka";
+
       $otazky = $database->select("GamesOtazky", [
           "[<]Otazky"=>["otazka_id" => "id"], 
           "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
           "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]
-      ], [
-          $typ."Otazky.".$typ,
-          $typ."Otazky.otazka",
-          "Odpovedi.a", 
-          "Odpovedi.b", 
-          "Odpovedi.c", 
-          "Odpovedi.d",
-          "GamesOtazky.position"
-      ], [
+      ], $columns, [
           "GamesOtazky.game_id" => $gameCode,
           "ORDER" => ["GamesOtazky.position" => "ASC"]
       ]);
