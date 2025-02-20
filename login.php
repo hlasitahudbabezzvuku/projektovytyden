@@ -75,7 +75,8 @@ global $database;
         global $code;
 
         $database->insert("Games", [
-          "id" => $code
+          "id" => $code,
+          "last_ping" => time()
         ]);
 
         $_SESSION["code"] = $code;
