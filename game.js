@@ -67,7 +67,13 @@ async function finishStage(playerId, gameCode) {
       '&code=' +
       gameCode
   ).then((response) => {
-    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+    let stage
+    fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode).then((response) => response.json()).then((text) => {stage = text})
+    if (stage === '7') {
+      window.location.replace('http://pubz.infinityfreeapp.com')
+    } else {
+      window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+    }
   })
 }
 
@@ -95,6 +101,14 @@ async function printQuestions(gameCode, playerId) {
     div.appendChild(btnContainer)
   }
 }
+
+function get_stage() { fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
+  .then(function (response) { return response.text(); })
+  .then(function (text) {
+    console.log(text);
+    if (text != '0')
+      window.location.replace('http://pubz.infinityfreeapp.com/game.php');
+  });
 
 async function nextQuestion(gameCode, playerId, value) {
   answers.push(value)
