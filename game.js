@@ -122,10 +122,10 @@ async function startGame(gameCode) {
   )
 }
 
-function nextStage(gameCode) {
-  addStage(gameCode)
-  generateQuestions(gameCode)
-  resetStage(gameCode)
+async function nextStage(gameCode) {
+  await addStage(gameCode)
+  await generateQuestions(gameCode)
+  await resetStage(gameCode)
 }
 
 async function getFinishedPlayers(gameCode) {
