@@ -249,7 +249,7 @@ async function loadQuestion(gameCode, playerId) {
     questionBox.style.opacity = 1
   }, 300)
   const buttons = document.querySelectorAll('.answer-button')
-  console.log('Load otazky' + questions)
+  console.log('Load otazky: ' + questions)
 
   buttons.forEach((btn, index) => {
     btn.textContent = `${
