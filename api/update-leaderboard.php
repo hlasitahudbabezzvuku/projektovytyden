@@ -7,8 +7,8 @@
   ]);
 
   $database->update("LeaderBoard", [
-    "name" => $player["name"],
-    "core" => $player["score"]
+    "name" => $player[0]["name"],
+    "core" => $player[0]["score"]
   ]);
 
   echo print_r($player);
