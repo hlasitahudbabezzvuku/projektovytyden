@@ -28,12 +28,8 @@ async function getFinished(gameCode) {
       gameCode
   )
     .then((response) => response.json())
-    .then((responseData) => {
-      playerFinished = responseData
-      console.log(playerFinished)
-    })
-    .then(() => {
-      if (playerFinished.allFinished === true) {
+    .then((response) => {
+      if (response.allFinished === true) {
         document.getElementById('continue-button').disabled = false
         addStage(gameCode)
         clearInterval(gameInterval)
@@ -45,11 +41,14 @@ async function getFinished(gameCode) {
 
 async function resetStage(gameCode) {
   fetch('http://pubz.infinityfreeapp.com/api/reset-stage.php?code=' + gameCode)
+  gameInterval = setInterval(getFinished, 2000, gameCode)
 }
 
 async function finishStage(playerId) {
   fetch(
     'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
+  ).then(() =>
+    window.location.replace('http://pubz.infinityfreeapp.com/api/stage-end.php')
   )
 }
 
