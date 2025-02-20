@@ -4,7 +4,7 @@ let answers = []
 let playerFinished = {}
 
 if (localStorage.getItem('answers')) {
-  answers = localStorage.getItem('answers')
+  answers = JSON.parse(localStorage.getItem('answers'))
   index = answers.length
 }
 
@@ -93,7 +93,7 @@ async function printQuestions(gameCode, playerId) {
 
 async function nextQuestion(gameCode, playerId, value) {
   answers.push(value)
-  localStorage.setItem('answers', answers)
+  localStorage.setItem('answers', JSON.stringify(answers))
   console.log('answers: ' + answers)
 
   index++
