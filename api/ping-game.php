@@ -19,7 +19,7 @@ if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
 }
 
 $database->delete("Games", [
-  "last_ping[<]" => ( time() - 10 )
+  "last_ping[<]" => ( time() - 6 )
 ]);
 
 ?>
