@@ -21,6 +21,21 @@ global $database;
   </head>
 
   <body class="min-h-screen flex items-center justify-center p-4">
+
+    <?php if (array_key_exists("failed", $_GET)) { ?>
+      
+      <div class="w-full max-w-lg p-6 fade-in flex flex-col justify-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <span class="block sm:inline"><?php echo($_GET["failed"]); ?></span>
+        <span class="absolute top-0 right-0 px-4 py-3">
+          <svg class="fill-current h-6 w-6 text-red-500" role="button" viewBox="0 0 20 20">
+            <title>Zavřít</title>
+            <path d="M14.348 5.652a1 1 0 00-1.414 0L10 8.586 7.066 5.652a1 1 0 10-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 101.414 1.414L10 11.414l2.934 2.934a1 1 0 001.414-1.414L11.414 10l2.934-2.934a1 1 0 000-1.414z"/>
+          </svg>
+        </span>
+      </div>
+
+    <?php } ?>
+
     <div class="w-full max-w-lg p-6 fade-in flex flex-col justify-center">
       <a href="index.php" class="arrow-button self-start mb-4 inline-block">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,10 +98,17 @@ global $database;
         </form>
 
         <script>
+
           function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=' + <?php echo $code ?>)
             .then(function (response) { return response.text(); })
             .then(function (text) { document.getElementById('playerList').innerHTML = text; }); };
           setInterval(get_players, 2000);
+
+          //function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-game.php')
+          //  .then(function (response) { return response.text(); })
+          //  .then(function (text) { console.log('ping' + text); })};
+          //setInterval(ping, 5000);
+
         </script>
 
       <!--Join singleplayer-->
