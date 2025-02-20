@@ -6,7 +6,7 @@
     "id" => hex2bin($_GET["player_id"])
   ]);
 
-  $database->update("LeaderBoard", [
+  $database->insert("LeaderBoard", [
     "name" => $player[0]["name"],
     "score" => $player[0]["score"]
   ]);
