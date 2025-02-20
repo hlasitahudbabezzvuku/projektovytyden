@@ -54,7 +54,7 @@ async function finishStage(playerId) {
 }
 
 async function printQuestions(gameCode) {
-  await getQuestions() // Wait for data to load
+  await getQuestions(gameCode) // Wait for data to load
 
   let div = document.getElementById('question')
   div.innerHTML = '' // Clear previous content
