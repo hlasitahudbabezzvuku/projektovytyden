@@ -89,7 +89,7 @@ async function printQuestions(gameCode, playerId) {
 }
 
 async function nextQuestion(gameCode, playerId, value) {
-  answers.append(value)
+  answers += value
   index++
   if (index > data.length - 1) {
     finishStage(playerId)
