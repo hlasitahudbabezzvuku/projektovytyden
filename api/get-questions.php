@@ -50,7 +50,7 @@
 
       $jsonOtazky = [];
 
-      if ($typ != 'video') {
+      if ($typ != 'video' && $typ != "zvuk") {
         foreach ($otazky as $otazka) {
             $questionData = [
                 "otazka" => $otazka[$typ],
