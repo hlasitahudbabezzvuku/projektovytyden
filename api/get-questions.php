@@ -47,9 +47,25 @@
 
       $jsonOtazky = [];
 
-      foreach ($otazky as $otazka) {
+      if ($typ != 'video') {
+        foreach ($otazky as $otazka) {
+            $questionData = [
+                "otazka" => $otazka[$typ],
+                "odpovedi" => [
+                    "a" => $otazka["a"],
+                    "b" => $otazka["b"],
+                    "c" => $otazka["c"],
+                    "d" => $otazka["d"]
+                ],
+                "pozice" => $otazka["position"]
+            ];
+            $jsonOtazky[] = $questionData; 
+        }
+      } else {
+        foreach ($otazky as $otazka) {
           $questionData = [
-              "otazka" => $otazka[$typ],
+              $typ => $otazka[$typ],
+              "otazka" => $otazka['otazka'],
               "odpovedi" => [
                   "a" => $otazka["a"],
                   "b" => $otazka["b"],
@@ -59,6 +75,7 @@
               "pozice" => $otazka["position"]
           ];
           $jsonOtazky[] = $questionData; 
+      }
       }
 
       echo json_encode($jsonOtazky, JSON_UNESCAPED_UNICODE);
