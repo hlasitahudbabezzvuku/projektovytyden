@@ -206,6 +206,7 @@ const otazky = {
   zvuk: {
     0: {
       zvuk: 'audio/rizzupnul-jsem-caji.mp3',
+      otazka: 'Co to znamená?',
       odpovedi: {
         a: 'osladil jsem si čaj',
         b: 'vylil jsem čaj',
@@ -216,6 +217,7 @@ const otazky = {
     },
     1: {
       zvuk: 'audio/spill-the-tea.mp3',
+      otazka: 'Co znamená fráze “spill the tea”?',
       odpovedi: {
         a: 'přestaň mluvit',
         b: 'vylij čaj',
@@ -226,6 +228,7 @@ const otazky = {
     },
     2: {
       zvuk: 'audio/svarta.mp3',
+      otazka: 'Co dělá svarta?',
       odpovedi: {
         a: 'krade hasičák',
         b: 'skáče z Karlova mostu',
@@ -236,6 +239,7 @@ const otazky = {
     },
     3: {
       zvuk: 'audio/to-je-real.mp3',
+      otazka: 'Co znamená fráze “to je real”?',
       odpovedi: {
         a: 'souhlasím',
         b: 'je to rozporné',
@@ -246,7 +250,7 @@ const otazky = {
     },
     4: {
       zvuk: 'audio/pochcal-cut.mp3',
-      odpoved: 'audio/pochcal-full.mp3',
+      otazka: 'audio/pochcal-full.mp3',
       odpovedi: {
         a: 'pokadil',
         b: 'obejmul',
@@ -257,6 +261,8 @@ const otazky = {
     },
     5: {
       zvuk: 'audio/to-si-zabil.mp3',
+      otazka:
+        '“Všechny do jednoho z vás, by jsem — Politiky, ministry, by jsem —”',
       odpovedi: {
         a: 'uprav to',
         b: 'to si moc nedal',
