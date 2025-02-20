@@ -8,6 +8,7 @@ let data = {}
 let playerFinished = {}
 
 async function getQuestions(gameCode) {
+  console.log('ahoj')
   fetch(
     'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
   )
@@ -22,9 +23,6 @@ async function getQuestions(gameCode) {
 }
 
 async function getFinished(gameCode) {
-  const formData = new FormData()
-  formData.append('getFinished', 'true')
-  formData.append('code', gameCode)
   fetch(
     'http://pubz.infinityfreeapp.com/api/check-if-all-finished.php?code=' +
       gameCode
@@ -38,7 +36,7 @@ async function getFinished(gameCode) {
       if (playerFinished.allFinished === true) {
         document.getElementById('continue-button').disabled = false
         addStage(gameCode)
-        resetStage(gameCode)
+        clearInterval(gameInterval)
       } else {
         document.getElementById('continue-button').disabled = true
       }
