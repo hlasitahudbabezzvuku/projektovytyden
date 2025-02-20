@@ -15,7 +15,8 @@ async function getQuestions(gameCode) {
   )
     .then((response) => response.text())
     .then((responseData) => {
-      return JSON.parse(responseData)
+      data = JSON.parse(responseData)
+      console.log(data)
     })
     .catch((error) => {
       console.error('Error:', error)
@@ -53,7 +54,7 @@ async function finishStage(playerId) {
 }
 
 async function printQuestions(gameCode) {
-  data = await getQuestions(gameCode) // Wait for data to load
+  await getQuestions(gameCode) // Wait for data to load
 
   let div = document.getElementById('question')
   div.innerHTML = '' // Clear previous content
