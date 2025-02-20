@@ -79,6 +79,8 @@ async function printQuestions(gameCode, playerId) {
   p.innerText = data[index].otazka // Use "text" instead of "otazka"
   div.append(p)
 
+  console.log('Print player id: ' + playerId)
+
   // Loop through odpovedi (answers)
   for (const [key, value] of Object.entries(data[index]['odpovedi'])) {
     let btnContainer = document.createElement('div')
