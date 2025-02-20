@@ -33,6 +33,7 @@ global $database;
   <!--</body>-->
 
   <body>
+  <script src="game.js"></script>
     <?php if (array_key_exists("failed", $_GET)) { ?>
       <span style="color: #ff0000;"><?php echo $_GET["failed"]; ?></span>
     <?php } ?>
@@ -80,7 +81,6 @@ global $database;
 
     <input type="submit">
     </form>
-    <script src="game.js"></script>
   </body>
 </html>
 
