@@ -10,7 +10,7 @@ let buttons = []
 
 if (localStorage.getItem('answers')) {
   answers = JSON.parse(localStorage.getItem('answers'))
-  index = answers.length
+  currentQuestionIndex = answers.length
 }
 
 async function generateQuestions(gameCode) {
@@ -103,7 +103,7 @@ async function printQuestions(gameCode, playerId) {
   }
 
   let p = document.createElement('p')
-  p.innerText = data[index].otazka
+  p.innerText = questions[currentQuestionIndex].otazka
   div.append(p)
 
   for (const [key, value] of Object.entries(data[index]['odpovedi'])) {
@@ -127,8 +127,8 @@ async function nextQuestion(gameCode, playerId, value) {
   localStorage.setItem('answers', JSON.stringify(answers))
   console.log('answers: ' + answers)
 
-  index++
-  if (index > data.length - 1) {
+  currentQuestionIndex++
+  if (currentQuestionIndex > data.length - 1) {
     localStorage.removeItem('answers')
     finishStage(playerId, gameCode)
   } else {
