@@ -28,7 +28,7 @@ async function getQuestions(gameCode) {
   }
 }
 
-async function getFinished(gameCode) {
+async function checkFinished(gameCode) {
   fetch(
     'http://pubz.infinityfreeapp.com/api/check-if-all-finished.php?code=' +
       gameCode
@@ -90,5 +90,3 @@ async function printQuestions(gameCode) {
 async function addStage(gameCode) {
   fetch('http://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode)
 }
-
-console.log(data)
