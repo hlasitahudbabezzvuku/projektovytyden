@@ -17,7 +17,16 @@
     "spravna"
   ], [
     "game" => $_GET["code"]
-  ])
+  ]);
 
-  
+  $pocetSpravnych = 0;
+
+  for ($i = 0; $i < count($answers); $i++) {
+    if ($answers[$i] == $spravne[$i]) {
+      $pocetSpravnych++;
+    }
+  }
+
+  $jsonResponse = ["spravne" => $pocetSpravnych];
+  echo json_encode($jsonResponse);
 ?>
