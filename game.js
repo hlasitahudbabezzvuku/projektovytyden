@@ -1,8 +1,12 @@
-let index = 0
-let data = {}
+let currentQuestionIndex = 0
+let questions = {}
 let answers = []
 let playerFinished = {}
 let buttons = []
+
+// let currentCategoryIndex = 0
+// let totalScore = 0
+// let categoryScore = 0
 
 if (localStorage.getItem('answers')) {
   answers = JSON.parse(localStorage.getItem('answers'))
@@ -28,7 +32,7 @@ async function getQuestions(gameCode) {
       throw new Error('Failed to fetch questions: ' + response.status)
     }
 
-    data = await response.json()
+    questions = await response.json()
     console.log('Fetched questions:', data)
   } catch (error) {
     console.error('Error:', error)
@@ -117,6 +121,7 @@ async function nextQuestion(gameCode, playerId, value) {
   buttons.forEach((button) => {
     button.disabled = true
   })
+  buttons = []
 
   answers.push(value)
   localStorage.setItem('answers', JSON.stringify(answers))
@@ -178,3 +183,104 @@ async function getFinishedPlayers(gameCode) {
       })
     })
 }
+
+// NOVY
+//jsony s kategoriema + v nich otázky === jen pro vyplnění (smazat)
+const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
+//promenne pro rozeznavani kategorii a skore
+
+//funkce pro loadovani otazek
+function loadQuestion() {
+  getQuestions()
+  // if (currentCategoryIndex >= categories.length) {
+  //   //kdyz se odpovi vsechny otazky (hrac dokonci posledni kategorii)
+  //   console.log('kviz dokoncen!!')
+  //   //ZDE DEJ KOD PRO PRESMEROVANI NA FINALNI STRANKU S TABULKOU
+  // }
+  // const currentCatQuestions = questions[categories[currentCategoryIndex]].length
+  // if (currentQuestionIndex >= currentCatQuestions) {
+  //   //pokud podminka true => zmena kategorie
+  //   totalScore += categoryScore
+  //   currentQuestionIndex = 0
+  //   categoryScore = 0
+  //   currentCategoryIndex++
+  //   loadQuestion()
+  //   return
+  // }
+  //ZMENA MEDIAPLACEHOLDERU (tam kde se dava bud text, zvuk, yt nebo ilustrace) podle toho jaka kategorie je aktualni
+  // const mediaPlaceholder = document.querySelector('.media-placeholder')
+  // if (categories[currentCategoryIndex] === 'Text') {
+  //   mediaPlaceholder.style.display = 'none'
+  // } else {
+  //   mediaPlaceholder.style.display = 'flex'
+  //   mediaPlaceholder.style.opacity = 0
+  //   setTimeout(() => {
+  //     if (categories[currentCategoryIndex] === 'Zvuk') {
+  //       mediaPlaceholder.style.height = '80px'
+  //       mediaPlaceholder.innerHTML =
+  //         '<div class="text-xl text-center">Zvuková stopa</div>'
+  //     } else if (categories[currentCategoryIndex] === 'Video') {
+  //       mediaPlaceholder.style.height = '300px'
+  //       mediaPlaceholder.innerHTML =
+  //         '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
+  //     } else if (categories[currentCategoryIndex] === 'Obrázek') {
+  //       mediaPlaceholder.style.height = '300px'
+  //       mediaPlaceholder.innerHTML =
+  //         '<img src="https://via.placeholder.com/600x300?text=Obrázek" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
+  //     }
+  //     mediaPlaceholder.style.opacity = 1
+  //   }, 500)
+  // }
+
+  // //aktualizovani stavu kolecek (ikonek kategorii nahore na strance)
+  // const circles = document.querySelectorAll('.circle')
+  // circles.forEach((circle, index) => {
+  //   if (index === currentCategoryIndex) {
+  //     circle.classList.add('bg-yellow-500')
+  //   } else {
+  //     circle.classList.remove('bg-yellow-500')
+  //   }
+  // })
+  // const category = categories[currentCategoryIndex]
+  // const questionData = questions[category][currentQuestionIndex]
+  const questionBox = document.querySelector('.question-box')
+  questionBox.style.opacity = 0
+  setTimeout(() => {
+    questionBox.textContent = questions.otazka
+    questionBox.style.opacity = 1
+  }, 300)
+  const buttons = document.querySelectorAll('.answer-button')
+  let btnIndex = 0
+  for (const [key, value] of Object.entries(
+    questions[currentQuestionIndex]['odpovedi']
+  )) {
+    buttons[btnIndex].textContent = `${key}) ${value}`
+    buttons[btnIndex].onclick = () => nextQuestion(key)
+  }
+  document.querySelector('.feedback').textContent = ''
+  document.querySelector('.feedback').style.color = '#ffffff'
+}
+
+// //funkce pro kontrolu odpovedi
+// function checkAnswer(selectedIndex) {
+//   const category = categories[currentCategoryIndex]
+//   const questionData = questions[category][currentQuestionIndex]
+//   const buttons = document.querySelectorAll('.answer-button')
+//   buttons.forEach((btn) => (btn.onclick = null))
+//   if (selectedIndex === questionData.correct) {
+//     categoryScore++
+//   }
+//   currentQuestionIndex++
+//   loadQuestion()
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   document
+//     .querySelectorAll('.fade-in')
+//     .forEach((el) => el.classList.add('show'))
+//   loadQuestion()
+// })
+
+// document.getElementById('menuBtn').addEventListener('click', () => {
+//   window.location.href = 'index.html'
+// })

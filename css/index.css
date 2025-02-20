@@ -1,5 +1,5 @@
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #080808;
   color: #ffffff;
 }
@@ -69,7 +69,7 @@ body {
 }
 /* Pseudo-element s gradientem na spodním okraji leaderboardu */
 #leaderboardList::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -111,4 +111,3 @@ body {
   text-transform: uppercase;
   margin: 0;
 }
-
