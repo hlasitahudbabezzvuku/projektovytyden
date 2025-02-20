@@ -18,7 +18,7 @@
 </body>
 </html> -->
 
-**KOD PRO STRANKU S MULTIPLAYER MODEM (otazky)**
+<!-- **KOD PRO STRANKU S MULTIPLAYER MODEM (otazky)** -->
 <!DOCTYPE html>
 <html lang="cs">
   <head>

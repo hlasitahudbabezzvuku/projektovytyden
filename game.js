@@ -260,7 +260,7 @@ async function loadQuestion(gameCode, playerId) {
       checkAnswer(
         gameCode,
         playerId,
-        questions[currentQuestionIndex]['odpovedi'].keys[index]
+        Object.keys(questions[currentQuestionIndex]['odpovedi'])[index]
       )
   })
   // document.querySelector('.feedback').textContent = ''
