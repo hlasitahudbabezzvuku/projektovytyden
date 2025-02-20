@@ -72,9 +72,9 @@ async function finishStage(playerId, gameCode) {
   let response = await fetch(
     'http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
   )
-  let stage = await response.json()
+  let stage = await response.text()
 
-  if (stage == '7') {
+  if (stage === '7') {
     window.location.replace('http://pubz.infinityfreeapp.com/end.php')
   } else {
     window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
