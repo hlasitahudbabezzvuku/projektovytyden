@@ -246,7 +246,8 @@ async function loadQuestion(gameCode, playerId) {
           questions[currentQuestionIndex].otazka +
           '"></video>'
         const medial = new Plyr('#player', {
-          youtube: { modestbranding: 1, rel: 0 }
+          controls: ['play'],
+          youtube: { modestbranding: 1, rel: 0, showinfo: 0 }
         })
         // '<iframe width="100%" height="100%" src="' +
         // questions[currentQuestionIndex].otazka +
