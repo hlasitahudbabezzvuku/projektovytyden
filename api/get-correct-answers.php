@@ -3,7 +3,6 @@
   global $database;
 
   $answers = json_decode($_GET["answers"]);
-  print_r($answers);
 
   $spravne = $database->select("GamesOtazky", [
     "[>]Otazky" => ["otazka_id" => "id"],
@@ -16,6 +15,8 @@
       "position" => "ASC"
     ]
   ]);
+
+  print_r($spravne);
 
   $pocetSpravnych = 0;
   $spravne = [];
