@@ -22,7 +22,7 @@ global $database;
 
   <body class="min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-lg p-6 fade-in flex flex-col justify-center">
-      <a href="index.html" class="arrow-button self-start mb-4 inline-block">
+      <a href="index.php" class="arrow-button self-start mb-4 inline-block">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
