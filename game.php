@@ -212,7 +212,7 @@ body {
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping.php')
         .then(function (response) { return response.text(); })
         .then(function (text) { console.log('ping' + text); })};
-      setInterval(ping, 10000);
+      setInterval(ping, 5000);
 
     </script>
   </body>
