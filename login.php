@@ -58,6 +58,9 @@ global $database;
       <?php } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "host") { ?>
 
         <?php
+
+        session_start();
+
         function GenerateCode() {
           global $database;
           $code = rand(100000, 999999);
@@ -74,6 +77,9 @@ global $database;
         $database->insert("Games", [
           "id" => $code
         ]);
+
+        $_SESSION["code"] = $code;
+
         ?>
 
         <h2 class="text-2xl font-bold mb-4 text-center text-white">Vytvořit hru</h2>
