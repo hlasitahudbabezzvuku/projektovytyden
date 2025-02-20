@@ -27,6 +27,12 @@
     }
   }
 
+  $database->update("Players", [
+    "score" => $pocetSpravnych
+  ], [
+    "id" => hex2bin($_GET["player_id"])
+  ]);
+
   $jsonResponse = ["spravne" => $pocetSpravnych];
   echo json_encode($jsonResponse);
 ?>
