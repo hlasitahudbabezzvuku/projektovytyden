@@ -19,10 +19,10 @@
         $typ = "text";
         break;
     case 2: case 3:
-        $typ = "video";
+        $typ = "zvuk";
         break;
     case 4: case 5:
-        $typ = "zvuk";
+        $typ = "video";
         break;
     case 6: case 7:
         $typ = "ilustrace";

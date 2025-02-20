@@ -18,10 +18,10 @@
             $typ = "text";
             break;
         case 3:
-            $typ = "video";
+            $typ = "zvuk";
             break;
         case 5:
-            $typ = "zvuk";
+            $typ = "video";
             break;
         case 7:
             $typ = "ilustrace";

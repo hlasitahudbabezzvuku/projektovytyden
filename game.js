@@ -33,6 +33,25 @@ async function getQuestions(gameCode) {
     }
 
     questions = await response.json()
+
+    let stageResponse = await fetch(
+      'http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
+    )
+    let stage = await stageResponse.text()
+    switch (stage) {
+      case '1':
+        currentCategoryIndex = 0
+        break
+      case '3':
+        currentCategoryIndex = 1
+        break
+      case '5':
+        currentCategoryIndex = 2
+        break
+      case '7':
+        currentCategoryIndex = 3
+        break
+    }
   } catch (error) {
     console.error('Error:', error)
     questions = null
@@ -190,6 +209,7 @@ const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
 
 //funkce pro loadovani otazek
 async function loadQuestion(gameCode, playerId) {
+  const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
   await getQuestions(gameCode)
   // if (currentCategoryIndex >= categories.length) {
   //   //kdyz se odpovi vsechny otazky (hrac dokonci posledni kategorii)
@@ -207,39 +227,39 @@ async function loadQuestion(gameCode, playerId) {
   //   return
   // }
   //ZMENA MEDIAPLACEHOLDERU (tam kde se dava bud text, zvuk, yt nebo ilustrace) podle toho jaka kategorie je aktualni
-  // const mediaPlaceholder = document.querySelector('.media-placeholder')
-  // if (categories[currentCategoryIndex] === 'Text') {
-  //   mediaPlaceholder.style.display = 'none'
-  // } else {
-  //   mediaPlaceholder.style.display = 'flex'
-  //   mediaPlaceholder.style.opacity = 0
-  //   setTimeout(() => {
-  //     if (categories[currentCategoryIndex] === 'Zvuk') {
-  //       mediaPlaceholder.style.height = '80px'
-  //       mediaPlaceholder.innerHTML =
-  //         '<div class="text-xl text-center">Zvuková stopa</div>'
-  //     } else if (categories[currentCategoryIndex] === 'Video') {
-  //       mediaPlaceholder.style.height = '300px'
-  //       mediaPlaceholder.innerHTML =
-  //         '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
-  //     } else if (categories[currentCategoryIndex] === 'Obrázek') {
-  //       mediaPlaceholder.style.height = '300px'
-  //       mediaPlaceholder.innerHTML =
-  //         '<img src="https://via.placeholder.com/600x300?text=Obrázek" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
-  //     }
-  //     mediaPlaceholder.style.opacity = 1
-  //   }, 500)
-  // }
+  const mediaPlaceholder = document.querySelector('.media-placeholder')
+  if (categories[currentCategoryIndex] === 'Text') {
+    mediaPlaceholder.style.display = 'none'
+  } else {
+    mediaPlaceholder.style.display = 'flex'
+    mediaPlaceholder.style.opacity = 0
+    setTimeout(() => {
+      if (categories[currentCategoryIndex] === 'Zvuk') {
+        mediaPlaceholder.style.height = '80px'
+        mediaPlaceholder.innerHTML =
+          '<div class="text-xl text-center">Zvuková stopa</div>'
+      } else if (categories[currentCategoryIndex] === 'Video') {
+        mediaPlaceholder.style.height = '300px'
+        mediaPlaceholder.innerHTML =
+          '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>'
+      } else if (categories[currentCategoryIndex] === 'Obrázek') {
+        mediaPlaceholder.style.height = '300px'
+        mediaPlaceholder.innerHTML =
+          '<img src="https://via.placeholder.com/600x300?text=Obrázek" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
+      }
+      mediaPlaceholder.style.opacity = 1
+    }, 500)
+  }
 
   // //aktualizovani stavu kolecek (ikonek kategorii nahore na strance)
-  // const circles = document.querySelectorAll('.circle')
-  // circles.forEach((circle, index) => {
-  //   if (index === currentCategoryIndex) {
-  //     circle.classList.add('bg-yellow-500')
-  //   } else {
-  //     circle.classList.remove('bg-yellow-500')
-  //   }
-  // })
+  const circles = document.querySelectorAll('.circle')
+  circles.forEach((circle, index) => {
+    if (index === currentCategoryIndex) {
+      circle.classList.add('bg-yellow-500')
+    } else {
+      circle.classList.remove('bg-yellow-500')
+    }
+  })
   // const category = categories[currentCategoryIndex]
   // const questionData = questions[category][currentQuestionIndex]
   const questionBox = document.querySelector('.question-box')
