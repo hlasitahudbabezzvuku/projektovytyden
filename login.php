@@ -78,7 +78,7 @@ global $database;
 
     <?php } ?>
 
-    <input type="submit" onclick='addStage(<?php echo $code ?>)'>
+    <input type="submit" onclick='addStage(<?php echo $code ?>); generateQuestions(<?php echo $code ?>'>
     </form>
     <script src="game.js"></script>
   </body>

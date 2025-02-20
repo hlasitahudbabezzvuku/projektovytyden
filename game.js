@@ -1,13 +1,14 @@
-async function generateQuestions(gameCode) {
-  fetch(
-    'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
-  )
-}
-
 let index = 0
 let data = {}
 let answers = []
 let playerFinished = {}
+
+async function generateQuestions(gameCode) {
+  fetch(
+    'http://pubz.infinityfreeapp.com/api/generate-questions.php?code=' +
+      gameCode
+  )
+}
 
 async function getQuestions(gameCode) {
   console.log('Fetching questions...')
