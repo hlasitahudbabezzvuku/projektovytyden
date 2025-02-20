@@ -110,3 +110,9 @@ async function startGame(gameCode) {
     'http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
   )
 }
+
+async function nextStage(gameCode) {
+  addStage(gameCode)
+  generateQuestions(gameCode)
+  resetStage(gameCode)
+}
