@@ -238,7 +238,7 @@ async function loadQuestion(gameCode, playerId) {
       if (categories[currentCategoryIndex] === 'Zvuk') {
         mediaPlaceholder.style.height = '80px'
         mediaPlaceholder.innerHTML =
-          '<div class="text-xl text-center">Zvuková stopa</div>'
+          '<audio width="100%" heigh="50%" id="myAudio" src="path/to/your/audio-file.mp3" preload="auto"></audio><button onclick="playAudio()">Play Audio</button><button onclick="pauseAudio()">Pause Audio</button>'
       } else if (categories[currentCategoryIndex] === 'Video') {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
@@ -309,3 +309,15 @@ async function loadQuestion(gameCode, playerId) {
 // document.getElementById('menuBtn').addEventListener('click', () => {
 //   window.location.href = 'index.html'
 // })
+
+const audio = document.getElementById('myAudio')
+
+// Play the audio
+function playAudio() {
+  audio.play()
+}
+
+// Pause the audio
+function pauseAudio() {
+  audio.pause()
+}
