@@ -127,7 +127,7 @@ async function nextQuestion(gameCode, playerId, value) {
   console.log('answers: ' + answers)
 
   currentQuestionIndex++
-  if (currentQuestionIndex > data.length - 1) {
+  if (currentQuestionIndex > questions.length - 1) {
     localStorage.removeItem('answers')
     finishStage(playerId, gameCode)
   } else {
