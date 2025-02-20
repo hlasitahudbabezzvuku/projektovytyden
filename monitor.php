@@ -17,12 +17,14 @@
   <title>Document</title>
 </head>
   <script src="game.js"></script>
-    <button onclick="nextStage(<?php echo $_SESSION['code'] ?>)" id="continue-button" disabled>Continue</button>
+    <button onclick="nextStage(<?php echo $_SESSION['code'] ?>)" 
+    id="continue-button" disabled>Continue</button>
   <?php if (isset($_GET['startGame'])) {?>
     <script>startGame(<?php echo $_SESSION['code']?>)</script>
   <?php } ?>
   <script>let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
   <script>let scoreboardInterval = setInterval(getFinishedPlayers, 2000, <?php echo $_SESSION["code"] ?>)</script>
   //  TODO: Seznam lidi, kteri uz dokoncili + jejich skore
+  <div id='score-board'></div>
 </body>
 </html>
