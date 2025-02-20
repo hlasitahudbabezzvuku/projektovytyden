@@ -2,7 +2,7 @@
   require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
   global $database;
 
-  $player = $database->select("Players", "*", [
+  $player = $database->select("Players", ["name", "score"], [
     "id" => hex2bin(urldecode($_GET["player_id"]))
   ]);
 
