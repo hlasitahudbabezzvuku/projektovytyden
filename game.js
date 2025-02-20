@@ -110,6 +110,7 @@ async function startGame(gameCode) {
   window.location.replace(
     'http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
   )
+  printQuestions(gameCode)
 }
 
 async function nextStage(gameCode) {
