@@ -33,10 +33,10 @@ async function getQuestions(gameCode) {
     }
 
     questions = await response.json()
-    console.log('Fetched questions:', data)
+    console.log('Fetched questions:', questions)
   } catch (error) {
     console.error('Error:', error)
-    data = null
+    questions = null
   }
 }
 
