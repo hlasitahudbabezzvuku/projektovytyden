@@ -68,10 +68,10 @@ if (count($data) != 0) {
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-player.php')
         .then(function (response) { return response.text(); })
         .then(function (text) {
-          if (text.length == 0)
-            console.log("Ping OK");
+          if (text.length == 1)
+            console.log("Ping: OK");
           else
-            console.log("[ERROR]: " + text + "\n[INFO]: text.length == " + text.length);
+            window.location.replace("http://pubz.infinityfreeapp.com/index.php?" + encodeURIComponent(text));
         })};
       setInterval(ping, 5000);
 
