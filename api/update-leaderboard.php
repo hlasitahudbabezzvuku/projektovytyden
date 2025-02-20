@@ -6,10 +6,10 @@
     "id" => hex2bin($_GET["player_id"])
   ]);
 
-  // $database->update("LeaderBoard", [
-  //   "name" => $player["name"],
-  //   "core" => $player["score"]
-  // ]);
+  $database->update("LeaderBoard", [
+    "name" => $player["name"],
+    "core" => $player["score"]
+  ]);
 
-  echo json_encode($player);
+  echo print_r($player);
 ?>
