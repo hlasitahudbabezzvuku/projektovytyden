@@ -29,7 +29,7 @@ global $database;
       <span class="absolute top-0 right-0 px-4 py-3">
         <svg class="fill-current h-6 w-6 text-red-500" role="button" viewBox="0 0 20 20">
           <title>Zavřít</title>
-          <path onclick="this.parentNode.style.display = 'none';" d="M14.348 5.652a1 1 0 00-1.414 0L10 8.586 7.066 5.652a1 1 0 10-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 101.414 1.414L10 11.414l2.934 2.934a1 1 0 001.414-1.414L11.414 10l2.934-2.934a1 1 0 000-1.414z"/>
+          <path onclick="this.parentNode.parentNode.parentNode.parentNode.style.display = 'none';" d="M14.348 5.652a1 1 0 00-1.414 0L10 8.586 7.066 5.652a1 1 0 10-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 101.414 1.414L10 11.414l2.934 2.934a1 1 0 001.414-1.414L11.414 10l2.934-2.934a1 1 0 000-1.414z"/>
         </svg>
       </span>
     </div>
