@@ -18,7 +18,7 @@
   ], [
     "game_id" => $_GET["code"],
     "ORDER" => [
-      "position" => "ACS"
+      "position" => "ASC"
     ]
   ]);
 
