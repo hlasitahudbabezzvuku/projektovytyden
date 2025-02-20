@@ -31,7 +31,7 @@ global $database;
 
     <div class="w-full max-w-5xl flex flex-col md:flex-row items-center justify-center gap-8">
       <div class="w-full md:w-1/2 max-w-lg p-6 fade-in flex flex-col justify-center flex-shrink-0 min-w-[300px] order-2 md:order-1">
-        <img src="src/leaderboard.png" alt="Logo" class="self-center md:self-start mb-6 w-full h-auto"/>
+        <img src="src/leaderboard.png" alt="Logo" class="self-center md:self-start w-full h-auto"/>
         <div class="relative w-full">
           <div id="leaderboardList" class="space-y-4 overflow-y-auto max-h-60 pt-6 pb-6">
             <div class="leaderboard-item flex justify-between items-center">
