@@ -112,7 +112,12 @@ global $database;
 
           function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-game.php')
             .then(function (response) { return response.text(); })
-            .then(function (text) { console.log('ping' + text); })};
+            .then(function (text) {
+              if (text.length == 1)
+                console.log("Ping: OK");
+              else
+                window.location.replace(encodeURI("http://pubz.infinityfreeapp.com/index.php?failed=" + text));
+            })};
           setInterval(ping, 5000);
 
         </script>
