@@ -82,6 +82,9 @@ global $database;
 
       <?php } ?>
 
+      <input type="submit">
+      </form>
+
     </div>
   </body>
 
@@ -126,14 +129,5 @@ global $database;
   <!--    <input type="text" id="playerName" placeholder="Tvé jméno" class="mb-4 p-3 rounded bg-gray-800 text-white placeholder-gray-400 w-full"/>-->
   <!--    <a id="joinBtn" href="#" class="button w-full">Spustit hru</a>-->
 
-  <body>
-    <!--<?php if (array_key_exists("failed", $_GET)) { ?>-->
-    <!--  <span style="color: #ff0000;"><?php echo $_GET["failed"]; ?></span>-->
-    <!--<?php } ?>-->
-
-
-    <input type="submit">
-    </form>
-  </body>
 </html>
 
