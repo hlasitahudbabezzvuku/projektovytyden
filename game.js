@@ -53,8 +53,8 @@ async function finishStage(playerId) {
   })
 }
 
-function printQuestions() {
-  getQuestions().then(() => {
+function printQuestions(gameCode) {
+  getQuestions(gameCode).then(() => {
     let div = document.getElementById('question')
     div.innerHTML = '' // Clear previous content
 

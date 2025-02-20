@@ -18,6 +18,6 @@
     <!-- <button onclick="finishStage('<?php echo bin2hex($_SESSION['uuid']); ?>', <?php echo $_SESSION['code'] ?>)"
 >Finish</button> -->
       <div id='question'></div>
-      <script>printQuestions()</script>
+      <script>printQuestions(<?php echo $_SESSION['code'] ?>)</script>
 </body>
 </html>
