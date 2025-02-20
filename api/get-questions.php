@@ -37,7 +37,7 @@
         "Odpovedi.d",
         "GamesOtazky.position"
       ];
-      if ($typ == "video") $columns[] = $typ."Otazky.otazka";
+      if ($typ == "video" || $typ == "zvuk") $columns[] = $typ."Otazky.otazka";
 
       $otazky = $database->select("GamesOtazky", [
           "[<]Otazky"=>["otazka_id" => "id"], 
