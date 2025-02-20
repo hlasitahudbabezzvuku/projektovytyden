@@ -72,14 +72,10 @@ async function printQuestions(gameCode, playerId) {
     return
   }
 
-  console.log('Displaying question:', data[index])
-
   // Add question text
   let p = document.createElement('p')
   p.innerText = data[index].otazka // Use "text" instead of "otazka"
   div.append(p)
-
-  console.log('Print player id: ' + playerId)
 
   // Loop through odpovedi (answers)
   for (const [key, value] of Object.entries(data[index]['odpovedi'])) {
@@ -114,7 +110,7 @@ async function startGame(gameCode) {
   window.location.replace(
     'http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
   )
-  printQuestions(gameCode)
+  printQuestions(gameCode, playerId)
 }
 
 async function nextStage(gameCode) {
