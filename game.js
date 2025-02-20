@@ -2,6 +2,7 @@ let index = 0
 let data = {}
 let answers = []
 let playerFinished = {}
+let buttons = []
 
 if (localStorage.getItem('answers')) {
   answers = JSON.parse(localStorage.getItem('answers'))
@@ -106,12 +107,17 @@ async function printQuestions(gameCode, playerId) {
     let button = document.createElement('button')
     button.innerText = value
     button.onclick = () => nextQuestion(gameCode, playerId, key)
+    buttons.push(button)
     btnContainer.appendChild(button)
     div.appendChild(btnContainer)
   }
 }
 
 async function nextQuestion(gameCode, playerId, value) {
+  buttons.forEach((button) => {
+    button.disabled = true
+  })
+
   answers.push(value)
   localStorage.setItem('answers', JSON.stringify(answers))
   console.log('answers: ' + answers)
