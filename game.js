@@ -257,7 +257,7 @@ async function loadQuestion(gameCode, playerId, home) {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
           '<img src="' +
-          questions[currentQuestionsIndex].otazka +
+          questions[currentQuestionsIndex].ilustrace +
           '" alt="Obrázek" class="w-full h-full object-cover rounded-lg">'
       }
       mediaPlaceholder.style.opacity = 1
