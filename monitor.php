@@ -18,9 +18,9 @@
 </head>
   <script src="game.js"></script>
     <button onclick="addStage(<?php echo $_SESSION['code']; ?>); generateQuestions(<?php echo $_SESSION['code']; ?>);  resetStage(<?php echo $_SESSION['code']; ?>);" id="continue-button" disabled>Continue</button>
-  <!-- <?php if ($_SERVER['REQUEST_METHOD'] == "GET") {?>
-    <script></script>
-  <?php } ?> -->
+  <?php if ($_GET['startGame']) {?>
+    <script>startGame(<?php echo $_SESSION['code']?>)</script>
+  <?php } ?>
   <script>let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
 
   //  TODO: Seznam lidi, kteri uz dokoncili + jejich skore
