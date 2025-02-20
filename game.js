@@ -243,7 +243,7 @@ async function loadQuestion(gameCode, playerId) {
         mediaPlaceholder.style.height = '300px'
         mediaPlaceholder.innerHTML =
           '<iframe width="100%" height="100%" src="' +
-          questions[currentQuestionsIndex].otazka +
+          questions[currentQuestionIndex].otazka +
           '" frameborder="0" allowfullscreen class="rounded-lg"></iframe>'
       } else if (categories[currentCategoryIndex] === 'Obrázek') {
         mediaPlaceholder.style.height = '300px'
