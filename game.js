@@ -94,7 +94,7 @@ async function nextQuestion(gameCode, playerId, value) {
   answers += value
   index++
   if (index > data.length - 1) {
-    console.log(playerId)
+    console.log('Player id: ' + playerId)
 
     // finishStage(playerId)
   }
