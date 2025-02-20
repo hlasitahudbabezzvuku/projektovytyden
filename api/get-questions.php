@@ -59,7 +59,7 @@ error_reporting(E_ALL);  // Report all errors, warnings, and notices
     }
     
 
-      print_r($otazky);
+      // print_r($otazky);
 
       $jsonOtazky = [];
 
@@ -78,6 +78,6 @@ error_reporting(E_ALL);  // Report all errors, warnings, and notices
       }
 
       // print_r(json_encode($otazky));
-      // echo json_encode($jsonOtazky);
+      echo json_encode($jsonOtazky);
     }
 ?>
