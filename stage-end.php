@@ -24,7 +24,5 @@
       });
   }, 2000)</script>
 
-  // TODO: zmenit na misto chekovani stage aby se chekovalo zda ma hrac stage dokoncenou a pokud nema tak 
-
 </body>
 </html>
