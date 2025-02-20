@@ -8,8 +8,7 @@
   ]);
 
   if ($currentStage == 8) {
-    deleteGame();
-    header("Location: http://pubz.infinityfreeapp.com/index.php");
+    header("Location: http://pubz.infinityfreeapp.com/index.php?delete_game="+$gameCode);
     die();
   }
 

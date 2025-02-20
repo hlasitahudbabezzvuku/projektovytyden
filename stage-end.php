@@ -14,7 +14,7 @@
 
   <script src="game.js"></script>
   <script>setInterval(() => {
-    fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
+    fetch('http://pubz.infinityfreeapp.com/api/player-finished.php?uuid=' + <?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>)
       .then(function (response) { return response.text(); })
       .then(function (text) {
         console.log(text);
@@ -23,6 +23,8 @@
         } 
       });
   }, 2000)</script>
+
+  // TODO: zmenit na misto chekovani stage aby se chekovalo zda ma hrac stage dokoncenou a pokud nema tak 
 
 </body>
 </html>

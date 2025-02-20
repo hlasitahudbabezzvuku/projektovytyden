@@ -49,7 +49,7 @@
 
       foreach ($otazky as $otazka) {
           $questionData = [
-              $typ => $otazka[$typ],
+              "otazka" => $otazka[$typ],
               "odpovedi" => [
                   "a" => $otazka["a"],
                   "b" => $otazka["b"],

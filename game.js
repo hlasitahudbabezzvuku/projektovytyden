@@ -4,6 +4,7 @@ async function generateQuestions(gameCode) {
   )
 }
 
+let index = 0
 let data = {}
 let playerFinished = {}
 
@@ -49,6 +50,22 @@ async function finishStage(playerId) {
     'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
   ).then((response) => {
     window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+  })
+}
+
+function printQuestions() {
+  getQuestions().then(() => {
+    document.getElementById('question').innerHTML = ''
+    let div = document.getElementById('question')
+    div.append(document.createElement('p').innerText(data[index].otazka))
+
+    data[index]['odpovedi'].forEach((element) => {
+      div.append(
+        document
+          .createElement('div')
+          .append(document.createElement('button').innerText(element))
+      )
+    })
   })
 }
 

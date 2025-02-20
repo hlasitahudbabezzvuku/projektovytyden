@@ -7,19 +7,6 @@
   } else {
     header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Prvni musis hru zalozit :("));
   } 
-
-  function deleteGame() {
-    global $database;
-    $gameCode = $_SESSION['code'];
-
-    $database->delete("Games", [
-      "id" => $gameCode
-    ]);
-
-    $database->delete("Players", [
-      "game" => $gameCode
-    ]);
-  }
 ?>
 
 <!DOCTYPE html>
@@ -35,5 +22,7 @@
     <script></script>
   <?php } ?> -->
   <script>let gameInterval = setInterval(getFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
+
+  // TODO: Seznam lidi, kteri uz dokoncili + jejich skore
 </body>
 </html>
