@@ -104,7 +104,6 @@ async function addStage(gameCode) {
 }
 
 async function startGame(gameCode) {
-  event.preventDefault()
   addStage(gameCode)
   generateQuestions(gameCode)
   window.location.replace(
