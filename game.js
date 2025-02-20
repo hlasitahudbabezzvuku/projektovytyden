@@ -201,7 +201,7 @@ async function getResult(playerId, gameCode) {
   let resultList = document.getElementById('results-list')
 
   let response = await fetch(
-    'http://pubz.infinityfreeapp.com/api/get-correct-answers?player_id=' +
+    'http://pubz.infinityfreeapp.com/api/get-correct-answers.php?player_id=' +
       playerId +
       '&answers=' +
       encodeURIComponent(JSON.stringify(answers)) +
