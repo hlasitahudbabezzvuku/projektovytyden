@@ -32,21 +32,28 @@
     echo $typ;
 
     if ($typ != "") {    
-      $otazky = $database->select("GamesOtazky", [
-          "[<]Otazky"=>["otazka_id" => "id"], 
-          "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
-          "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]
-      ], [
-          $typ."Otazky.".$typ,
-          "Odpovedi.a", 
-          "Odpovedi.b", 
-          "Odpovedi.c", 
-          "Odpovedi.d",
-          "GamesOtazky.position"
-      ], [
-          "GamesOtazky.game_id" => $gameCode,
-          "ORDER" => ["GamesOtazky.position" => "ASC"]
-      ]);
+      try {
+        // Your query here
+        $otazky = $database->select("GamesOtazky", [
+            "[<]Otazky"=>["otazka_id" => "id"], 
+            "[<]".$typ."Otazky"=>["Otazky.id"=>"id_otazky"],
+            "[<]Odpovedi"=>["Otazky.id_odpovedi"=>"id"]
+        ], [
+            $typ."Otazky.".$typ,
+            "Odpovedi.a", 
+            "Odpovedi.b", 
+            "Odpovedi.c", 
+            "Odpovedi.d",
+            "GamesOtazky.position"
+        ], [
+            "GamesOtazky.game_id" => $gameCode,
+            "ORDER" => ["GamesOtazky.position" => "ASC"]
+        ]);
+    } catch (Exception $e) {
+        echo "SQL Error: " . $e->getMessage();
+        exit;
+    }
+    
 
       echo json_encode($otazky);
 
