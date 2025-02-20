@@ -37,6 +37,10 @@ async function getFinished(gameCode) {
     .then(() => {
       if (playerFinished.allFinished === true) {
         document.getElementById('continue-button').disabled = false
+        addStage(gameCode)
+        resetStage(gameCode)
+      } else {
+        document.getElementById('continue-button').disabled = true
       }
     })
 }
