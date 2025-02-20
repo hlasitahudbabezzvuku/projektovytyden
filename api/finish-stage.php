@@ -10,19 +10,19 @@
     "id" => hex2bin($_GET["player_id"])
   ]);
 
-  $spravne = $databse->select("GamesOtazky", [
+  $spravne = $database->select("GamesOtazky", [
     "[>]Otazky" => ["otazka_id" => "id"],
-    "[>]Odpovedi" => ["Otazky.id" => "id"]
+    "[>]Odpovedi" => ["Otazky.id_odpovedi" => "id"]
   ], [
     "spravna"
   ], [
-    "game" => $_GET["code"]
+    "game_id" => $_GET["code"]
   ]);
 
   $pocetSpravnych = 0;
 
   for ($i = 0; $i < count($answers); $i++) {
-    if ($answers[$i] == $spravne[$i]) {
+    if ($answers[$i] == $spravne[$i]["spravna"]) {
       $pocetSpravnych++;
     }
   }
