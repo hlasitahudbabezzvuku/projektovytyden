@@ -48,7 +48,7 @@ async function finishStage(playerId) {
   fetch(
     'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
   ).then(() =>
-    window.location.replace('http://pubz.infinityfreeapp.com/api/stage-end.php')
+    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
   )
 }
 
