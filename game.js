@@ -55,16 +55,22 @@ async function finishStage(playerId) {
 
 function printQuestions() {
   getQuestions().then(() => {
-    document.getElementById('question').innerHTML = ''
     let div = document.getElementById('question')
-    div.append(document.createElement('p').innerText(data[index].otazka))
+    div.innerHTML = '' // Clear previous content
 
-    data[index]['odpovedi'].forEach((element) => {
-      div.append(
-        document
-          .createElement('div')
-          .append(document.createElement('button').innerText(element))
-      )
+    // Add question text
+    let p = document.createElement('p')
+    p.innerText = data[index].text // Use "text" instead of "otazka"
+    div.append(p)
+
+    // Loop through odpovedi (answers)
+    Object.entries(data[index]['odpovedi']).forEach(([key, value]) => {
+      let btnContainer = document.createElement('div')
+      let button = document.createElement('button')
+      button.innerText = value
+      button.dataset.answer = key // Store the answer key (optional)
+      btnContainer.append(button)
+      div.append(btnContainer)
     })
   })
 }
