@@ -18,8 +18,9 @@
       .then(function (response) { return response.text(); })
       .then(function (text) {
         console.log(text);
-        // if (text != '0')
-        //   window.location.replace('http://pubz.infinityfreeapp.com/game.php');
+        if (text % 2 == 0) {
+          window.location.replace('http://pubz.infinityfreeapp.com/game.php');
+        } 
       });
   }, 2000)</script>
 
