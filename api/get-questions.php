@@ -48,6 +48,8 @@
           "ORDER" => ["GamesOtazky.position" => "ASC"]
       ]);
 
+      echo json_encode($otazky);
+
       $jsonOtazky = [];
 
       foreach ($otazky as $otazka) {
