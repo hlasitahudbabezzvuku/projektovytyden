@@ -239,8 +239,6 @@ async function loadQuestion(gameCode, playerId, home) {
         mediaPlaceholder.style.height = '80px'
         mediaPlaceholder.innerHTML =
           '<audio width="100%" heigh="50%" id="myAudio" src="' +
-          home +
-          '/' +
           questions[currentQuestionIndex].zvuk +
           '" preload="auto"></audio><button onclick="playAudio()">Play Audio</button><button onclick="pauseAudio()">Pause Audio</button>'
       } else if (categories[currentCategoryIndex] === 'Video') {
