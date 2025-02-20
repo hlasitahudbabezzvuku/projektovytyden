@@ -3,10 +3,9 @@
 require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 global $database;
 
-echo isset($_SESSION);
-echo session_status();
+session_start();
 
-if (false) {
+if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
   if(count($database->get("Players", "id", [ "id" => $_SESSION["uuid"] ]))) {
     $database->update("Players", [ "last_ping" => time() ], [ "id" => $_SESSION["uuid"] ]);
   } else {
