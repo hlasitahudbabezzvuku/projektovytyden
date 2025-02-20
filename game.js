@@ -73,7 +73,7 @@ async function printQuestions(gameCode) {
 
   // Add question text
   let p = document.createElement('p')
-  p.innerText = data[index].text // Use "text" instead of "otazka"
+  p.innerText = data[index].otazka // Use "text" instead of "otazka"
   div.append(p)
 
   // Loop through odpovedi (answers)
