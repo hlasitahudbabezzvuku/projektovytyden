@@ -69,7 +69,7 @@ global $database;
 
       <div class="w-full md:w-1/2 max-w-lg flex flex-col items-center justify-center space-y-4 order-1 md:order-2">
         <div id="gameModeMenu" class="fade-in p-4 w-full flex flex-col items-center justify-center space-y-4">
-          <img src="src/ada.png" alt="Logo" class="w-full h-auto object-contain" />
+          <img src="src/ada.png" alt="Logo" class="blikani w-full h-auto object-contain" />
           <div class="w-full flex flex-col items-center gap-4">
             <div class="flex flex-col sm:flex-row items-center gap-4 w-full">
               <a id="singleplayerBtn" href="index.php?failed=<?php echo urlencode('Podekujte hostingu InfinityFree za to ze tenhle podelanej mod nefunguje protoze nam ve 4 rano zablokovali nasi domenu takze jsem to do 5ti do rana musel presouvat cely projek na muj pocitac ktery ted slouzi jako server >:(') ?>" class="button w-full">
