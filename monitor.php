@@ -43,7 +43,7 @@ if (!array_key_exists("code", $_SESSION)) {
         </table>
       </div>
     </div>
-    <button onclick="nextStage(<?php echo $_SESSION['code'] ?>)" id="continue-button" disabled>Continue</button>
+    <button class="next" onclick="nextStage(<?php echo $_SESSION['code'] ?>)" id="continue-button" disabled>Continue</button>
 
     <script src="game.js"></script>
 
