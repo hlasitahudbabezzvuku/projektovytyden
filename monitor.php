@@ -19,8 +19,6 @@ if (!array_key_exists("code", $_SESSION)) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet"/>
     <link href="css/monitor.css" rel="stylesheet"/>
   </head>
-
-
   <body>
     <div class="logo">
       <a href="index.html">
