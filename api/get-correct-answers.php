@@ -27,7 +27,7 @@
   }
 
   $database->update("Players", [
-    "score[+]" => $pocetSpravnych
+    "score[+]" => $pocetSpravnych * 10
   ], [
     "id" => hex2bin($_GET["player_id"])
   ]);
