@@ -41,30 +41,22 @@ global $database;
         <img src="src/leaderboard.png" alt="Logo" class="self-center md:self-start -6 w-full h-auto"/>
         <div class="relative w-full">
           <div id="leaderboardList" class="space-y-4 overflow-y-auto max-h-60 pt-6 pb-6">
+
+            <?php
+
+            $data = $database->select("Players", [ "name" + "score" ], [ "ORDER" => [ "score" => "DESC" ] ]);
+
+            foreach($data as $item) {
+
+            ?>
+
             <div class="leaderboard-item flex justify-between items-center">
-              <span class="position">1. Alex</span>
-              <span>1500 pts</span>
+              <span class="position"><?php echo $item["name"] ?></span>
+              <span><?php echo $item["score"] ?> pts</span>
             </div>
-            <div class="leaderboard-item flex justify-between items-center">
-              <span class="position">2. Jamie</span>
-              <span>1400 pts</span>
-            </div>
-            <div class="leaderboard-item flex justify-between items-center">
-              <span class="position">3. Chris</span>
-              <span>1300 pts</span>
-            </div>
-            <div class="leaderboard-item flex justify-between items-center">
-              <span class="position">4. Sam</span>
-              <span>1200 pts</span>
-            </div>
-            <div class="leaderboard-item flex justify-between items-center">
-              <span class="position">5. Pat</span>
-              <span>1100 pts</span>
-            </div>
-            <div class="leaderboard-item flex justify-between items-center">
-              <span class="position">6. Lee</span>
-              <span>1000 pts</span>
-            </div>
+            
+            <?php } ?>
+
           </div>
           <a id="scrollDown" href="#" class="arrow-button absolute bottom-0 left-1/2 transform -translate-x-1/2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
