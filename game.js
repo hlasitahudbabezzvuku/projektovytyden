@@ -198,7 +198,7 @@ async function getFinishedPlayers(gameCode) {
 
 async function getResult(playerId, gameCode) {
   let resultList = document.getElementById('results-list')
-  if (localStorage.getItem('result')) {
+  if (!localStorage.getItem('result')) {
     fetch(
       'http://pubz.infinityfreeapp.com/api/get-correct-answers.php?player_id=' +
         playerId +
