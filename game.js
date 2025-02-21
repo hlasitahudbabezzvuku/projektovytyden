@@ -251,9 +251,9 @@ async function loadQuestion(gameCode, playerId, home) {
       if (categories[currentCategoryIndex] === 'Zvuk') {
         mediaPlaceholder.style.height = '80px'
         mediaPlaceholder.innerHTML =
-          '<audio ontimeupdate="changeTimeLine()" id="myAudio" src="' +
+          '<div class="w-full max-w-lg bg-[#080808] rounded-lg shadow-lg p-6 flex flex-col items-center justify-center gap-4 mt-8"><audio ontimeupdate="changeTimeLine()" id="myAudio" src="' +
           questions[currentQuestionIndex].zvuk +
-          '" preload="auto"></audio><input type="range" id="audioTimeline" oninput="acceptInput()" value="0" step="1" class="w-full h-2 bg-[#d39f39] rounded-full mt-4 cursor-pointer appearance-none"><button id="playPauseBtn" onclick="togglePlayPause()" class="bg-[#d39f39] text-[#080808] font-bold py-2 px-4 rounded-md hover:bg-[#c88b2e] transition duration-300 mt-4 border-2 border-[#d39f39]">Play</button>'
+          '" preload="auto"></audio><input type="range" id="audioTimeline" oninput="acceptInput()" value="0" step="1" class="w-full h-2 bg-[#d39f39] rounded-full mt-4 cursor-pointer appearance-none"><button id="playPauseBtn" onclick="togglePlayPause()" class="bg-[#d39f39] text-[#080808] font-bold py-2 px-4 rounded-md hover:bg-[#c88b2e] transition duration-300 mt-4 border-2 border-[#d39f39]">Play</button></div>'
         audio = document.getElementById('myAudio')
         playPauseBtn = document.getElementById('playPauseBtn')
         audioTimeline = document.getElementById('audioTimeline')
