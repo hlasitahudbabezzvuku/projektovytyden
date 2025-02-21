@@ -126,8 +126,13 @@ global $database;
       <!--Join singleplayer-->
       <?php } elseif (array_key_exists("mode", $_GET) && $_GET["mode"] == "single") { ?>
 
-        <form action="connect.php" method="GET">
-        Přezdívka: <input type="text" name="name"><br>
+
+      <form action="connect.php" method="GET">
+        <h2 class="text-2xl font-bold mb-4 text-center">Hra jednoho hráče</h2>
+        <label for="playerName" class="self-start mb-2">Zadej své jméno</label>
+        <input type="text" name="name" id="playerName" placeholder="Tvé jméno" class="mb-4 p-3 rounded bg-gray-800 text-white placeholder-gray-400 w-full"/>
+        <input type="submit" id="joinBtn" class="button w-full" value="Spustit hru">
+      </form>
 
       <!--Join game-->
       <?php } else { ?>
@@ -144,11 +149,5 @@ global $database;
       <?php } ?>
     </div>
   </body>
-
-  <!--    <h2 class="text-2xl font-bold mb-4 text-center">Singleplayer Mode</h2>-->
-  <!--    <label for="playerName" class="self-start mb-2">Zadej své jméno</label>-->
-  <!--    <input type="text" id="playerName" placeholder="Tvé jméno" class="mb-4 p-3 rounded bg-gray-800 text-white placeholder-gray-400 w-full"/>-->
-  <!--    <a id="joinBtn" href="#" class="button w-full">Spustit hru</a>-->
-
 </html>
 
