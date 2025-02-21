@@ -214,6 +214,7 @@ async function getResult(playerId, gameCode) {
         li.innerHTML = `Otázka ${index}: <span class="${result}">${
           result === 'correct' ? 'Správně' : 'Špatně'
         }</span>`
+        resultList.append(li)
       })
     })
 

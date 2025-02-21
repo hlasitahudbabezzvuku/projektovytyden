@@ -166,12 +166,12 @@
     <ul class="results-list" id="results-list">
       <!--ZDE PHP KOD => dynamicke vkladani li-->
       <!--udelal jsem tady spany, aby obarvily text pro lepsi citelnost => spravne/spatne;;; muzete pomoci boolu v databazi(spravne/spatne) menit ten html kod => jestli se napise span s classou correct, nebo incorrect (PAJA:D)-->
-      <li>Otázka 1: <span class="correct">Správně</span></li>
+      <!-- <li>Otázka 1: <span class="correct">Správně</span></li>
       <li>Otázka 2: <span class="incorrect">Špatně</span></li>
       <li>Otázka 3: <span class="correct">Správně</span></li>
       <li>Otázka 4: <span class="correct">Správně</span></li>
       <li>Otázka 5:  <span class="incorrect">Špatně</span></li>
-      <li>Otázka 6: <span class="correct">Správně</span></li>
+      <li>Otázka 6: <span class="correct">Správně</span></li> -->
     </ul>
     <div class="waiting-msg">
       Čeká se na hostitele, který potvrdí přechod do další kategorie...
