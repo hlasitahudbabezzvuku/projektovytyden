@@ -90,7 +90,7 @@ global $database;
         </div>
         <div class="mb-4">
           <p class="mb-1 text-white">QR kód:</p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo urlencode('http://pubz.infinityfreeapp.com/login.php?game=' . $code) ?>" alt="QR kód" class="w-3/4 h-auto object-contain bg-white p-1 rounded"/>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo urlencode('https://pubz.l3dnac3k.net/login.php?game=' . $code) ?>" alt="QR kód" class="w-3/4 h-auto object-contain bg-white p-1 rounded"/>
         </div>
         <div class="mb-4">
           <p class="mb-1 text-white">Připojeni hráči</p>
@@ -106,18 +106,18 @@ global $database;
 
         <script>
 
-          function get_players() { fetch('http://pubz.infinityfreeapp.com/api/get-players.php?game=' + <?php echo $code ?>)
+          function get_players() { fetch('https://pubz.l3dnac3k.net/api/get-players.php?game=' + <?php echo $code ?>)
             .then(function (response) { return response.text(); })
             .then(function (text) { document.getElementById('playerList').innerHTML = text; }); };
           setInterval(get_players, 2000);
 
-          function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-game.php')
+          function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-game.php')
             .then(function (response) { return response.text(); })
             .then(function (text) {
               if (text.length == 1)
                 console.log("Ping: OK");
               else
-                window.location.replace(encodeURI("http://pubz.infinityfreeapp.com/index.php?failed=" + text));
+                window.location.replace(encodeURI("https://pubz.l3dnac3k.net/index.php?failed=" + text));
             })};
           setInterval(ping, 5000);
 

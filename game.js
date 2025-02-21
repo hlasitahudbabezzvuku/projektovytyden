@@ -14,7 +14,7 @@ if (localStorage.getItem('answers')) {
 
 async function generateQuestions(gameCode) {
   await fetch(
-    'http://pubz.infinityfreeapp.com/api/generate-questions.php?code=' +
+    'https://pubz.l3dnac3k.net/api/generate-questions.php?code=' +
       gameCode
   )
 }
@@ -24,7 +24,7 @@ async function getQuestions(gameCode) {
 
   try {
     const response = await fetch(
-      'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
+      'https://pubz.l3dnac3k.net/api/get-questions.php?code=' + gameCode
     )
 
     if (!response.ok) {
@@ -34,7 +34,7 @@ async function getQuestions(gameCode) {
     questions = await response.json()
 
     let stageResponse = await fetch(
-      'http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
+      'https://pubz.l3dnac3k.net/api/get-stage.php?game=' + gameCode
     )
     let stage = await stageResponse.text()
     console.log('Stage: ' + stage)
@@ -61,7 +61,7 @@ async function getQuestions(gameCode) {
 
 async function checkFinished(gameCode) {
   fetch(
-    'http://pubz.infinityfreeapp.com/api/check-if-all-finished.php?code=' +
+    'https://pubz.l3dnac3k.net/api/check-if-all-finished.php?code=' +
       gameCode
   )
     .then((response) => response.json())
@@ -78,30 +78,30 @@ async function checkFinished(gameCode) {
 
 async function resetStage(gameCode) {
   await fetch(
-    'http://pubz.infinityfreeapp.com/api/reset-stage.php?code=' + gameCode
+    'https://pubz.l3dnac3k.net/api/reset-stage.php?code=' + gameCode
   )
   gameInterval = setInterval(checkFinished, 2000, gameCode)
 }
 
 async function finishStage(playerId, gameCode) {
   await fetch(
-    'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
+    'https://pubz.l3dnac3k.net/api/finish-stage.php?player_id=' + playerId
   )
 
   let response = await fetch(
-    'http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
+    'https://pubz.l3dnac3k.net/api/get-stage.php?game=' + gameCode
   )
   let stage = await response.text()
   console.log('Stage: ' + stage)
 
   if (stage == '7') {
     await fetch(
-      'http://pubz.infinityfreeapp.com/api/update-leaderboard.php/player_id=' +
+      'https://pubz.l3dnac3k.net/api/update-leaderboard.php/player_id=' +
         playerId
     )
-    window.location.replace('http://pubz.infinityfreeapp.com/end.php')
+    window.location.replace('https://pubz.l3dnac3k.net/end.php')
   } else {
-    window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
+    window.location.replace('https://pubz.l3dnac3k.net/stage-end.php')
   }
 }
 
@@ -150,7 +150,7 @@ async function nextQuestion(gameCode, playerId, value) {
 
 async function addStage(gameCode) {
   await fetch(
-    'http://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode
+    'https://pubz.l3dnac3k.net/api/add-stage.php?code=' + gameCode
   )
 }
 
@@ -158,7 +158,7 @@ async function startGame(gameCode) {
   await addStage(gameCode)
   generateQuestions(gameCode)
   window.location.replace(
-    'http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
+    'https://pubz.l3dnac3k.net/monitor.php?id=' + gameCode
   )
 }
 
@@ -170,7 +170,7 @@ async function nextStage(gameCode) {
 
 async function getFinishedPlayers(gameCode) {
   fetch(
-    'http://pubz.infinityfreeapp.com/api/get-finished-players.php?code=' +
+    'https://pubz.l3dnac3k.net/api/get-finished-players.php?code=' +
       gameCode
   )
     .then((response) => response.json())
@@ -200,7 +200,7 @@ async function getResult(playerId, gameCode) {
   let resultList = document.getElementById('results-list')
   if (!localStorage.getItem('result')) {
     fetch(
-      'http://pubz.infinityfreeapp.com/api/get-correct-answers.php?player_id=' +
+      'https://pubz.l3dnac3k.net/api/get-correct-answers.php?player_id=' +
         playerId +
         '&answers=' +
         encodeURIComponent(JSON.stringify(answers)) +
