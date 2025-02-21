@@ -44,7 +44,7 @@ global $database;
 
             <?php
 
-            $data = $database->select("Players", [ "name", "score" ], [ "ORDER" => [ "score" => "DESC" ] ]);
+            $data = $database->select("LeaderBoard", [ "name", "score" ], [ "ORDER" => [ "score" => "DESC" ] ]);
 
             foreach($data as $item) {
 
