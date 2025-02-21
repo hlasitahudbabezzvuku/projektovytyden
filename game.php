@@ -16,7 +16,6 @@ global $database;
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
     <link href="css/game.css" rel="stylesheet"/>
-    <script src="game.js"></script>
   </head>
   <body class="min-h-screen flex items-center justify-center p-4 bg-black">
     <div class="w-full max-w-lg p-6 flex flex-col space-y-6">
@@ -58,6 +57,7 @@ global $database;
         </button>
       </div>
     </div>
+    <script src="game.js"></script>
     <script>
 
       document.addEventListener('DOMContentLoaded', () => {
