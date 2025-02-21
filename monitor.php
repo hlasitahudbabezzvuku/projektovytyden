@@ -43,25 +43,18 @@ if (!array_key_exists("code", $_SESSION)) {
         </table>
       </div>
     </div>
-  </body>
-
-
-  <body>
-    <script src="game.js"></script>
-
     <button onclick="nextStage(<?php echo $_SESSION['code'] ?>)" id="continue-button" disabled>Continue</button>
+
+    <script src="game.js"></script>
 
     <?php if (isset($_GET['startGame'])) { ?>
       <script>startGame(<?php echo $_SESSION['code']?>)</script>
     <?php } ?>
 
-    <script>let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
-    <script>let scoreboardInterval = setInterval(getFinishedPlayers, 2000, <?php echo $_SESSION["code"] ?>)</script>
-
-
-
-    <!--Frantovo nesahat!-->
     <script>
+
+      let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)
+      let scoreboardInterval = setInterval(getFinishedPlayers, 2000, <?php echo $_SESSION["code"] ?>)
 
       function ping() { fetch('http://pubz.infinityfreeapp.com/api/ping-game.php')
         .then(function (response) { return response.text(); })
