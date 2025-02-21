@@ -67,21 +67,6 @@
         loadQuestion(<?php echo $_SESSION['code'] ?>, '<?php echo bin2hex($_SESSION['uuid']); ?>', '<?php echo $_SERVER["DOCUMENT_ROOT"];?>')
       })
 
-      function getStage() {
-        fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + <?php echo $_SESSION["code"];?>)
-          .then((response) => response.text())
-          .then((stage) => {
-            console.log(stage);
-
-            if (stage === '8') {
-              window.location.replace = "'https://pubz.l3dnac3k.net/end.php'"
-            }
-            
-          })
-      }
-
-      getStage()
-
       // frantovo - nesahat!
       function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-player.php')
         .then(function (response) { return response.text(); })

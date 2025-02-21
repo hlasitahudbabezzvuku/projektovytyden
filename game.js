@@ -213,6 +213,18 @@ async function getResult(playerId, gameCode) {
   }
 }
 
+async function getStage(gameCode) {
+  fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + gameCode)
+    .then((response) => response.text())
+    .then((stage) => {
+      console.log(stage)
+
+      if (stage == '8') {
+        window.location.replace = 'https://pubz.l3dnac3k.net/end.php'
+      }
+    })
+}
+
 // NOVY
 //jsony s kategoriema + v nich otázky === jen pro vyplnění (smazat)
 const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
@@ -224,6 +236,7 @@ let audioTimeline
 //funkce pro loadovani otazek
 async function loadQuestion(gameCode, playerId, home) {
   const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
+  await getStage(gameCode)
   await getQuestions(gameCode)
   // if (currentCategoryIndex >= categories.length) {
   //   //kdyz se odpovi vsechny otazky (hrac dokonci posledni kategorii)
