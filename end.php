@@ -30,13 +30,3 @@ if (count($data) == 0) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="cz">
-  <head>
-    <meta charset="UTF-8">
-    <title>PubZ</title>
-  </head>
-  <body>
-  </body>
-</html>
-
