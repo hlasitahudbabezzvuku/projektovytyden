@@ -214,7 +214,9 @@ async function getResult(playerId, gameCode) {
         const li = document.createElement('li')
         li.innerHTML = `Otázka ${questionNumber}: <span class="${
           result[questionNumber]
-        }">${result === 'correct' ? 'Správně' : 'Špatně'}</span>`
+        }">${
+          result[questionNumber] === 'correct' ? 'Správně' : 'Špatně'
+        }</span>`
         resultList.append(li)
       })
     })
