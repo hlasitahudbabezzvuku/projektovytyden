@@ -39,20 +39,20 @@
 
     getResult('<?php echo bin2hex($_SESSION["uuid"]);?>', <?php echo $_SESSION['code']; ?>);
     setInterval(() => {
-      await fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + '<?php echo $_SESSION["code"]; ?>')
+      let stage = await fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + '<?php echo $_SESSION["code"]; ?>')
         .then(function (response) { return response.text(); })
-        .then(function (text) {
-          console.log(text);
-          if (text === '9') {
-            localStorage.removeItem('result')
-            window.location.replace('https://pubz.l3dnac3k.net/end.php');
-          } 
       });
+
       fetch('https://pubz.l3dnac3k.net/api/player-finished.php?uuid=' + '<?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>')
         .then(function (response) { return response.text(); })
         .then(function (text) {
           console.log(text);
-          if (text === '0') {
+          console.log(stage);
+          
+          if (stage == '9') {
+            localStorage.removeItem('result')
+            window.location.replace('https://pubz.l3dnac3k.net/end.php');
+          } else if (text === '0') {
             localStorage.removeItem('result')
             window.location.replace('https://pubz.l3dnac3k.net/game.php');
           } 
