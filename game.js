@@ -142,14 +142,10 @@ async function startGame(gameCode) {
 }
 
 async function nextStage(gameCode) {
-  let stage = await getStage(gameCode)
-  if (stage == '8') {
-    window.location.replace('https://pubz.l3dnac3k.net/')
-  } else {
-    await addStage(gameCode)
-    generateQuestions(gameCode)
-    resetStage(gameCode)
-  }
+  await getStage(gameCode, 'host')
+  await addStage(gameCode)
+  generateQuestions(gameCode)
+  resetStage(gameCode)
 }
 
 async function getFinishedPlayers(gameCode) {
@@ -218,10 +214,17 @@ async function getResult(playerId, gameCode) {
   }
 }
 
-async function getStage(gameCode) {
-  fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + gameCode).then(
-    (response) => response.text()
-  )
+async function getStage(gameCode, type) {
+  fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + gameCode)
+    .then((response) => response.text())
+    .then((stage) => {
+      if (stage == '8') {
+        if (type === 'player')
+          window.location.replace('https://pubz.l3dnac3k.net/end.php')
+        else if (type === 'host')
+          window.location.replace('https://pubz.l3dnac3k.net/')
+      }
+    })
 }
 
 // NOVY
@@ -235,10 +238,7 @@ let audioTimeline
 //funkce pro loadovani otazek
 async function loadQuestion(gameCode, playerId, home) {
   const categories = ['Text', 'Zvuk', 'Video', 'Obrázek']
-  let stage = await getStage(gameCode)
-  if (stage == '8') {
-    window.location.replace('https://pubz.l3dnac3k.net/end.php')
-  }
+  await getStage(gameCode, 'player')
   await getQuestions(gameCode)
   // if (currentCategoryIndex >= categories.length) {
   //   //kdyz se odpovi vsechny otazky (hrac dokonci posledni kategorii)
