@@ -36,6 +36,7 @@
   </div>
   <script src="game.js"></script>
   <script>
+
     getResult('<?php echo bin2hex($_SESSION["uuid"]);?>', <?php echo $_SESSION['code']; ?>);
     setInterval(() => {
       fetch('https://pubz.l3dnac3k.net/api/player-finished.php?uuid=' + '<?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>')
@@ -49,16 +50,16 @@
         });
     }, 2000)
     
-      // frantovo - nesahat!
-      function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-player.php')
-        .then(function (response) { return response.text(); })
-        .then(function (text) {
-          if (text.length == 1)
-            console.log("Ping: OK");
-          else
-            window.location.replace(encodeURI("https://pubz.l3dnac3k.net/index.php?failed=" + text));
-        })};
-      setInterval(ping, 4000);
+    // frantovo - nesahat!
+    function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-player.php')
+      .then(function (response) { return response.text(); })
+      .then(function (text) {
+        if (text.length == 1)
+          console.log("Ping: OK");
+        else
+          window.location.replace(encodeURI("https://pubz.l3dnac3k.net/index.php?failed=" + text));
+      })};
+    setInterval(ping, 4000);
     
     </script>
 </body>
