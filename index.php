@@ -51,8 +51,8 @@ global $database;
             ?>
 
             <div class="leaderboard-item flex justify-between items-center">
-              <span class="position"><?php echo $item["name"] ?></span>
-              <span><?php echo $item["score"] ?> pts</span>
+              <span class="position"><?php echo $item["name"]; ?></span>
+              <span><?php echo $item["score"]; ?> pts</span>
             </div>
             
             <?php } ?>
