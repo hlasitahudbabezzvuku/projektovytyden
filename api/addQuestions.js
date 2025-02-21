@@ -260,10 +260,10 @@ const otazky = {
         '“Všechny do jednoho z vás, by jsem — Politiky, ministry, by jsem —”',
       odpovedi: {
         a: 'pokadil',
-        b: 'obejmul',
-        c: 'pochcal',
+        b: 'pochcal',
+        c: 'obejmul',
         d: 'poblil',
-        spravna: 'c'
+        spravna: 'b'
       },
       vysvetlivka: 'Úryvek ze skladby Adama Mišíka z filmu Banger'
     },
@@ -273,9 +273,9 @@ const otazky = {
       odpovedi: {
         a: 'uprav to',
         b: 'to si moc nedal',
-        c: 'to se ti povedlo',
-        d: 'ty ses poblil',
-        spravna: 'c'
+        c: 'ty ses poblil',
+        d: 'to se ti povedlo',
+        spravna: 'd'
       },
       vysvetlivka: 'Fraze "to jsi zabil" znamená udělat něco skvělého.'
     }
