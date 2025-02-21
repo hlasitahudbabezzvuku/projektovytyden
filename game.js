@@ -210,7 +210,7 @@ async function getResult(playerId, gameCode) {
     .then((response) => response.json())
     .then((response) => {
       response.forEach((result, index) => {
-        const questionNumber = Object.keys(resultObj)[0]
+        const questionNumber = Object.keys(result)[0]
         const li = document.createElement('li')
         li.innerHTML = `Otázka ${questionNumber}: <span class="${
           result[questionNumber]
