@@ -127,7 +127,8 @@ const otazky = {
   },
   video: {
     0: {
-      video: 'https://youtu.be/Bbe9D4_D80M?si=neE0MLUueFMAyc6q',
+      video:
+        'https://youtu.com/embed/Bbe9D4_D80M?si=neE0MLUueFMAyc6q?autoplay=1',
       otazka: 'Dokonči větu: Jožo, ty prestaň klamať...',
       odpovedi: {
         a: 'tomu ujovi',
@@ -139,7 +140,7 @@ const otazky = {
       vysvetlivka: 'Kulturní reference na známou reportáž generace Z.'
     },
     1: {
-      video: 'https://www.youtube.com/watch?v=OSJ-YC4LEL8',
+      video: 'https://www.youtube.com/embed/OSJ-YC4LEL8?autoplay=1',
       otazka: 'Co dělá člověk na videu?',
       odpovedi: {
         a: 'bělí si zuby',
@@ -152,7 +153,7 @@ const otazky = {
         '„Nabíjí si” - slang pro aplikování nikotinového sáčku pod ret.'
     },
     2: {
-      video: 'https://www.youtube.com/shorts/4FXpfLDhvuo',
+      video: 'https://www.youtube.com/embed/4FXpfLDhvuo?autoplay=1',
       otazka: 'Jak se jmenuje interpret na videu?',
       odpovedi: {
         a: 'Sergei B',
@@ -165,7 +166,7 @@ const otazky = {
         'Je to rapper známý svými expresivními výlevy na sociálních sítích.'
     },
     3: {
-      video: 'https://www.youtube.com/watch?v=6V7_LNhqI1k',
+      video: 'https://www.youtube.com/embed/6V7_LNhqI1k?autoplay=1',
       otazka: 'Pro koho video točí?',
       odpovedi: {
         a: 'pro babičku',
@@ -177,7 +178,7 @@ const otazky = {
       vysvetlivka: 'Napodobení virálního videa z TikToku.'
     },
     4: {
-      video: 'https://youtu.be/C4FOiXdDpJ8?si=BJGRWO4vtinGFyzW',
+      video: 'https://youtu.com/embed/BJGRWO4vtinGFyzW?autoplay=1',
       otazka: 'Jak se nazývá tento typ videa?',
       odpovedi: {
         a: 'rozbalovačka',
@@ -190,7 +191,7 @@ const otazky = {
         'Unboxing je typ videa, ve kterém se rozbalují nově pořízené předměty.'
     },
     5: {
-      video: 'https://www.youtube.com/watch?v=FtXMyOz01sk',
+      video: 'https://www.youtube.com/embed/FtXMyOz01sk?autoplay=1',
       otazka: 'Co míchá muž na videu?',
       odpovedi: {
         a: 'kratom',

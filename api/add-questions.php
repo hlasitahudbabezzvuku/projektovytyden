@@ -70,17 +70,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $video = $data["video"];
   $ilustrace = $data["ilustrace"];
 
-  // foreach ($textove as $otazka) {
-  //   pridatOtazku($otazka, "text");
-  // }
+  foreach ($textove as $otazka) {
+    pridatOtazku($otazka, "text");
+  }
 
   foreach ($zvuk as $otazka) {
     pridatVideoOtazku($otazka, "zvuk");
   }
 
-  // foreach ($video as $otazka) {
-  //   pridatVideoOtazku($otazka);
-  // }
+  foreach ($video as $otazka) {
+    pridatVideoOtazku($otazka, "video");
+  }
 
   foreach ($ilustrace as $otazka) {
     pridatVideoOtazku($otazka, "ilustrace");
