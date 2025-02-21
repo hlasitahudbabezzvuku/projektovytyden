@@ -1,6 +1,10 @@
 <?php
-    session_start();
-    require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
+
+session_start();
+
+require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
+global $database;
+
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +16,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
     <link href="css/game.css" rel="stylesheet"/>
+    <script src="game.js"></script>
   </head>
   <body class="min-h-screen flex items-center justify-center p-4 bg-black">
     <div class="w-full max-w-lg p-6 flex flex-col space-y-6">
@@ -32,16 +37,12 @@
           <div class="circle border-2 border-yellow-500"></div>
         </div>
       </div>
-      
       <!--box s otazkou-->
       <div class="question-box fade-in">Otázka</div>
-      
       <!--misto pro media placeholder (text, hudba atd..)-->
       <div class="media-placeholder fade-in bg-gray-800 rounded-lg flex items-center justify-center text-xl text-gray-400 h-72">
         Obsah
       </div>
-      
-      <!--odpovedi A, B, C, D container-->
       <div class="answers-container fade-in grid grid-cols-2 gap-4">
         <button class="answer-button bg-yellow-500 text-white py-4 w-full rounded-lg hover:bg-yellow-400 transition duration-300 font-bold">
           A) jedna
@@ -57,9 +58,8 @@
         </button>
       </div>
     </div>
-
-    <script src="game.js"></script>
     <script>
+
       document.addEventListener('DOMContentLoaded', () => {
         document
           .querySelectorAll('.fade-in')
