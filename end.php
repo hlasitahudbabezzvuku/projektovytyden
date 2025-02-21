@@ -1,11 +1,12 @@
 <?php
 
+session_start();
+
 if (!isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
   header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Houstone, máme problém! :/"));
   die();
 }
 
-session_start();
 require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 require $_SERVER["DOCUMENT_ROOT"] . "/utils/uuid.php";
 global $database;
