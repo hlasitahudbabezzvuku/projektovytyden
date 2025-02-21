@@ -21,7 +21,7 @@ if (!array_key_exists("code", $_SESSION)) {
   </head>
   <body>
     <div class="logo">
-      <a href="index.html">
+      <a href="index.php">
         <img src="src/ada.png" alt="PUBS logo" />
       </a>
     </div>
