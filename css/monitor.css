@@ -18,21 +18,73 @@ body {
   top: 1rem;
   left: 1rem;
 }
-.logo img {
-  width: 150px;
-  animation: blink 3s linear infinite;
+    .logo img {
+      width: 150px;
+      animation: flicker 0.5s linear infinite; /*spusteni animace*/
+    }
+
+    /*animace blikani*/
+    @keyframes flicker {
+    0% {
+      opacity: 1;
+    }
+    2% {
+      opacity: 0.2;
+    }
+    4% {
+      opacity: 1;
+    }
+    6% {
+      opacity: 0.3;
+    }
+    8% {
+      opacity: 1;
+    }
+    10% {
+      opacity: 0.15;
+    }
+    12% {
+      opacity: 1;
+    }
+    14% {
+      opacity: 0.25;
+    }
+    16% {
+      opacity: 1;
+    }
+    18% {
+      opacity: 0.2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+.container {
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
+.container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 1rem 0;
 }
 
 .button {
@@ -47,30 +99,6 @@ body {
   display: block;
   width: 100%;
   max-width: 446px;
-}
-
-.container {
-  background-color: #1a1a1a;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 400px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-.container.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h1 {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  margin: 1rem 0;
 }
 
 .container p {
