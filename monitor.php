@@ -35,7 +35,7 @@ if (!array_key_exists("code", $_SESSION)) {
           <thead>
             <tr>
               <th>Jméno</th>
-              <th>Progres</th>
+              <th>Body</th>
             </tr>
           </thead>
           <tbody id='score-board'>
