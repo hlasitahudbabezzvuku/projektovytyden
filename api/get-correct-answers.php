@@ -15,26 +15,16 @@
   ]);
 
   $pocetSpravnych = 0;
-  $spravne = [];
+  $spravneResponse = [];
 
-  $i = 0;
-  foreach ($spravne as $s) {
-    if ($answers[$i] == $s) {
+  for ($i = 0; $i < count($answers); $i++) {
+    if ($answers[$i] == array_values($spravne)[$i]) {
       $pocetSpravnych++;
-      $spravne[] = [$i => "correct"];
+      $spravneResponse[] = [$i => "correct"];
     } else {
-      $spravne[] = [$i => "incorrect"];
+      $spravneResponse[] = [$i => "incorrect"];
     }
   }
-
-  // for ($i = 0; $i < count($answers); $i++) {
-  //   if ($answers[$i] == array_values($spravne)[$i]) {
-  //     $pocetSpravnych++;
-  //     $spravne[] = [$i => "correct"];
-  //   } else {
-  //     $spravne[] = [$i => "incorrect"];
-  //   }
-  // }
 
   $database->update("Players", [
     "score[+]" => $pocetSpravnych
@@ -42,5 +32,5 @@
     "id" => hex2bin($_GET["player_id"])
   ]);
 
-  echo json_encode($spravne);
+  echo json_encode($spravneResponse);
 ?>
