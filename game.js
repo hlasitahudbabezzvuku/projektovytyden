@@ -207,8 +207,15 @@ async function getResult(playerId, gameCode) {
       '&code=' +
       gameCode
   )
-    .then((response) => response.text())
-    .then((response) => console.log(response))
+    .then((response) => response.json())
+    .then((response) => {
+      response.forEach((result, index) => {
+        const li = document.createElement('li')
+        li.innerHTML = `Otázka ${index}: <span class="${result}">${
+          result === 'correct' ? 'Správně' : 'Špatně'
+        }</span>`
+      })
+    })
 
   // let results = response.json()
 
