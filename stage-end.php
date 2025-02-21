@@ -38,7 +38,7 @@
   <script>
 
     getResult('<?php echo bin2hex($_SESSION["uuid"]);?>', <?php echo $_SESSION['code']; ?>);
-    setInterval(() => {
+    setInterval(async () => {
       let stage = await fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + '<?php echo $_SESSION["code"]; ?>')
         .then(function (response) { return response.text(); })
       });
