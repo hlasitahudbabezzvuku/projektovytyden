@@ -59,6 +59,7 @@ if (count($data) != 0) {
   <body class="wait-page">
     <div class="wait-card">
       <h1>Vyčkejte na začátek hry</h1>
+      <script>if (localStorage.getItem('answers')) localStorage.removeItem('answers')</script>
       <script>
 
         function get_stage() { fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)

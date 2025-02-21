@@ -91,6 +91,8 @@ global $database;
       </div>
     </div>
 
+    <script>if (localStorage.getItem('answers')) localStorage.removeItem('answers')</script>
+
     <script src="js/script.js"></script>
   </body>
 </html>
