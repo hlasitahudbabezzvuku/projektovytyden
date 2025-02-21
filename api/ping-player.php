@@ -8,19 +8,19 @@ session_start();
 if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
   
   if (empty($database->get("Games", "id", [ "id" => $_SESSION["code"] ]))) {
-    echo("Game is no longer avalible");
+    echo("Ten kdo hru vytvořil již není dostupný");
     die();
   }
 
   if(empty($database->get("Players", "game", [ "game" => $_SESSION["code"] ]))) {
-    echo("Player not found");
+    echo("Něco se pokazilo komunikaci mezi vaším zařízením a serverem (může se jednat o pomalé připojení)");
     die();
   }
 
   $database->update("Players", [ "last_ping" => time() ], [ "id" => $_SESSION["uuid"] ]);
 
 } else {
-  echo("Not in game");
+  echo("V tento moment nejste oprávněný/á vstupovat na tuto stránku");
 }
 
 $database->delete("Players", [
