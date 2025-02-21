@@ -30,7 +30,7 @@
   }
 
   $otazky = $database->select("Otazky", ["id"], ["type" => $typ]);
-  $keys = array_rand($otazky, 3);
+  $keys = array_rand($otazky, 6);
 
   $database->delete("GamesOtazky", ["game_id" => $gameCode]);
 
