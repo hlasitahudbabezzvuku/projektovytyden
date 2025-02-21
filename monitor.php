@@ -38,21 +38,7 @@ if (!array_key_exists("code", $_SESSION)) {
               <th>Progres</th>
             </tr>
           </thead>
-          <tbody>
-
-            <tr>
-              <td>Hráč 1</td>
-              <td>120 bodů</td>
-            </tr>
-            <tr>
-              <td>Hráč 2</td>
-              <td>95 bodů</td>
-            </tr>
-            <tr>
-              <td>Hráč 3</td>
-              <td>135 bodů</td>
-            </tr>
-
+          <tbody id='score-board'>
           </tbody>
         </table>
       </div>
@@ -88,7 +74,5 @@ if (!array_key_exists("code", $_SESSION)) {
       setInterval(ping, 4000);
 
     </script>
-
-    <div id='score-board'></div>
   </body>
 </html>

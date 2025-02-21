@@ -182,12 +182,12 @@ async function getFinishedPlayers(gameCode) {
       div.innerHTML = ''
 
       responseData.forEach((player) => {
-        let btnContainer = document.createElement('div')
-        let name = document.createElement('p')
-        let score = document.createElement('p')
+        let btnContainer = document.createElement('tr')
+        let name = document.createElement('td')
+        let score = document.createElement('td')
 
         name.innerText = player.name
-        score.innerText = player.score
+        score.innerText = player.score + " bodů"
 
         btnContainer.appendChild(name)
         btnContainer.appendChild(score)
