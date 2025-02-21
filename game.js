@@ -142,9 +142,14 @@ async function startGame(gameCode) {
 }
 
 async function nextStage(gameCode) {
-  await addStage(gameCode)
-  generateQuestions(gameCode)
-  resetStage(gameCode)
+  let stage = await getStage(gameCode)
+  if (stage == '8') {
+    window.location.replace('https://pubz.l3dnac3k.net/end.php')
+  } else {
+    await addStage(gameCode)
+    generateQuestions(gameCode)
+    resetStage(gameCode)
+  }
 }
 
 async function getFinishedPlayers(gameCode) {
