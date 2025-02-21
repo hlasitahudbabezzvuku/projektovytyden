@@ -222,8 +222,6 @@ async function getResult(playerId, gameCode) {
   // let results = response.json()
 
   // console.log(results)
-
-  if (localStorage.getItem('answers')) localStorage.removeItem('answers')
 }
 
 // NOVY
