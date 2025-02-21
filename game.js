@@ -14,8 +14,7 @@ if (localStorage.getItem('answers')) {
 
 async function generateQuestions(gameCode) {
   await fetch(
-    'https://pubz.l3dnac3k.net/api/generate-questions.php?code=' +
-      gameCode
+    'https://pubz.l3dnac3k.net/api/generate-questions.php?code=' + gameCode
   )
 }
 
@@ -61,8 +60,7 @@ async function getQuestions(gameCode) {
 
 async function checkFinished(gameCode) {
   fetch(
-    'https://pubz.l3dnac3k.net/api/check-if-all-finished.php?code=' +
-      gameCode
+    'https://pubz.l3dnac3k.net/api/check-if-all-finished.php?code=' + gameCode
   )
     .then((response) => response.json())
     .then((response) => {
@@ -77,9 +75,7 @@ async function checkFinished(gameCode) {
 }
 
 async function resetStage(gameCode) {
-  await fetch(
-    'https://pubz.l3dnac3k.net/api/reset-stage.php?code=' + gameCode
-  )
+  await fetch('https://pubz.l3dnac3k.net/api/reset-stage.php?code=' + gameCode)
   gameInterval = setInterval(checkFinished, 2000, gameCode)
 }
 
@@ -87,22 +83,7 @@ async function finishStage(playerId, gameCode) {
   await fetch(
     'https://pubz.l3dnac3k.net/api/finish-stage.php?player_id=' + playerId
   )
-
-  let response = await fetch(
-    'https://pubz.l3dnac3k.net/api/get-stage.php?game=' + gameCode
-  )
-  let stage = await response.text()
-  console.log('Stage: ' + stage)
-
-  if (stage == '7') {
-    await fetch(
-      'https://pubz.l3dnac3k.net/api/update-leaderboard.php/player_id=' +
-        playerId
-    )
-    window.location.replace('https://pubz.l3dnac3k.net/end.php')
-  } else {
-    window.location.replace('https://pubz.l3dnac3k.net/stage-end.php')
-  }
+  window.location.replace('https://pubz.l3dnac3k.net/stage-end.php')
 }
 
 async function printQuestions(gameCode, playerId) {
@@ -149,9 +130,7 @@ async function nextQuestion(gameCode, playerId, value) {
 }
 
 async function addStage(gameCode) {
-  await fetch(
-    'https://pubz.l3dnac3k.net/api/add-stage.php?code=' + gameCode
-  )
+  await fetch('https://pubz.l3dnac3k.net/api/add-stage.php?code=' + gameCode)
 }
 
 async function startGame(gameCode) {
@@ -170,8 +149,7 @@ async function nextStage(gameCode) {
 
 async function getFinishedPlayers(gameCode) {
   fetch(
-    'https://pubz.l3dnac3k.net/api/get-finished-players.php?code=' +
-      gameCode
+    'https://pubz.l3dnac3k.net/api/get-finished-players.php?code=' + gameCode
   )
     .then((response) => response.json())
     .then((responseData) => {
@@ -187,7 +165,7 @@ async function getFinishedPlayers(gameCode) {
         let score = document.createElement('td')
 
         name.innerText = player.name
-        score.innerText = player.score + " bodů"
+        score.innerText = player.score + ' bodů'
 
         btnContainer.appendChild(name)
         btnContainer.appendChild(score)
@@ -275,7 +253,7 @@ async function loadQuestion(gameCode, playerId, home) {
         mediaPlaceholder.innerHTML =
           '<audio ontimeupdate="changeTimeLine()" id="myAudio" src="' +
           questions[currentQuestionIndex].zvuk +
-          '" preload="auto"></audio><input type="range" id="audioTimeline" oninput="acceptInput()" value="0" step="1" style="width: 100%; margin-top: 10px;"><button id="playPauseBtn" onclick="togglePlayPause()">Play</button>'
+          '" preload="auto"></audio><input type="range" id="audioTimeline" oninput="acceptInput()" value="0" step="1" class="w-full h-2 bg-[#d39f39] rounded-full mt-4 cursor-pointer appearance-none"><button id="playPauseBtn" onclick="togglePlayPause()" class="bg-[#d39f39] text-[#080808] font-bold py-2 px-4 rounded-md hover:bg-[#c88b2e] transition duration-300 mt-4 border-2 border-[#d39f39]">Play</button>'
         audio = document.getElementById('myAudio')
         playPauseBtn = document.getElementById('playPauseBtn')
         audioTimeline = document.getElementById('audioTimeline')
