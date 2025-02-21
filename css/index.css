@@ -67,19 +67,6 @@ body {
   position: relative;
   scroll-behavior: smooth;
 }
-/* Pseudo-element s gradientem na spodním okraji leaderboardu */
-#leaderboardList::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2rem; /* Výška gradientu – upravte dle potřeby */
-  background: linear-gradient(to top, #000, transparent);
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
 /* Když je uživatel téměř na konci, gradient postupně zmizí */
 #leaderboardList.at-bottom::after {
   opacity: 0;
