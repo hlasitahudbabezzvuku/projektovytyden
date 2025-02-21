@@ -41,7 +41,6 @@
     setInterval(async () => {
       let stage = await fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + '<?php echo $_SESSION["code"]; ?>')
         .then(function (response) { return response.text(); })
-      });
 
       fetch('https://pubz.l3dnac3k.net/api/player-finished.php?uuid=' + '<?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>')
         .then(function (response) { return response.text(); })
