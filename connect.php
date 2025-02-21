@@ -23,7 +23,7 @@ if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
   die();
 }
 
-if (!empty($database->get("Players", [ "name" => $_GET["name"] ]))) {
+if (!empty($database->get("Players", "name", [ "name" => $_GET["name"] ]))) {
   header("Location: http://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Tohle jméno je už zabrané :/") . "&game=" . $_GET["code"]);
   die();
 }
