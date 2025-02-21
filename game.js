@@ -198,32 +198,41 @@ async function getFinishedPlayers(gameCode) {
 
 async function getResult(playerId, gameCode) {
   let resultList = document.getElementById('results-list')
-
-  fetch(
-    'http://pubz.infinityfreeapp.com/api/get-correct-answers.php?player_id=' +
-      playerId +
-      '&answers=' +
-      encodeURIComponent(JSON.stringify(answers)) +
-      '&code=' +
-      gameCode
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      response.forEach((result, index) => {
-        const questionNumber = Object.keys(result)[0]
-        const li = document.createElement('li')
-        li.innerHTML = `Otázka ${questionNumber}: <span class="${
-          result[questionNumber]
-        }">${
-          result[questionNumber] === 'correct' ? 'Správně' : 'Špatně'
-        }</span>`
-        resultList.append(li)
+  if (localStorage.getItem('result')) {
+    fetch(
+      'http://pubz.infinityfreeapp.com/api/get-correct-answers.php?player_id=' +
+        playerId +
+        '&answers=' +
+        encodeURIComponent(JSON.stringify(answers)) +
+        '&code=' +
+        gameCode
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem('result', JSON.stringify(response))
+        localStorage.removeItem('answers')
+        response.forEach((result) => {
+          const questionNumber = Object.keys(result)[0]
+          const li = document.createElement('li')
+          li.innerHTML = `Otázka ${questionNumber}: <span class="${
+            result[questionNumber]
+          }">${
+            result[questionNumber] === 'correct' ? 'Správně' : 'Špatně'
+          }</span>`
+          resultList.append(li)
+        })
       })
+  } else {
+    response = JSON.parse(localStorage.getItem('result'))
+    response.forEach((result) => {
+      const questionNumber = Object.keys(result)[0]
+      const li = document.createElement('li')
+      li.innerHTML = `Otázka ${questionNumber}: <span class="${
+        result[questionNumber]
+      }">${result[questionNumber] === 'correct' ? 'Správně' : 'Špatně'}</span>`
+      resultList.append(li)
     })
-
-  // let results = response.json()
-
-  // console.log(results)
+  }
 }
 
 // NOVY

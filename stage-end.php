@@ -186,7 +186,7 @@
         .then(function (text) {
           console.log(text);
           if (text === '0') {
-            localStorage.removeItem('answers')
+            localStorage.removeItem('result')
             window.location.replace('http://pubz.infinityfreeapp.com/game.php');
           } 
         });
