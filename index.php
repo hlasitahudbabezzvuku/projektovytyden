@@ -71,7 +71,7 @@ global $database;
           <img src="src/ada.png" alt="Logo" class="w-full h-auto object-contain" />
           <div class="w-full flex flex-col items-center gap-4">
             <div class="flex flex-col sm:flex-row items-center gap-4 w-full">
-              <a id="singleplayerBtn" href="login.php?mode=single" class="button w-full">
+              <a id="singleplayerBtn" href="index.php<?php urlencode('Podekujte histing InfinityFree za to ze tenhle podelanej mod nefunguje protoze nam ve 4 rano zablokovali nasi domenu takze jsem to do 5ti do rana musel presouvat cely projek na muj pocitac ktery ted slouzi jako server >:(') ?>" class="button w-full">
                 Singleplayer
               </a>
               <a id="multiplayerBtn" href="#" class="button w-full">
