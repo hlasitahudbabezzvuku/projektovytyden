@@ -52,12 +52,13 @@ global $database;
 
             <div class="leaderboard-item flex justify-between items-center">
               <span class="position"><?php echo $item["name"]; ?></span>
-              <span><?php echo $item["score"]; ?> pts</span>
+              <span><?php echo $item["score"]; ?> bodů</span>
             </div>
             
             <?php } ?>
 
           </div>
+          <div class="absolute bottom-0 left-0 w-full h-12 pointer-events-none bg-gradient-to-t from-[#080808] to-transparent"></div>
           <a id="scrollDown" href="#" class="arrow-button absolute bottom-0 left-1/2 transform -translate-x-1/2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -71,7 +72,7 @@ global $database;
           <img src="src/ada.png" alt="Logo" class="w-full h-auto object-contain" />
           <div class="w-full flex flex-col items-center gap-4">
             <div class="flex flex-col sm:flex-row items-center gap-4 w-full">
-              <a id="singleplayerBtn" href="index.php<?php urlencode('Podekujte histing InfinityFree za to ze tenhle podelanej mod nefunguje protoze nam ve 4 rano zablokovali nasi domenu takze jsem to do 5ti do rana musel presouvat cely projek na muj pocitac ktery ted slouzi jako server >:(') ?>" class="button w-full">
+              <a id="singleplayerBtn" href="index.php?failed=<?php echo urlencode('Podekujte hostingu InfinityFree za to ze tenhle podelanej mod nefunguje protoze nam ve 4 rano zablokovali nasi domenu takze jsem to do 5ti do rana musel presouvat cely projek na muj pocitac ktery ted slouzi jako server >:(') ?>" class="button w-full">
                 Singleplayer
               </a>
               <a id="multiplayerBtn" href="#" class="button w-full">
