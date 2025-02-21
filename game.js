@@ -314,7 +314,7 @@ async function loadQuestion(gameCode, playerId, home) {
     questionBox.style.opacity = 1
   }, 300)
   console.log('Load otazky: ' + JSON.stringify(questions))
-
+  buttons = document.querySelectorAll('.answer-button')
   buttons.forEach((btn, index) => {
     btn.disabled = false
     btn.textContent = `${
