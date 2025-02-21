@@ -37,5 +37,7 @@ $database->insert("LeaderBoard", [
   "score" => $score,
 ]);
 
+header("Location: https://pubz.l3dnac3k.net/index.php");
+
 ?>
 
