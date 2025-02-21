@@ -73,13 +73,14 @@
           .then((stage) => {
             console.log(stage);
 
-            if (stage === '9') {
+            if (stage === '8') {
               window.location.replace = "'https://pubz.l3dnac3k.net/end.php'"
             }
             
           })
       }
-      setInterval(getStage, 2000);
+
+      getStage()
 
       // frantovo - nesahat!
       function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-player.php')
