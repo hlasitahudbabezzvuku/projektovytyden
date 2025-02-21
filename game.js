@@ -220,7 +220,7 @@ async function getStage(gameCode) {
       console.log(stage)
 
       if (stage == '8') {
-        window.location.replace = 'https://pubz.l3dnac3k.net/end.php'
+        window.location.replace('https://pubz.l3dnac3k.net/end.php')
       }
     })
 }
