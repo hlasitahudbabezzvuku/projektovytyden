@@ -37,7 +37,7 @@
       <div class="question-box fade-in">Otázka</div>
       
       <!--misto pro media placeholder (text, hudba atd..)-->
-      <div class="media-placeholder fade-in bg-gray-800 rounded-lg flex items-center justify-center text-xl text-gray-400 h-72">
+      <div class="media-placeholder fade-in bg-gray-800 rounded-lg flex flex-col items-center justify-center text-xl text-gray-400 h-72">
         Obsah
       </div>
       
