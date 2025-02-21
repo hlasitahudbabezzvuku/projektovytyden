@@ -14,17 +14,65 @@ if (!array_key_exists("code", $_SESSION)) {
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PubZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet"/>
+    <link href="css/monitor.css" rel="stylesheet"/>
   </head>
+
+
+  <body>
+    <div class="logo">
+      <a href="index.html">
+        <img src="ada.png" alt="PUBS logo" />
+      </a>
+    </div>
+    <div class="container show">
+      <h1>Výsledky hráčů</h1>
+      <p>Celkové skóre všech hráčů:</p>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Jméno</th>
+              <th>Progres</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Hráč 1</td>
+              <td>120 bodů</td>
+            </tr>
+            <tr>
+              <td>Hráč 2</td>
+              <td>95 bodů</td>
+            </tr>
+            <tr>
+              <td>Hráč 3</td>
+              <td>135 bodů</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+
+
   <body>
     <script src="game.js"></script>
-    <button onclick="nextStage(<?php echo $_SESSION['code'] ?>)" 
-    id="continue-button" disabled>Continue</button>
-    <?php if (isset($_GET['startGame'])) {?>
+
+    <button onclick="nextStage(<?php echo $_SESSION['code'] ?>)" id="continue-button" disabled>Continue</button>
+
+    <?php if (isset($_GET['startGame'])) { ?>
       <script>startGame(<?php echo $_SESSION['code']?>)</script>
     <?php } ?>
+
     <script>let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)</script>
     <script>let scoreboardInterval = setInterval(getFinishedPlayers, 2000, <?php echo $_SESSION["code"] ?>)</script>
+
+
 
     <!--Frantovo nesahat!-->
     <script>
