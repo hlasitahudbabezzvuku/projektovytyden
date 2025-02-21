@@ -68,7 +68,7 @@
       })
 
       function getStage() {
-        fetch('https://pubz.l3dnac3k.net/api/get-stage.php')
+        fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game' <?php echo $_SERVER["code"];?>)
           .then((response) => response.text())
           .then((stage) => {
             console.log(stage);
