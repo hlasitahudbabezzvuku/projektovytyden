@@ -98,3 +98,48 @@ body {
   text-transform: uppercase;
   margin: 0;
 }
+
+.blikani {
+  animation: flicker 0.5s linear infinite;
+}
+
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  2% {
+    opacity: 0.2;
+  }
+  4% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0.3;
+  }
+  8% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.15;
+  }
+  12% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 0.25;
+  }
+  16% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
