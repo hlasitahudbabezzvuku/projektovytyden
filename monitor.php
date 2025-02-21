@@ -29,7 +29,7 @@ if (!array_key_exists("code", $_SESSION)) {
     </div>
     <div class="container show">
       <h1>Výsledky hráčů</h1>
-      <p>Celkové skóre všech hráčů:</p>
+      <p>Průběžné skóre:</p>
       <div style="overflow-x: auto;">
         <table>
           <thead>
