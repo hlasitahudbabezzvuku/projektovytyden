@@ -18,9 +18,9 @@ if (isset($_SESSION) && session_status() !== PHP_SESSION_NONE) {
   echo("V tento moment nejste oprávněný/á vstupovat na tuto stránku");
 }
 
-$database->delete("Games", [
-  "last_ping[<]" => ( time() - 6 )
-]);
+// $database->delete("Games", [
+//   "last_ping[<]" => ( time() - 6 )
+// ]);
 
 ?>
 
