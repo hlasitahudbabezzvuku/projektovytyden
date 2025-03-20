@@ -364,7 +364,7 @@ const otazky = {
 
 async function addQuestion() {
   let response = await fetch(
-    'https://pubz.infinityfreeapp.com/api/add-questions.php',
+    'http://pubz.infinityfreeapp.com/api/add-questions.php',
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

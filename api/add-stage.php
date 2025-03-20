@@ -8,12 +8,12 @@
   ]);
 
   if ($currentStage == 8) {
-    header("Location: https://pubz.infinityfreeapp.com/index.php?delete_game="+$gameCode);
+    header("Location: http://pubz.infinityfreeapp.com/index.php?delete_game="+$gameCode);
     die();
   }
 
   if ($currentStage < 0 || $currentStage > 8) {
-    header("Location: https://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
+    header("Location: http://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
     die();
   }
   

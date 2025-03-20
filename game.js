@@ -14,7 +14,7 @@ if (localStorage.getItem('answers')) {
 
 async function generateQuestions(gameCode) {
   await fetch(
-    'https://pubz.infinityfreeapp.com/api/generate-questions.php?code=' + gameCode
+    'http://pubz.infinityfreeapp.com/api/generate-questions.php?code=' + gameCode
   )
 }
 
@@ -23,7 +23,7 @@ async function getQuestions(gameCode) {
 
   try {
     const response = await fetch(
-      'https://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
+      'http://pubz.infinityfreeapp.com/api/get-questions.php?code=' + gameCode
     )
 
     if (!response.ok) {
@@ -33,7 +33,7 @@ async function getQuestions(gameCode) {
     questions = await response.json()
 
     let stageResponse = await fetch(
-      'https://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
+      'http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode
     )
     let stage = await stageResponse.text()
     console.log('Stage: ' + stage)
@@ -60,7 +60,7 @@ async function getQuestions(gameCode) {
 
 async function checkFinished(gameCode) {
   fetch(
-    'https://pubz.infinityfreeapp.com/api/check-if-all-finished.php?code=' + gameCode
+    'http://pubz.infinityfreeapp.com/api/check-if-all-finished.php?code=' + gameCode
   )
     .then((response) => response.json())
     .then((response) => {
@@ -75,15 +75,15 @@ async function checkFinished(gameCode) {
 }
 
 async function resetStage(gameCode) {
-  await fetch('https://pubz.infinityfreeapp.com/api/reset-stage.php?code=' + gameCode)
+  await fetch('http://pubz.infinityfreeapp.com/api/reset-stage.php?code=' + gameCode)
   gameInterval = setInterval(checkFinished, 2000, gameCode)
 }
 
 async function finishStage(playerId, gameCode) {
   await fetch(
-    'https://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
+    'http://pubz.infinityfreeapp.com/api/finish-stage.php?player_id=' + playerId
   )
-  window.location.replace('https://pubz.infinityfreeapp.com/stage-end.php')
+  window.location.replace('http://pubz.infinityfreeapp.com/stage-end.php')
 }
 
 async function printQuestions(gameCode, playerId) {
@@ -130,14 +130,14 @@ async function nextQuestion(gameCode, playerId, value) {
 }
 
 async function addStage(gameCode) {
-  await fetch('https://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode)
+  await fetch('http://pubz.infinityfreeapp.com/api/add-stage.php?code=' + gameCode)
 }
 
 async function startGame(gameCode) {
   await addStage(gameCode)
   generateQuestions(gameCode)
   window.location.replace(
-    'https://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
+    'http://pubz.infinityfreeapp.com/monitor.php?id=' + gameCode
   )
 }
 
@@ -150,7 +150,7 @@ async function nextStage(gameCode) {
 
 async function getFinishedPlayers(gameCode) {
   fetch(
-    'https://pubz.infinityfreeapp.com/api/get-finished-players.php?code=' + gameCode
+    'http://pubz.infinityfreeapp.com/api/get-finished-players.php?code=' + gameCode
   )
     .then((response) => response.json())
     .then((responseData) => {
@@ -179,7 +179,7 @@ async function getResult(playerId, gameCode) {
   let resultList = document.getElementById('results-list')
   if (!localStorage.getItem('result')) {
     fetch(
-      'https://pubz.infinityfreeapp.com/api/get-correct-answers.php?player_id=' +
+      'http://pubz.infinityfreeapp.com/api/get-correct-answers.php?player_id=' +
         playerId +
         '&answers=' +
         encodeURIComponent(JSON.stringify(answers)) +
@@ -215,14 +215,14 @@ async function getResult(playerId, gameCode) {
 }
 
 async function getStage(gameCode, type) {
-  fetch('https://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode)
+  fetch('http://pubz.infinityfreeapp.com/api/get-stage.php?game=' + gameCode)
     .then((response) => response.text())
     .then((stage) => {
       if (stage == '8') {
         if (type === 'player')
-          window.location.replace('https://pubz.infinityfreeapp.com/end.php')
+          window.location.replace('http://pubz.infinityfreeapp.com/end.php')
         else if (type === 'host')
-          window.location.replace('https://pubz.infinityfreeapp.com/')
+          window.location.replace('http://pubz.infinityfreeapp.com/')
       }
     })
 }
