@@ -10,7 +10,7 @@
   $typ = "";
 
   if ($currentStage < 0 || $currentStage > 8) {
-    header("Location: https://pubz.l3dnac3k.net/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
+    header("Location: https://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Tvoje hra je v divnem stavu."));
     die();
   }
 

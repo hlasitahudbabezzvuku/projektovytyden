@@ -5,7 +5,7 @@ require $_SERVER["DOCUMENT_ROOT"] . "/utils/database.php";
 session_start();
 
 if (!array_key_exists("code", $_SESSION)) {
-  header("Location: https://pubz.l3dnac3k.net/index.php?failed=" . urlencode("Je nutné nejprve hru vytvořit"));
+  header("Location: https://pubz.infinityfreeapp.com/index.php?failed=" . urlencode("Je nutné nejprve hru vytvořit"));
 } 
 
 ?>
@@ -54,13 +54,13 @@ if (!array_key_exists("code", $_SESSION)) {
       let gameInterval = setInterval(checkFinished, 2000, <?php echo $_SESSION["code"] ?>)
       let scoreboardInterval = setInterval(getFinishedPlayers, 2000, <?php echo $_SESSION["code"] ?>)
 
-      function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-game.php')
+      function ping() { fetch('https://pubz.infinityfreeapp.com/api/ping-game.php')
         .then(function (response) { return response.text(); })
         .then(function (text) {
           if (text.length == 1)
             console.log("Ping: OK");
           else
-            window.location.replace(encodeURI("https://pubz.l3dnac3k.net/index.php?failed=" + text));
+            window.location.replace(encodeURI("https://pubz.infinityfreeapp.com/index.php?failed=" + text));
         })};
       setInterval(ping, 4000);
 

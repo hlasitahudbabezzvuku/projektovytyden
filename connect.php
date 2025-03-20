@@ -12,19 +12,19 @@ global $database;
 if (array_key_exists("code", $_GET) && !empty($_GET["code"])) {
   $_SESSION["code"] = htmlspecialchars($_GET["code"]);
 } else {
-  header("Location: https://pubz.l3dnac3k.net/login.php?failed=" . urlencode("Nezadal jsi kód :/"));
+  header("Location: https://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Nezadal jsi kód :/"));
   die();
 }
 
 if (array_key_exists("name", $_GET) && !empty($_GET["name"])) {
   $_SESSION["name"] = htmlspecialchars($_GET["name"]);
 } else {
-  header("Location: https://pubz.l3dnac3k.net/login.php?failed=" . urlencode("Nezadal jsi jméno :/") . "&game=" . $_GET["code"]);
+  header("Location: https://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Nezadal jsi jméno :/") . "&game=" . $_GET["code"]);
   die();
 }
 
 if (!empty($database->get("Players", "name", [ "name" => $_GET["name"] ]))) {
-  header("Location: https://pubz.l3dnac3k.net/login.php?failed=" . urlencode("Tohle jméno je už zabrané :/") . "&game=" . $_GET["code"]);
+  header("Location: https://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Tohle jméno je už zabrané :/") . "&game=" . $_GET["code"]);
   die();
 }
 
@@ -42,7 +42,7 @@ if (count($data) != 0) {
     "last_ping" => time()
   ]);
 } else {
-  header("Location: https://pubz.l3dnac3k.net/login.php?failed=" . urlencode("Kód je bohužel neplatný :("));
+  header("Location: https://pubz.infinityfreeapp.com/login.php?failed=" . urlencode("Kód je bohužel neplatný :("));
   die();
 }
 
@@ -62,22 +62,22 @@ if (count($data) != 0) {
       <script>if (localStorage.getItem('answers')) localStorage.removeItem('answers')</script>
       <script>
 
-        function get_stage() { fetch('https://pubz.l3dnac3k.net/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
+        function get_stage() { fetch('https://pubz.infinityfreeapp.com/api/get-stage.php?game=' + <?php echo $_SESSION["code"] ?>)
           .then(function (response) { return response.text(); })
           .then(function (text) {
             console.log(text);
             if (text != '0')
-              window.location.replace('https://pubz.l3dnac3k.net/game.php');
+              window.location.replace('https://pubz.infinityfreeapp.com/game.php');
           });}
         setInterval(get_stage, 2000);
 
-        function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-player.php')
+        function ping() { fetch('https://pubz.infinityfreeapp.com/api/ping-player.php')
           .then(function (response) { return response.text(); })
           .then(function (text) {
             if (text.length == 1)
               console.log("Ping: OK");
             else
-              window.location.replace(encodeURI("https://pubz.l3dnac3k.net/index.php?failed=" + text));
+              window.location.replace(encodeURI("https://pubz.infinityfreeapp.com/index.php?failed=" + text));
           })};
         setInterval(ping, 4000);
 

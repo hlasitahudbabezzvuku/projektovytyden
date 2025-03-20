@@ -40,26 +40,26 @@
     getResult('<?php echo bin2hex($_SESSION["uuid"]);?>', <?php echo $_SESSION['code']; ?>);
     setInterval(async () => {
 
-      fetch('https://pubz.l3dnac3k.net/api/player-finished.php?uuid=' + '<?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>')
+      fetch('https://pubz.infinityfreeapp.com/api/player-finished.php?uuid=' + '<?php echo urlencode(bin2hex($_SESSION["uuid"])) ?>')
         .then(function (response) { return response.text(); })
         .then(function (text) {
           console.log(text);
           
           if (text === '0') {
             localStorage.removeItem('result')
-            window.location.replace('https://pubz.l3dnac3k.net/game.php');
+            window.location.replace('https://pubz.infinityfreeapp.com/game.php');
           } 
         });
     }, 2000)
     
     // frantovo - nesahat!
-    function ping() { fetch('https://pubz.l3dnac3k.net/api/ping-player.php')
+    function ping() { fetch('https://pubz.infinityfreeapp.com/api/ping-player.php')
       .then(function (response) { return response.text(); })
       .then(function (text) {
         if (text.length == 1)
           console.log("Ping: OK");
         else
-          window.location.replace(encodeURI("https://pubz.l3dnac3k.net/index.php?failed=" + text));
+          window.location.replace(encodeURI("https://pubz.infinityfreeapp.com/index.php?failed=" + text));
       })};
     setInterval(ping, 4000);
     
