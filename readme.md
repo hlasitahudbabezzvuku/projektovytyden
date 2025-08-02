@@ -46,7 +46,7 @@ Also almost the entire frontend was written using AI since those guys don't know
 
 #### Be aware of the following:
 1.  This was purely an **educational exercise**. The code served to meet academic requirements and demonstrate understanding of specific topics at the time.
-2.  The Git history has been **rebased**.
+2.  The Git history hasn't been **rebased**, and includes commit messages that could be offensive.
 3.  Key components required for execution. The project in this repository is **non-functional** and provided "as-is". It cannot be run without significant effort to replace the missing parts and potentially adapt it to different environments.
 
 #### License:
